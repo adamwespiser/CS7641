@@ -31,7 +31,7 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(level
 logger = logging.getLogger(__name__)
 
 # TODO: Move this to a common lib?
-OUTPUT_DIRECTORY = './output'
+OUTPUT_DIRECTORY = './output_wine_qual'
 
 if not os.path.exists(OUTPUT_DIRECTORY):
     os.makedirs(OUTPUT_DIRECTORY)
@@ -54,8 +54,31 @@ scorer = make_scorer(balanced_accuracy)
 f1_scorer = make_scorer(f1_accuracy)
 
 
-def basic_results(clf, classes, training_x, training_y, test_x, test_y, params, clf_type=None, dataset=None,
-                  dataset_readable_name=None, balanced_dataset=False, best_params=None, seed=55, threads=1):
+def alpha_results(clf, classes, training_x, training_y, test_x, test_y, params, clf_type=None, dataset=None, dataset_readable_name=None, balanced_dataset=False, best_params=None, seed=55, threads=1):
+    clf.set_params(**best_params)
+    out = {}
+    alphas = [x/1000 for x in range(-20,20,2)]
+    alphas.sort()
+    nodes = []
+    for a in alphas:
+        clf.set_params(**{'DT__alpha':a})
+        clf.fit(training_x, training_y)
+        nNodes = clf.steps[-1][-1]._learner.numNodes()
+        out[a]= nNodes
+        nodes = nodes + [nNodes]
+        print(dataset, a)
+    alphaplt = plot_alpha_pruning(f'Nodes vs Alpha for {dataset}', alphas, nodes)
+    alphaplt.savefig('{}/images/DT_{}_Nodes_v_Alpha.png'.format(OUTPUT_DIRECTORY, dataset), format='png', dpi=150,bbox_inches='tight')
+    alphaplt.close()
+
+    out = pd.Series(out)
+    out.index.name='alpha'
+    out.name = 'Number of Internal Nodes'
+    out.to_csv('./output/DT_{}_nodecounts.csv'.format(dataset))
+    return
+
+
+def basic_results(clf, classes, training_x, training_y, test_x, test_y, params, clf_type=None, dataset=None, dataset_readable_name=None, balanced_dataset=False, best_params=None, seed=55, threads=1):
     logger.info("Computing basic results for {} ({} thread(s))".format(clf_type, threads))
 
     if clf_type is None or dataset is None:
@@ -92,8 +115,7 @@ def basic_results(clf, classes, training_x, training_y, test_x, test_y, params, 
         np.set_printoptions(precision=2)
         plt = plot_confusion_matrix(cnf_matrix, classes,
                                     title='Confusion Matrix: {} - {}'.format(clf_type, dataset_readable_name))
-        plt.savefig('{}/images/{}_{}_CM.png'.format(OUTPUT_DIRECTORY, clf_type, dataset), format='png', dpi=150,
-                    bbox_inches='tight')
+        plt.savefig('{}/images/{}_{}_CM.png'.format(OUTPUT_DIRECTORY, clf_type, dataset), format='png', dpi=150,bbox_inches='tight')
 
         plt = plot_confusion_matrix(cnf_matrix, classes, normalize=True,
                                     title='Normalized Confusion Matrix: {} - {}'.format(clf_type, dataset_readable_name))
@@ -112,7 +134,7 @@ def basic_results(clf, classes, training_x, training_y, test_x, test_y, params, 
                             np.linspace(0.1, 1, 20, endpoint=True))
     logger.info(" - n: {}, train_sizes: {}".format(n, train_sizes))
     train_sizes, train_scores, test_scores = ms.learning_curve(
-        clf if best_params is not None else cv.best_estimator_,
+        cv.best_estimator_,
         training_x,
         training_y,
         cv=5,
@@ -172,7 +194,7 @@ def iteration_lc(clf, training_x, training_y, test_x, test_y, params, clf_type=N
     plt = plot_learning_curve('{} - {} ({})'.format(clf_type, dataset_readable_name, name),
                               d['param_{}'.format(name)], d['train acc'], d['test acc'],
                               multiple_runs=False, x_scale=x_scale,
-                              x_label='Value')
+                              x_label='variable: {}'.format(name))
     plt.savefig('{}/images/{}_{}_ITER_LC.png'.format(OUTPUT_DIRECTORY, clf_type, dataset), format='png', dpi=150)
 
     logger.info(" - Iteration learning curve complete")
@@ -188,6 +210,11 @@ def add_noise(y, frac=0.1):
     tmp = y.copy()
     tmp[ind] = 1 - tmp[ind]
     return tmp
+
+def make_plot_roc_curve(clf,clf_name, x, y, params, dataset, dataset_readable_name):
+    title = f'Receiver Operating Characteristic Curver {clf_name} - {dataset_readable_name}'
+    plt = plot_roc_curve(clf, x, y, params, title)
+    plt.savefig('{}/images/{}_{}_ROC-Curve.png'.format(OUTPUT_DIRECTORY, clf_name, dataset), format='png', dpi=150)
 
 
 def make_timing_curve(x, y, clf, clf_name, dataset, dataset_readable_name, verbose=False, seed=42):
@@ -232,8 +259,8 @@ def make_complexity_curve(x, y, param_name, param_display_name, param_values, cl
     if not balanced_dataset:
         curr_scorer = f1_scorer
 
-    train_scores, test_scores = validation_curve(clf, x, y, param_name, param_values, cv=5, verbose=verbose,
-                                                 scoring=curr_scorer, n_jobs=threads)
+    train_scores, test_scores = validation_curve(clf, x, y, param_name, param_values, cv=5,
+            verbose=verbose, scoring=curr_scorer, n_jobs=threads)
 
     curve_train_scores = pd.DataFrame(index=param_values, data=train_scores)
     curve_test_scores = pd.DataFrame(index=param_values, data=test_scores)
@@ -252,7 +279,7 @@ def make_complexity_curve(x, y, param_name, param_display_name, param_values, cl
 
 def perform_experiment(ds, ds_name, ds_readable_name, clf, clf_name, clf_label, params, timing_params=None,
                        iteration_details=None, complexity_param=None, seed=0, threads=1,
-                       iteration_lc_only=False, best_params=None, verbose=False):
+                       iteration_lc_only=False, best_params=None, verbose=False, apply_pruning=False):
     # TODO: Fix this by changing the datatypes of the columns to float64?
     warnings.simplefilter("ignore", sklearn.exceptions.DataConversionWarning)
     warnings.simplefilter("ignore", DeprecationWarning)
@@ -273,6 +300,7 @@ def perform_experiment(ds, ds_name, ds_readable_name, clf, clf_name, clf_label, 
     pipe = Pipeline([('Scale', StandardScaler()),
                      (clf_label, clf)])
     ds_final_params = None
+
     if not iteration_lc_only:
         ds_clf = basic_results(pipe, np.unique(ds.classes), ds_training_x, ds_training_y, ds_testing_x, ds_testing_y,
                                params, clf_name, ds_name, ds_readable_name, balanced_dataset=ds.balanced,
@@ -316,5 +344,9 @@ def perform_experiment(ds, ds_name, ds_readable_name, clf, clf_name, clf_label, 
                      clf_name, ds_name, ds_readable_name, x_scale=x_scale,
                      balanced_dataset=ds.balanced, threads=threads, seed=seed)
 
+    if apply_pruning == True:
+        ds_clf = alpha_results(pipe, np.unique(ds.classes), ds_training_x, ds_training_y, ds_testing_x, ds_testing_y, ds_final_params, clf_name, ds_name, ds_readable_name, balanced_dataset=ds.balanced, best_params=ds_final_params, threads=threads, seed=seed)
+
+    make_plot_roc_curve(pipe, ds.features, ds.classes, ds_final_params, ds_name, ds_readable_name)
     # Return the best params found, if we have any
     return ds_final_params

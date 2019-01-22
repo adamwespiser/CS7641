@@ -17,13 +17,21 @@ class BoostingExperiment(experiments.BaseExperiment):
         max_depths = np.arange(1, 11, 1)
 
         # NOTE: Criterion may need to be adjusted here depending on the dataset
-        base = learners.DTLearner(criterion='entropy', class_weight='balanced', max_depth=10,
+        base = learners.DTLearner(criterion='entropy',
+                                  class_weight='balanced',
+                                  max_depth=10,
                                   random_state=self._details.seed)
-        of_base = learners.DTLearner(criterion='entropy', class_weight='balanced', random_state=self._details.seed)
+        of_base = learners.DTLearner(criterion='entropy',
+                                     class_weight='balanced',
+                                     random_state=self._details.seed)
 
-        booster = learners.BoostingLearner(algorithm='SAMME', learning_rate=1, base_estimator=base,
+        booster = learners.BoostingLearner(algorithm='SAMME',
+                                           learning_rate=1,
+                                           base_estimator=base,
                                            random_state=self._details.seed)
-        of_booster = learners.BoostingLearner(algorithm='SAMME', learning_rate=1, base_estimator=of_base,
+        of_booster = learners.BoostingLearner(algorithm='SAMME',
+                                              learning_rate=1, 
+                                              base_estimator=of_base,
                                               random_state=self._details.seed)
 
         params = {'Boost__n_estimators': [1, 2, 5, 10, 20, 30, 45, 60, 80, 90, 100],
@@ -33,7 +41,9 @@ class BoostingExperiment(experiments.BaseExperiment):
             'params': {'Boost__n_estimators': [1, 2, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]}
         }
         of_params = {'Boost__base_estimator__max_depth': None}
-        complexity_param = {'name': 'Boost__learning_rate', 'display_name': 'Learning rate', 'x_scale': 'log',
+        complexity_param = {'name': 'Boost__learning_rate', 
+                            'display_name': 'Learning rate', 
+                            'x_scale': 'log',
                             'values': [(2**x)/100 for x in range(7)]+[1]}
 
         best_params = None

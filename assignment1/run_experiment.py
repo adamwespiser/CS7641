@@ -46,14 +46,19 @@ if __name__ == '__main__':
     print("----------")
 
     ds1_details = {
-            'data': loader.CreditDefaultData(verbose=verbose, seed=seed),
-            'name': 'credit_default',
-            'readable_name': 'Credit Default',
+            'data': loader.WineData(verbose=verbose, seed=seed),
+            'name': 'wine',
+            'readable_name': 'Wine Data (Red/White)',
         }
     ds2_details = {
-            'data': loader.PenDigitData(verbose=verbose, seed=seed),
-            'name': 'pen_digits',
-            'readable_name': 'Handwritten Digits',
+            'data': loader.GenderVoiceData(verbose=verbose, seed=seed),
+            'name': 'gvd',
+            'readable_name': 'Gender Voice Data',
+        }
+    wine_quality_details = {
+            'data': loader.WineQuality(verbose=verbose, seed=seed),
+            'name': 'wine-qual',
+            'readable_name': 'Wine Data (Quality)',
         }
 
     if verbose:
@@ -66,7 +71,7 @@ if __name__ == '__main__':
         ds1_details,
         ds2_details
     ]
-
+    datasets = [wine_quality_details]
     experiment_details = []
     for ds in datasets:
         data = ds['data']

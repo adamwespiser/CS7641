@@ -93,6 +93,7 @@ class DataLoader(ABC):
         self.log("Feature dimensions: {}", self.features.shape)
         self.log("Classes dimensions: {}", self.classes.shape)
         self.log("Class values: {}", np.unique(self.classes))
+        print(self.classes)
         class_dist = np.histogram(self.classes)[0]
         class_dist = class_dist[np.nonzero(class_dist)]
         self.log("Class distribution: {}", class_dist)
@@ -127,6 +128,8 @@ class DataLoader(ABC):
 
         return self.features
 
+## AW NOTE
+## Classes are the last column in the dataframe
     def get_classes(self, force=False):
         if self.classes is None or force:
             self.log("Pulling classes")
@@ -382,13 +385,32 @@ class WineData(DataLoader):
         super().__init__(path, verbose, seed)
 
     def _load_data(self):
-        self._data = pd.read_csv(self._path, header=None)
+        self._data = pd.read_csv(self._path)
 
     def data_name(self):
         return 'WineData'
 
     def class_column_name(self):
-        return '12'
+        return '11'
+
+    def _preprocess_data(self):
+        pass
+
+    def pre_training_adjustment(self, train_features, train_classes):
+        return train_features, train_classes
+
+class WineQuality(DataLoader):
+    def __init__(self, path='data/wine_quality_binary.csv', verbose=False, seed=1):
+        super().__init__(path, verbose, seed)
+
+    def _load_data(self):
+        self._data = pd.read_csv(self._path)
+
+    def data_name(self):
+        return 'WineQualityData'
+
+    def class_column_name(self):
+        return '13'
 
     def _preprocess_data(self):
         pass
@@ -397,17 +419,17 @@ class WineData(DataLoader):
         return train_features, train_classes
 
 class GenderVoiceData(DataLoader):
-    def __init__(self, path='data/gender_voice_weka.csv', verbose=False, seed=1):
+    def __init__(self, path='data/gender_voice_weka_dataset.csv', verbose=False, seed=1):
         super().__init__(path, verbose, seed)
 
     def _load_data(self):
-        self._data = pd.read_csv(self._path, header=None)
+        self._data = pd.read_csv(self._path)
 
     def data_name(self):
         return 'GenderVoiceData'
 
     def class_column_name(self):
-        return '21'
+        return '20'
 
     def _preprocess_data(self):
         pass
@@ -416,8 +438,12 @@ class GenderVoiceData(DataLoader):
         return train_features, train_classes
 
 if __name__ == '__main__':
-    cd_data = CreditDefaultData(verbose=True)
-    cd_data.load_and_process()
+    #cd_data = WineData(verbose=True)
+    #cd_data.load_and_process()
 
-    ca_data = CreditApprovalData(verbose=True)
-    ca_data.load_and_process()
+    #ca_data = GenderVoiceData(verbose=True)
+    #ca_data.load_and_process()
+
+    cw_data = WineQuality(verbose=True)
+    cw_data.load_and_process()
+

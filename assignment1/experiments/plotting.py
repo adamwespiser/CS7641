@@ -9,6 +9,9 @@ import pandas as pd
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 
+from sklearn.metrics import roc_curve, auc
+from sklearn.model_selection import StratifiedKFold
+
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
@@ -89,7 +92,7 @@ def plot_learning_curve(title, train_sizes, train_scores, test_scores, ylim=None
     plt.plot(train_sizes, train_points, 'o-', linewidth=1, markersize=4,
              label="Training score")
     plt.plot(train_sizes, test_points, 'o-', linewidth=1, markersize=4,
-             label="Cross-validation score")
+             label="Cross Validation score")
 
     plt.legend(loc="best")
     return plt
@@ -174,10 +177,9 @@ def plot_model_complexity_curve(title, train_sizes, train_scores, test_scores, y
     if chart_type == 'line':
         if multiple_runs:
             plt.fill_between(train_sizes, train_scores_mean - train_scores_std,
-                             train_scores_mean + train_scores_std, alpha=0.2,
-                             color="salmon")
+                             train_scores_mean + train_scores_std, alpha=0.2,)
             plt.fill_between(train_sizes, test_scores_mean - test_scores_std,
-                             test_scores_mean + test_scores_std, alpha=0.2, color="skyblue")
+                             test_scores_mean + test_scores_std, alpha=0.2)
 
         plt.plot(train_sizes, train_points, 'o-', linewidth=1, markersize=4,
                  label="Training score")
@@ -210,6 +212,21 @@ def plot_model_complexity_curve(title, train_sizes, train_scores, test_scores, y
 
     return plt
 
+def plot_alpha_pruning(title, alphas, nodes, ylim=None,
+                       x_scale='linear', y_scale='linear',
+                       x_label='Alpha', y_label='Number of Nodes After Pruning',
+                       x_ticks=None, x_tick_labels=None, chart_type='line'):
+    plt.close('all')
+    plt.figure()
+    plt.title(title)
+    if ylim is not None:
+        plt.ylim(*ylim)
+    plt.xlabel(x_label)
+    plt.ylabel(y_label)
+    plt.grid()
+    plt.tight_layout()
+    plt.plot(alphas, nodes, 'o-', linewidth=1, markersize=4)
+    return plt
 
 def plot_model_timing(title, data_sizes, fit_scores, predict_scores, ylim=None):
     """
@@ -251,14 +268,60 @@ def plot_model_timing(title, data_sizes, fit_scores, predict_scores, ylim=None):
                      fit_scores_mean + fit_scores_std, alpha=0.2)
     plt.fill_between(data_sizes, predict_scores_mean - predict_scores_std,
                      predict_scores_mean + predict_scores_std, alpha=0.2)
-    plt.plot(data_sizes, predict_scores_mean, 'o-', linewidth=1, markersize=4,
-             label="Predict time")
     plt.plot(data_sizes, fit_scores_mean, 'o-', linewidth=1, markersize=4,
              label="Fit time")
+    plt.plot(data_sizes, predict_scores_mean, 'o-', linewidth=1, markersize=4,
+             label="Predict time")
 
     plt.legend(loc="best")
     return plt
 
+# Adapted from https://scikit-learn.org/stable/auto_examples/model_selection/plot_roc_crossval.html#sphx-glr-auto-examples-model-selection-plot-roc-crossval-py
+def plot_roc_curve(classifier, X, y, params, title):
+    plt.close()
+    classifier.set_params(**params)
+    tprs = []
+    aucs = []
+    mean_fpr = np.linspace(0, 1, 100)
+
+    i = 0
+    cv = StratifiedKFold(n_splits=5)
+    for train, test in cv.split(X, y):
+        probas_ = classifier.fit(X[train], y[train]).predict_proba(X[test])
+        # Compute ROC curve and area the curve
+        fpr, tpr, thresholds = roc_curve(y[test], probas_[:, 1])
+        tprs.append(interp(mean_fpr, fpr, tpr))
+        tprs[-1][0] = 0.0
+        roc_auc = auc(fpr, tpr)
+        aucs.append(roc_auc)
+        plt.plot(fpr, tpr, lw=1, alpha=0.3,
+                label='ROC fold %d (AUC = %0.2f)' % (i, roc_auc))
+
+        i += 1
+    plt.plot([0, 1], [0, 1], linestyle='--', lw=2, color='r',
+            label='Chance', alpha=.8)
+
+    mean_tpr = np.mean(tprs, axis=0)
+    mean_tpr[-1] = 1.0
+    mean_auc = auc(mean_fpr, mean_tpr)
+    std_auc = np.std(aucs)
+    plt.plot(mean_fpr, mean_tpr, color='b',
+            label=r'Mean ROC (AUC = %0.2f $\pm$ %0.2f)' % (mean_auc, std_auc),
+            lw=2, alpha=.8)
+
+    std_tpr = np.std(tprs, axis=0)
+    tprs_upper = np.minimum(mean_tpr + std_tpr, 1)
+    tprs_lower = np.maximum(mean_tpr - std_tpr, 0)
+    plt.fill_between(mean_fpr, tprs_lower, tprs_upper, color='grey', alpha=.2,
+                    label=r'$\pm$ 1 std. dev.')
+
+    plt.xlim([-0.05, 1.05])
+    plt.ylim([-0.05, 1.05])
+    plt.xlabel('False Positive Rate')
+    plt.ylabel('True Positive Rate')
+    plt.title(title)
+    plt.legend(loc="lower right")
+    return plt
 
 # Adapted from http://scikit-learn.org/stable/auto_examples/model_selection/plot_confusion_matrix.html
 def plot_confusion_matrix(cm, classes,
