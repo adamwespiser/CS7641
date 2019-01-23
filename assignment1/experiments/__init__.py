@@ -31,7 +31,7 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(level
 logger = logging.getLogger(__name__)
 
 # TODO: Move this to a common lib?
-OUTPUT_DIRECTORY = './output3/'
+OUTPUT_DIRECTORY = './output-enhancer-wine-quality/'
 
 if not os.path.exists(OUTPUT_DIRECTORY):
     os.makedirs(OUTPUT_DIRECTORY)
@@ -229,7 +229,7 @@ def make_timing_curve(x, y, clf, clf_name, dataset, dataset_readable_name, verbo
     for i, frac in enumerate(sizes):
         for j in range(tests):
             np.random.seed(seed)
-            x_train, x_test, y_train, y_test = ms.train_test_split(x, y, test_size=1 - frac, random_state=seed)
+            x_train, x_test, y_train, y_test = ms.train_test_split(x, y, test_size=1 - frac, random_state=seed, stratify=y)
             st = clock()
             clf.fit(x_train, y_train)
             out['train'][i, j] = (clock() - st)

@@ -66,6 +66,11 @@ if __name__ == '__main__':
             'name': 'enhancer-hh',
             'readable_name': 'Genomic Enhancer (Human Heart)',
         }
+    enhancer_brain = {
+            'data': loader.EnhancerBrain(verbose=verbose, seed=seed),
+            'name': 'enhancer-b',
+            'readable_name': 'Genomic Enhancer (Brain)',
+        }
 
 
     if verbose:
@@ -78,7 +83,7 @@ if __name__ == '__main__':
         ds1_details,
         ds2_details
     ]
-    datasets = [wine_quality_details]
+    datasets = [enhancer_brain, wine_quality_details]
     experiment_details = []
     for ds in datasets:
         data = ds['data']
