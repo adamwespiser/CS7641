@@ -144,8 +144,6 @@ class DTLearner(learners.BaseLearner):
     def n_classes_(self):
         return self._learner.n_classes_
 
-    def predict_proba(self,X):
-        return self._learner.predict_proba(X)
 
     def fit(self, training, testing, sample_weight=None, check_input=True,
             X_idx_sorted=None):

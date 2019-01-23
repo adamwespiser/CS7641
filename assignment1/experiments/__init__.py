@@ -57,8 +57,7 @@ f1_scorer = make_scorer(f1_accuracy)
 def alpha_results(clf, classes, training_x, training_y, test_x, test_y, params, clf_type=None, dataset=None, dataset_readable_name=None, balanced_dataset=False, best_params=None, seed=55, threads=1):
     clf.set_params(**best_params)
     out = {}
-    alphas = [x/1000 for x in range(-20,20,2)]
-    alphas.sort()
+    alphas = list(np.arange(-0.25,0.25,0.01))
     nodes = []
     for a in alphas:
         clf.set_params(**{'DT__alpha':a})
@@ -212,7 +211,7 @@ def add_noise(y, frac=0.1):
     return tmp
 
 def make_plot_roc_curve(clf,clf_name, x, y, params, dataset, dataset_readable_name):
-    title = f'Receiver Operating Characteristic Curver {clf_name} - {dataset_readable_name}'
+    title = f'Receiver Operating Characteristic Curve\n{clf_name} - {dataset_readable_name}'
     plt = plot_roc_curve(clf, x, y, params, title)
     plt.savefig('{}/images/{}_{}_ROC-Curve.png'.format(OUTPUT_DIRECTORY, clf_name, dataset), format='png', dpi=150)
 
@@ -346,7 +345,6 @@ def perform_experiment(ds, ds_name, ds_readable_name, clf, clf_name, clf_label, 
 
     if apply_pruning == True:
         ds_clf = alpha_results(pipe, np.unique(ds.classes), ds_training_x, ds_training_y, ds_testing_x, ds_testing_y, ds_final_params, clf_name, ds_name, ds_readable_name, balanced_dataset=ds.balanced, best_params=ds_final_params, threads=threads, seed=seed)
-
     make_plot_roc_curve(pipe, clf_name, ds.features, ds.classes, ds_final_params, ds_name, ds_readable_name)
     # Return the best params found, if we have any
     return ds_final_params
