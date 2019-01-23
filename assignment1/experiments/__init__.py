@@ -57,7 +57,7 @@ f1_scorer = make_scorer(f1_accuracy)
 def alpha_results(clf, classes, training_x, training_y, test_x, test_y, params, clf_type=None, dataset=None, dataset_readable_name=None, balanced_dataset=False, best_params=None, seed=55, threads=1):
     clf.set_params(**best_params)
     out = {}
-    alphas = list(np.arange(-0.25,0.25,0.01))
+    alphas = list(np.arange(-0.04,0.04,0.001))
     nodes = []
     for a in alphas:
         clf.set_params(**{'DT__alpha':a})
@@ -65,7 +65,7 @@ def alpha_results(clf, classes, training_x, training_y, test_x, test_y, params, 
         nNodes = clf.steps[-1][-1]._learner.numNodes()
         out[a]= nNodes
         nodes = nodes + [nNodes]
-        print(dataset, a)
+        #print(dataset, a)
     alphaplt = plot_alpha_pruning(f'Nodes vs Alpha for {dataset}', alphas, nodes)
     alphaplt.savefig('{}/images/DT_{}_Nodes_v_Alpha.png'.format(OUTPUT_DIRECTORY, dataset), format='png', dpi=150,bbox_inches='tight')
     alphaplt.close()
