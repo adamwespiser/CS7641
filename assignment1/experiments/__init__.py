@@ -31,7 +31,7 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(level
 logger = logging.getLogger(__name__)
 
 # TODO: Move this to a common lib?
-OUTPUT_DIRECTORY = './output_wine_qual'
+OUTPUT_DIRECTORY = './output3/'
 
 if not os.path.exists(OUTPUT_DIRECTORY):
     os.makedirs(OUTPUT_DIRECTORY)
@@ -347,6 +347,6 @@ def perform_experiment(ds, ds_name, ds_readable_name, clf, clf_name, clf_label, 
     if apply_pruning == True:
         ds_clf = alpha_results(pipe, np.unique(ds.classes), ds_training_x, ds_training_y, ds_testing_x, ds_testing_y, ds_final_params, clf_name, ds_name, ds_readable_name, balanced_dataset=ds.balanced, best_params=ds_final_params, threads=threads, seed=seed)
 
-    make_plot_roc_curve(pipe, ds.features, ds.classes, ds_final_params, ds_name, ds_readable_name)
+    make_plot_roc_curve(pipe, clf_name, ds.features, ds.classes, ds_final_params, ds_name, ds_readable_name)
     # Return the best params found, if we have any
     return ds_final_params

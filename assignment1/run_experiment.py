@@ -61,6 +61,13 @@ if __name__ == '__main__':
             'readable_name': 'Wine Data (Quality)',
         }
 
+    enhancer_human_heart = {
+            'data': loader.EnhancerHumanHeart(verbose=verbose, seed=seed),
+            'name': 'enhancer-hh',
+            'readable_name': 'Genomic Enhancer (Human Heart)',
+        }
+
+
     if verbose:
         print("----------")
     print("Running experiments")

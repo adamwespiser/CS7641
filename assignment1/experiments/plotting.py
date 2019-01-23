@@ -7,7 +7,10 @@ import numpy as np
 import pandas as pd
 
 import matplotlib as mpl
+mpl.use("Agg")
+
 import matplotlib.pyplot as plt
+from scipy import interp
 
 from sklearn.metrics import roc_curve, auc
 from sklearn.model_selection import StratifiedKFold
