@@ -51,7 +51,9 @@ class SVMExperiment(experiments.BaseExperiment):
         # NOTE: If this is causing issues, try the RBFSVMLearner. Passing use_linear=True will use a linear kernel
         #       and passing use_linear=False will use the RBF kernel. This method is slower but if libsvm is not
         #       available it may be your only option
-        learner = learners.LinearSVMLearner(dual=False)
+        #learner = learners.LinearSVMLearner(dual=False)
+        learner = learners.SVMLearner(kernel='linear')
+
         if best_params_linear is not None:
             learner.set_params(**best_params_linear)
 
@@ -62,7 +64,8 @@ class SVMExperiment(experiments.BaseExperiment):
             threads=self._details.threads, verbose=self._verbose)
 
         of_params = best_params.copy()
-        learner = learners.LinearSVMLearner(dual=True)
+        #learner = learners.LinearSVMLearner(dual=True)
+        learner = learners.SVMLearner(kernel='linear')
         if best_params_linear is not None:
             learner.set_params(**best_params_linear)
         experiments.perform_experiment(self._details.ds, self._details.ds_name, self._details.ds_readable_name, learner,

@@ -18,7 +18,7 @@ logger = logging.getLogger(__name__)
 # Adapted from https://github.com/JonathanTay/CS-7641-assignment-1/blob/master/SVM.py
 class SVMLearner(learners.BaseLearner):
     def __init__(self, C=1.0, kernel='rbf', degree=3, gamma='auto',
-                 coef0=0.0, shrinking=True, probability=False,
+                 coef0=0.0, shrinking=True, probability=True,
                  tol=1e-3, cache_size=200, class_weight=None,
                  verbose=False, max_iter=-1, decision_function_shape='ovr',
                  random_state=None):
