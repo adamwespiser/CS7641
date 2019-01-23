@@ -331,7 +331,9 @@ def perform_experiment(ds, ds_name, ds_readable_name, clf, clf_name, clf_label, 
             pipe.set_params(**timing_params)
         make_timing_curve(ds.features, ds.classes, pipe, clf_name, ds_name, ds_readable_name,
                           seed=seed, verbose=verbose)
+        make_plot_roc_curve(pipe, clf_name, ds.features, ds.classes, ds_final_params, ds_name, ds_readable_name)
 
+    # Iteraction details, best params not set...
     if iteration_details is not None:
         x_scale = 'linear'
         if 'pipe_params' in iteration_details:
@@ -345,6 +347,6 @@ def perform_experiment(ds, ds_name, ds_readable_name, clf, clf_name, clf_label, 
 
     if apply_pruning == True:
         ds_clf = alpha_results(pipe, np.unique(ds.classes), ds_training_x, ds_training_y, ds_testing_x, ds_testing_y, ds_final_params, clf_name, ds_name, ds_readable_name, balanced_dataset=ds.balanced, best_params=ds_final_params, threads=threads, seed=seed)
-    make_plot_roc_curve(pipe, clf_name, ds.features, ds.classes, ds_final_params, ds_name, ds_readable_name)
+
     # Return the best params found, if we have any
     return ds_final_params

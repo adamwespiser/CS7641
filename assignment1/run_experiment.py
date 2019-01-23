@@ -96,11 +96,12 @@ if __name__ == '__main__':
             seed=seed
         ))
 
+    if args.boosting or args.all:
+        run_experiment(experiment_details, experiments.BoostingExperiment, 'Boosting', verbose, timings)
+
     if args.ann or args.all:
         run_experiment(experiment_details, experiments.ANNExperiment, 'ANN', verbose, timings)
 
-    if args.boosting or args.all:
-        run_experiment(experiment_details, experiments.BoostingExperiment, 'Boosting', verbose, timings)
 
     if args.dt or args.all:
         run_experiment(experiment_details, experiments.DTExperiment, 'DT', verbose, timings)

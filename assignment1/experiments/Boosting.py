@@ -27,11 +27,11 @@ class BoostingExperiment(experiments.BaseExperiment):
                                      class_weight='balanced',
                                      random_state=self._details.seed)
 
-        booster = learners.BoostingLearner(algorithm='SAMME',
+        booster = learners.BoostingLearner(algorithm='SAMME.R',
                                            learning_rate=1,
                                            base_estimator=base,
                                            random_state=self._details.seed)
-        of_booster = learners.BoostingLearner(algorithm='SAMME',
+        of_booster = learners.BoostingLearner(algorithm='SAMME.R',
                                               learning_rate=1, 
                                               base_estimator=of_base,
                                               random_state=self._details.seed)
