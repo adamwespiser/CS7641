@@ -15,11 +15,12 @@ class BoostingExperiment(experiments.BaseExperiment):
     def perform(self):
         # Adapted from https://github.com/JonathanTay/CS-7641-assignment-1/blob/master/Boosting.py
         max_depths = np.arange(1, 11, 1)
+        alphas = [x/1000 for x in range(-20,20,2)]
 
         # NOTE: Criterion may need to be adjusted here depending on the dataset
         base = learners.DTLearner(criterion='entropy',
                                   class_weight='balanced',
-                                  max_depth=10,
+                                  max_depth=None,
                                   random_state=self._details.seed)
         of_base = learners.DTLearner(criterion='entropy',
                                      class_weight='balanced',
@@ -36,11 +37,11 @@ class BoostingExperiment(experiments.BaseExperiment):
 
         params = {'Boost__n_estimators': [1, 2, 5, 10, 20, 30, 45, 60, 80, 90, 100],
                   'Boost__learning_rate': [(2**x)/100 for x in range(7)]+[1],
-                  'Boost__base_estimator__max_depth': max_depths}
+                  'Boost__base_estimator__alpha': alphas}
         iteration_details = {
             'params': {'Boost__n_estimators': [1, 2, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]}
         }
-        of_params = {'Boost__base_estimator__max_depth': None}
+        of_params = {'Boost__base_estimator__alpha': -1}
         complexity_param = {'name': 'Boost__learning_rate', 
                             'display_name': 'Learning rate', 
                             'x_scale': 'log',
@@ -61,13 +62,14 @@ class BoostingExperiment(experiments.BaseExperiment):
             of_booster.set_params(**best_params)
 
         experiments.perform_experiment(self._details.ds, self._details.ds_name, self._details.ds_readable_name, booster,
-                                       'Boost', 'Boost', params, complexity_param=complexity_param,
+                                       'Boost', 'Boost', params,
+                                       complexity_param=complexity_param,
                                        iteration_details=iteration_details, best_params=best_params,
                                        seed=self._details.seed, threads=self._details.threads, verbose=self._verbose)
 
         # TODO: This should turn OFF regularization
         experiments.perform_experiment(self._details.ds, self._details.ds_name, self._details.ds_readable_name,
-                                       of_booster, 'Boost_OF', 'Boost', of_params, seed=self._details.seed,
-                                       iteration_details=iteration_details,
-                                       best_params=best_params, threads=self._details.threads,
-                                       verbose=self._verbose, iteration_lc_only=True)
+                                       of_booster, 'Boost_OF', 'Boost', of_params,
+                                       complexity_param=complexity_param,
+                                       iteration_details=iteration_details, best_params=best_params,
+                                       seed=self._details.seed, threads=self._details.threads, verbose=self._verbose)

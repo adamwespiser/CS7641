@@ -19,7 +19,8 @@ class ANNExperiment(experiments.BaseExperiment):
         hiddens = [(h,) * l for l in [1, 2, 3] for h in [d, d // 2, d * 2]]
         learning_rates = sorted([(2**x)/1000 for x in range(8)]+[0.000001])
 
-        params = {'MLP__activation': ['relu', 'logistic'], 'MLP__alpha': alphas,
+        params = {'MLP__activation': ['relu', 'logistic'], 
+                  'MLP__alpha': alphas,
                   'MLP__learning_rate_init': learning_rates,
                   'MLP__hidden_layer_sizes': hiddens}
 
