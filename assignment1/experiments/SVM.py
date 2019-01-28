@@ -28,10 +28,11 @@ class SVMExperiment(experiments.BaseExperiment):
         # the various graphs
         #
         # Dataset 1:
-        # best_params_linear = {'C': 0.5, 'class_weight': 'balanced', 'loss': 'squared_hinge',
-        #                       'max_iter': 1478, 'tol': 0.06000001}
-        # best_params_rbf = {'C': 2.0, 'class_weight': 'balanced', 'decision_function_shape': 'ovo',
-        #                    'gamma': 0.05555555555555555, 'max_iter': -1, 'tol': 1e-08}
+        #if details.get('name') == "enhancer-b":
+            #best_params_linear = {'C': 0.5, 'class_weight': 'balanced', 'loss': 'squared_hinge',
+            #                   'max_iter': 1478, 'tol': 0.06000001}
+            #best_params_rbf = {'C': 2.0, 'class_weight': 'balanced', 'decision_function_shape': 'ovo',
+            #                'gamma': 0.05555555555555555, 'max_iter': -1, 'tol': 1e-08}
         # Dataset 2:
         # best_params_linear = {'C': 1.0, 'class_weight': 'balanced', 'loss': 'hinge', 'dual': True,
         #                       'max_iter': 70, 'tol': 0.08000001}
@@ -39,13 +40,19 @@ class SVMExperiment(experiments.BaseExperiment):
         #                    'gamma': 0.125, 'max_iter': -1, 'tol': 0.07000001}
 
         # Linear SVM
+        if 'enhancer-b' == self._details.ds_name:
+            C_values = [1.751]
+            tols = [0.5000001]
+        if 'wine-qual' == self._details.ds_name:
+            C_values = [0.251]
+            tols = [0.06000001]
         params = {'SVM__max_iter': iters, 'SVM__tol': tols, 'SVM__class_weight': ['balanced'],
                   'SVM__C': C_values}
         complexity_param = {'name': 'SVM__C', 'display_name': 'Penalty', 'values': np.arange(0.001, 2.5, 0.1)}
 
         iteration_details = {
             'x_scale': 'log',
-            'params': {'SVM__max_iter': [2**x for x in range(12)]},
+            'params': {'SVM__max_iter': [2**x for x in range(14)]},
         }
 
         # NOTE: If this is causing issues, try the RBFSVMLearner. Passing use_linear=True will use a linear kernel
@@ -76,6 +83,14 @@ class SVMExperiment(experiments.BaseExperiment):
                                        iteration_lc_only=True)
 
         # RBF SVM
+        if 'enhancer-b' == self._details.ds_name:
+            C_values = [1.751]
+            tols = [1e-01]
+            gamma_fracs = [0.05263158]
+        if 'wine-qual' == self._details.ds_name:
+            C_values = [0.751]
+            tols = [1e-08]
+            gamma_fracs = [0.6833333]
         params = {'SVM__max_iter': iters, 'SVM__tol': tols, 'SVM__class_weight': ['balanced'],
                   'SVM__C': C_values,
                   'SVM__decision_function_shape': ['ovo', 'ovr'], 'SVM__gamma': gamma_fracs}

@@ -83,6 +83,7 @@ if __name__ == '__main__':
         ds1_details,
         ds2_details
     ]
+    datasets = [enhancer_brain]
     datasets = [enhancer_brain, wine_quality_details]
     experiment_details = []
     for ds in datasets:

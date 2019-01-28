@@ -12,7 +12,7 @@ class DTExperiment(experiments.BaseExperiment):
     def perform(self):
         # TODO: Clean up the older alpha stuff?
         max_depths = np.arange(1, 21, 1)
-        alphas = [-1,-1e-3,-(1e-3)*10**-0.5, -1e-2, -(1e-2)*10**-0.5,-1e-1,-(1e-1)*10**-0.5, 0, (1e-1)*10**-0.5,1e-1,(1e-2)*10**-0.5,1e-2,(1e-3)*10**-0.5,1e-3]
+        #alphas = [-1,-1e-3,-(1e-3)*10**-0.5, -1e-2, -(1e-2)*10**-0.5,-1e-1,-(1e-1)*10**-0.5, 0, (1e-1)*10**-0.5,1e-1,(1e-2)*10**-0.5,1e-2,(1e-3)*10**-0.5,1e-3]
         alphas = [x/1000 for x in range(-40,40,4)]
 
         params = {'DT__criterion': ['gini', 'entropy'],

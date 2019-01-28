@@ -14,14 +14,12 @@ class BoostingExperiment(experiments.BaseExperiment):
 
     def perform(self):
         # Adapted from https://github.com/JonathanTay/CS-7641-assignment-1/blob/master/Boosting.py
-        max_depths = np.arange(1, 11, 1)
         alphas = [x/1000 for x in range(-40,40,4)]
 
 
         # NOTE: Criterion may need to be adjusted here depending on the dataset
         base = learners.DTLearner(criterion='entropy',
                                   class_weight='balanced',
-                                  max_depth=10,
                                   random_state=self._details.seed)
         of_base = learners.DTLearner(criterion='entropy',
                                      class_weight='balanced',
@@ -36,11 +34,12 @@ class BoostingExperiment(experiments.BaseExperiment):
                                               base_estimator=of_base,
                                               random_state=self._details.seed)
 
-        params = {'Boost__n_estimators': [1, 2, 5, 10, 20, 30, 45, 60, 80, 90, 100],
+        n_estimators = [1, 2, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+        params = {'Boost__n_estimators': n_estimators,
                   'Boost__learning_rate': [(2**x)/100 for x in range(7)]+[1],
                   'Boost__base_estimator__alpha': alphas}
         iteration_details = {
-            'params': {'Boost__n_estimators': [1, 2, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]}
+            'params': {'Boost__n_estimators': n_estimators}
         }
         of_params = {'Boost__base_estimator__alpha': -1}
         complexity_param = {'name': 'Boost__learning_rate', 

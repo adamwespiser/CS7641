@@ -31,7 +31,7 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(level
 logger = logging.getLogger(__name__)
 
 # TODO: Move this to a common lib?
-OUTPUT_DIRECTORY = './output-enhancer-wine-quality/'
+OUTPUT_DIRECTORY = './output-ew/'
 
 if not os.path.exists(OUTPUT_DIRECTORY):
     os.makedirs(OUTPUT_DIRECTORY)
@@ -129,9 +129,14 @@ def basic_results(clf, classes, training_x, training_y, test_x, test_y, params, 
 
     n = training_y.shape[0]
 
-    train_sizes = np.append(np.linspace(0.05, 0.1, 20, endpoint=False),
-                            np.linspace(0.1, 1, 20, endpoint=True))
+    #train_sizes = np.append(np.linspace(0.05, 0.1, 20, endpoint=False),
+    #                        np.linspace(0.0, 1, 20, endpoint=True))
+    train_sizes = np.linspace(0.05, 1, 17, endpoint=False)
     logger.info(" - n: {}, train_sizes: {}".format(n, train_sizes))
+    final_estimator = best_estimator._final_estimator
+
+    clf.set_params(**cv.best_params_)
+    #cv.set_params(**cv.best_params_)
     train_sizes, train_scores, test_scores = ms.learning_curve(
         cv.best_estimator_,
         training_x,
@@ -210,10 +215,10 @@ def add_noise(y, frac=0.1):
     tmp[ind] = 1 - tmp[ind]
     return tmp
 
-def make_plot_roc_curve(clf,clf_name, x, y, params, dataset, dataset_readable_name):
-    title = f'Receiver Operating Characteristic Curve\n{clf_name} - {dataset_readable_name}'
-    plt = plot_roc_curve(clf, x, y, params, title)
-    plt.savefig('{}/images/{}_{}_ROC-Curve.png'.format(OUTPUT_DIRECTORY, clf_name, dataset), format='png', dpi=150)
+def make_plot_roc_curve(clf,clf_name, Xtrain, Xtest, ytrain, ytest, params, dataset, dataset_readable_name):
+    title = f'Receiver Operating Characteristic Curve\nTest Set Only\n{clf_name} - {dataset_readable_name}'
+    plt = plot_roc_curve_test(clf, Xtrain, Xtest, ytrain, ytest, params, title)
+    plt.savefig('{}/images/{}_{}_ROC-Curve-t.png'.format(OUTPUT_DIRECTORY, clf_name, dataset), format='png', dpi=150)
 
 
 def make_timing_curve(x, y, clf, clf_name, dataset, dataset_readable_name, verbose=False, seed=42):
@@ -321,6 +326,7 @@ def perform_experiment(ds, ds_name, ds_readable_name, clf, clf_name, clf_label, 
                 param_display_name = complexity_param['display_name']
             if 'x_scale' in complexity_param:
                 x_scale = complexity_param['x_scale']
+            
             make_complexity_curve(ds.features, ds.classes, complexity_param['name'], param_display_name,
                                   complexity_param['values'], pipe,
                                   clf_name, ds_name, ds_readable_name, x_scale,
@@ -331,7 +337,7 @@ def perform_experiment(ds, ds_name, ds_readable_name, clf, clf_name, clf_label, 
             pipe.set_params(**timing_params)
         make_timing_curve(ds.features, ds.classes, pipe, clf_name, ds_name, ds_readable_name,
                           seed=seed, verbose=verbose)
-        make_plot_roc_curve(pipe, clf_name, ds.features, ds.classes, ds_final_params, ds_name, ds_readable_name)
+        make_plot_roc_curve(pipe, clf_name, ds_training_x, ds_testing_x, ds_training_y, ds_testing_y, ds_final_params, ds_name, ds_readable_name)
 
     # Iteraction details, best params not set...
     if iteration_details is not None:

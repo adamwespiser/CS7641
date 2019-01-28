@@ -12,8 +12,8 @@ class ANNExperiment(experiments.BaseExperiment):
     def perform(self):
         # Adapted from https://github.com/JonathanTay/CS-7641-assignment-1/blob/master/ANN.py
         # Search for good alphas
-        alphas = [10 ** -x for x in np.arange(-1, 9.01, 0.5)]
-
+        alphas = [10 ** -x for x in np.arange(-3, 9.01, 0.5)]
+        alphas = [0] + alphas
         # TODO: Allow for better tuning of hidden layers based on dataset provided
         d = self._details.ds.features.shape[1]
         hiddens = [(h,) * l for l in [1, 2, 3] for h in [d, d // 2, d * 2]]
@@ -21,7 +21,9 @@ class ANNExperiment(experiments.BaseExperiment):
 
         params = {'MLP__activation': ['relu', 'logistic', 'tanh'], 'MLP__alpha': alphas,
                   'MLP__learning_rate_init': learning_rates,
-                  'MLP__hidden_layer_sizes': hiddens}
+                  'MLP__hidden_layer_sizes': hiddens,
+                  'MLP__beta_1' : [0.5,0.9,0.99,0.999],
+                  'MLP__beta_2' : [0.5,0.9,0.99,0.999]}
 
         timing_params = {'MLP__early_stopping': False}
         iteration_details = {
@@ -40,6 +42,26 @@ class ANNExperiment(experiments.BaseExperiment):
         #
         # Dataset 1:
         # best_params = {'activation': 'relu', 'alpha': 1.0, 'hidden_layer_sizes': (36, 36),
+        params_wine = {
+                'MLP__activation': 'relu', 
+                'MLP__alpha': 3.162278e-08,
+                'MLP__learning_rate_init': 0.016,
+                'MLP__hidden_layer_sizes': (24,24,24),
+                'MLP__beta_1' : 0.9,
+                'MLP__beta_2' : 0.999
+        }
+        params_enhancer = {
+                'MLP__activation': 'logistic', 
+                'MLP__alpha': 1e-05,
+                'MLP__learning_rate_init': 0.128,
+                'MLP__hidden_layer_sizes': (19,19,19),
+                'MLP__beta_1' : 0.5,
+                'MLP__beta_2' : 0.9
+        }
+        #if self._details.ds_name == "enhancer-b":
+        #    best_params = params_enhancer
+        #if self._details.ds_name == "wine-qual":
+        #    best_params = params_wine
         #                'learning_rate_init': 0.016}
         # Dataset 2:
         # best_params = {'activation': 'relu', 'alpha': 1e-05, 'hidden_layer_sizes': (16, 16),
