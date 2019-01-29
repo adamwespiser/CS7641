@@ -77,7 +77,7 @@ def alpha_results(clf, classes, training_x, training_y, test_x, test_y, params, 
     return
 
 
-def basic_results(clf, classes, training_x, training_y, test_x, test_y, params, clf_type=None, dataset=None, dataset_readable_name=None, balanced_dataset=False, best_params=None, seed=55, threads=1):
+def basic_results(clf, classes, training_x, training_y, test_x, test_y, params, clf_type=None, dataset=None, dataset_readable_name=None, balanced_dataset=False, best_params=None, seed=0, threads=1):
     logger.info("Computing basic results for {} ({} thread(s))".format(clf_type, threads))
 
     if clf_type is None or dataset is None:
@@ -289,6 +289,8 @@ def perform_experiment(ds, ds_name, ds_readable_name, clf, clf_name, clf_label, 
     warnings.simplefilter("ignore", DeprecationWarning)
 
     logger.info("Experimenting on {} with classifier {}.".format(ds_name, clf))
+    if seed is not None:
+        np.random.seed(seed)
 
     ds_training_x, ds_testing_x, ds_training_y, ds_testing_y = ms.train_test_split(
         ds.features,

@@ -336,10 +336,10 @@ def plot_roc_curve_test(classifier, Xtrain, Xtest, ytrain, ytest, params, title)
     fpr, tpr, thresholds = roc_curve(ytest, probas_[:, 1])
     roc_auc = auc(fpr, tpr)
 
-    plt.plot(fpr, tpr, lw=1, alpha=0.3,color="black",
+    plt.plot(fpr, tpr, lw=2,color="black",
             label='ROC (test set) (AUC = %0.2f)' % (roc_auc))
 
-    plt.plot([0, 1], [0, 1], linestyle='--', lw=2, color='r',
+    plt.plot([0, 1], [0, 1], linestyle='--', lw=1, color='r',
             label='Chance', alpha=.8)
 
     plt.xlim([-0.05, 1.05])

@@ -73,7 +73,7 @@ class dtclf_pruned(SK_DT):
                  min_samples_leaf=1,
                  min_weight_fraction_leaf=0.,
                  max_features=None,
-                 random_state=None,
+                 random_state=0,
                  max_leaf_nodes=None,
                  min_impurity_decrease=0,
                  class_weight=None,
