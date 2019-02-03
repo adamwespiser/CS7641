@@ -37,7 +37,7 @@ if __name__ == '__main__':
     verbose = args.verbose
     threads = args.threads
 
-    seed = args.seed
+    seed = 42
     if seed is None:
         seed = np.random.randint(0, (2 ** 32) - 1)
         print("Using seed {}".format(seed))
