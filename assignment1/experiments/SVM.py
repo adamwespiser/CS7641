@@ -52,7 +52,7 @@ class SVMExperiment(experiments.BaseExperiment):
 
         iteration_details = {
             'x_scale': 'log',
-            'params': {'SVM__max_iter': [2**x for x in range(14)]},
+            'params': {'SVM__max_iter': [2**x for x in range(16)]},
         }
 
         # NOTE: If this is causing issues, try the RBFSVMLearner. Passing use_linear=True will use a linear kernel

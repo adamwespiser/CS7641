@@ -31,7 +31,7 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(level
 logger = logging.getLogger(__name__)
 
 # TODO: Move this to a common lib?
-OUTPUT_DIRECTORY = './output-ew/'
+OUTPUT_DIRECTORY = './output-boost-enhancer-lr/'
 
 if not os.path.exists(OUTPUT_DIRECTORY):
     os.makedirs(OUTPUT_DIRECTORY)
@@ -155,7 +155,8 @@ def basic_results(clf, classes, training_x, training_y, test_x, test_y, params, 
     curve_test_scores.to_csv('{}/{}_{}_LC_test.csv'.format(OUTPUT_DIRECTORY, clf_type, dataset))
     plt = plot_learning_curve('Learning Curve: {} - {}'.format(clf_type, dataset_readable_name),
                               train_sizes,
-                              train_scores, test_scores)
+                              train_scores, test_scores,
+                              test_label="Cross Validation Score")
     plt.savefig('{}/images/{}_{}_LC.png'.format(OUTPUT_DIRECTORY, clf_type, dataset), format='png', dpi=150)
     logger.info(" - Learning curve complete")
 
@@ -198,7 +199,8 @@ def iteration_lc(clf, training_x, training_y, test_x, test_y, params, clf_type=N
     plt = plot_learning_curve('{} - {} ({})'.format(clf_type, dataset_readable_name, name),
                               d['param_{}'.format(name)], d['train acc'], d['test acc'],
                               multiple_runs=False, x_scale=x_scale,
-                              x_label='variable: {}'.format(name))
+                              x_label='variable: {}'.format(name),
+                              test_label = 'Test Score')
     plt.savefig('{}/images/{}_{}_ITER_LC.png'.format(OUTPUT_DIRECTORY, clf_type, dataset), format='png', dpi=150)
 
     logger.info(" - Iteration learning curve complete")
@@ -217,9 +219,20 @@ def add_noise(y, frac=0.1):
 
 def make_plot_roc_curve(clf,clf_name, Xtrain, Xtest, ytrain, ytest, params, dataset, dataset_readable_name):
     title = f'Receiver Operating Characteristic Curve\nTest Set Only\n{clf_name} - {dataset_readable_name}'
-    plt = plot_roc_curve_test(clf, Xtrain, Xtest, ytrain, ytest, params, title)
+    plt, roc_auc, fpr, tpr = plot_roc_curve_test(clf, Xtrain, Xtest, ytrain, ytest, params, title)
     plt.savefig('{}/images/{}_{}_ROC-Curve-t.png'.format(OUTPUT_DIRECTORY, clf_name, dataset), format='png', dpi=150)
+    with open('{}/test results.csv'.format(OUTPUT_DIRECTORY), 'a') as f:
+        ts = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S.%s')
+        f.write('"{}",{},{},{},"{}"\n'.format(ts, clf_name, dataset, "ROC AUC:", roc_auc))
 
+
+    out = pd.DataFrame()
+    out['fpr'] = fpr
+    out['tpr'] = tpr
+    out['exp'] = dataset
+    out['clf'] = clf_name
+    out['roc_auc'] = roc_auc
+    out.to_csv('{}/{}_{}_ROC.csv'.format(OUTPUT_DIRECTORY, clf_name, dataset))
 
 def make_timing_curve(x, y, clf, clf_name, dataset, dataset_readable_name, verbose=False, seed=42):
     logger.info("Building timing curve")

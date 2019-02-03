@@ -418,6 +418,24 @@ class WineQuality(DataLoader):
     def pre_training_adjustment(self, train_features, train_classes):
         return train_features, train_classes
 
+class WineQualityUniq(DataLoader):
+    def __init__(self, path='data/wine_quality_binary_unique.csv', verbose=False, seed=1):
+        super().__init__(path, verbose, seed)
+
+    def _load_data(self):
+        self._data = pd.read_csv(self._path)
+
+    def data_name(self):
+        return 'WineQualityData'
+
+    def class_column_name(self):
+        return '13'
+
+    def _preprocess_data(self):
+        pass
+
+    def pre_training_adjustment(self, train_features, train_classes):
+        return train_features, train_classes
 class GenderVoiceData(DataLoader):
     def __init__(self, path='data/gender_voice_weka_dataset.csv', verbose=False, seed=1):
         super().__init__(path, verbose, seed)

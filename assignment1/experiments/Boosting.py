@@ -15,13 +15,31 @@ class BoostingExperiment(experiments.BaseExperiment):
     def perform(self):
         # Adapted from https://github.com/JonathanTay/CS-7641-assignment-1/blob/master/Boosting.py
         alphas = [x/1000 for x in range(-40,40,4)]
+        crit = "entropy"
+        lr = [(2**x)/100 for x in range(7)]+[1]
+        n_estimators= [1, 2, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+        n_estimators_iter = [1, 2, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100,110, 120, 140, 160, 200]
+        # /output-ew2
+        if 'enhancer-b' == self._details.ds_name:
+            alphas = [0.028]
+            crit = "gini"
+            lr = [0.16]
+            lr = [0.16] + [(2**x)/209.6 for x in range(13)]
+            #n_estimators = [10]
+            n_estimators = n_estimators_iter
+        if 'wine-qual' == self._details.ds_name:
+            alphas = [0]
+            crit = "gini"
+            lr = [0.04] # use old lr range here
+            n_estimators = [160]
+
 
 
         # NOTE: Criterion may need to be adjusted here depending on the dataset
-        base = learners.DTLearner(criterion='entropy',
+        base = learners.DTLearner(criterion=crit,
                                   class_weight='balanced',
                                   random_state=self._details.seed)
-        of_base = learners.DTLearner(criterion='entropy',
+        of_base = learners.DTLearner(criterion=crit,
                                      class_weight='balanced',
                                      random_state=self._details.seed)
 
@@ -34,18 +52,19 @@ class BoostingExperiment(experiments.BaseExperiment):
                                               base_estimator=of_base,
                                               random_state=self._details.seed)
 
-        n_estimators = [1, 2, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
         params = {'Boost__n_estimators': n_estimators,
-                  'Boost__learning_rate': [(2**x)/100 for x in range(7)]+[1],
-                  'Boost__base_estimator__alpha': alphas}
+                  'Boost__learning_rate': lr,
+                  'Boost__base_estimator__alpha': alphas,
+                  'Boost__random_state': [self._details.seed],
+                  'Boost__base_estimator__random_state' [self._details.seed]}
         iteration_details = {
-            'params': {'Boost__n_estimators': n_estimators}
+            'params': {'Boost__n_estimators': n_estimators_iter}
         }
         of_params = {'Boost__base_estimator__alpha': -1}
         complexity_param = {'name': 'Boost__learning_rate', 
                             'display_name': 'Learning rate', 
                             'x_scale': 'log',
-                            'values': [(2**x)/100 for x in range(7)]+[1]}
+                            'values': [10**(x/8) for x in range(-32,0)]+[1]}
 
         best_params = None
         # Uncomment to select known best params from grid search. This will skip the grid search and just rebuild

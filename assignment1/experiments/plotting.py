@@ -23,7 +23,8 @@ logger = logging.getLogger(__name__)
 # Adapted from http://scikit-learn.org/stable/auto_examples/model_selection/plot_learning_curve.html
 def plot_learning_curve(title, train_sizes, train_scores, test_scores, ylim=None, multiple_runs=True,
                         x_scale='linear', y_scale='linear',
-                        x_label='Training examples (count)', y_label='Accuracy (0.0 - 1.0)'):
+                        x_label='Training examples (count)', y_label='Accuracy (0.0 - 1.0)',
+                        test_label = 'Test Score'):
     """
     Generate a simple plot of the test and training learning curve.
 
@@ -95,7 +96,7 @@ def plot_learning_curve(title, train_sizes, train_scores, test_scores, ylim=None
     plt.plot(train_sizes, train_points, 'o-', linewidth=1, markersize=4,
              label="Training score")
     plt.plot(train_sizes, test_points, 'o-', linewidth=1, markersize=4,
-             label="Test score")
+             label=test_label)
 
     plt.legend(loc="best")
     return plt
@@ -324,7 +325,7 @@ def plot_roc_curve(classifier, X, y, params, title):
     plt.ylabel('True Positive Rate')
     plt.title(title)
     plt.legend(loc="lower right")
-    return plt
+    return plt, roc_auc
 
 def plot_roc_curve_test(classifier, Xtrain, Xtest, ytrain, ytest, params, title):
     plt.close()
@@ -348,7 +349,7 @@ def plot_roc_curve_test(classifier, Xtrain, Xtest, ytrain, ytest, params, title)
     plt.ylabel('True Positive Rate')
     plt.title(title)
     plt.legend(loc="lower right")
-    return plt
+    return plt, roc_auc, fpr, tpr
 # Adapted from http://scikit-learn.org/stable/auto_examples/model_selection/plot_confusion_matrix.html
 def plot_confusion_matrix(cm, classes,
                           normalize=False,

@@ -60,6 +60,11 @@ if __name__ == '__main__':
             'name': 'wine-qual',
             'readable_name': 'Wine Data (Quality)',
         }
+    wine_quality_uniq_details = {
+            'data': loader.WineQualityUniq(verbose=verbose, seed=seed),
+            'name': 'wine-qual',
+            'readable_name': 'Wine Data (Quality)',
+        }
 
     enhancer_human_heart = {
             'data': loader.EnhancerHumanHeart(verbose=verbose, seed=seed),
@@ -83,8 +88,9 @@ if __name__ == '__main__':
         ds1_details,
         ds2_details
     ]
-    datasets = [enhancer_brain]
     datasets = [enhancer_brain, wine_quality_details]
+    datasets = [wine_quality_uniq_details]
+    datasets = [enhancer_brain]
     experiment_details = []
     for ds in datasets:
         data = ds['data']

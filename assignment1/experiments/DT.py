@@ -22,7 +22,8 @@ class DTExperiment(experiments.BaseExperiment):
         }  # , 'DT__max_leaf_nodes': max_leaf_nodes}
         params = {'DT__criterion':['gini','entropy'],
                   'DT__alpha':alphas,
-                  'DT__class_weight':['balanced']}
+                  'DT__class_weight':['balanced'],
+                  'DT__random_state': [self._details.seed]}
 
         complexity_param = {'name': 'DT__alpha', 
                             'display_name': 'alpha', 
