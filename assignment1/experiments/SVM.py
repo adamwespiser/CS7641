@@ -46,9 +46,15 @@ class SVMExperiment(experiments.BaseExperiment):
         if 'wine-qual' == self._details.ds_name:
             C_values = [0.251]
             tols = [0.06000001]
-        params = {'SVM__max_iter': iters, 'SVM__tol': tols, 'SVM__class_weight': ['balanced'],
-                  'SVM__C': C_values}
-        complexity_param = {'name': 'SVM__C', 'display_name': 'Penalty', 'values': np.arange(0.001, 2.5, 0.1)}
+        params = {'SVM__max_iter': iters,
+                  'SVM__tol': tols, 
+                  'SVM__class_weight': ['balanced'],
+                  'SVM__C': C_values,
+                  'SVM__random_state': [self._details.seed]}
+        complexity_param = {'name': 'SVM__C', 
+                            'display_name': 'Penalty', 
+                            'values': np.arange(0.001, 2.5, 0.1)
+                            }
 
         iteration_details = {
             'x_scale': 'log',

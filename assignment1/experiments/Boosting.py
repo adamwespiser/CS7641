@@ -24,7 +24,7 @@ class BoostingExperiment(experiments.BaseExperiment):
             alphas = [0.028]
             crit = "gini"
             lr = [0.16]
-            lr = [0.16] + [(2**x)/209.6 for x in range(13)]
+            lr = [0.16] + [10**(x/8) for x in range(-32,16)]
             #n_estimators = [10]
             n_estimators = n_estimators_iter
         if 'wine-qual' == self._details.ds_name:
@@ -56,7 +56,7 @@ class BoostingExperiment(experiments.BaseExperiment):
                   'Boost__learning_rate': lr,
                   'Boost__base_estimator__alpha': alphas,
                   'Boost__random_state': [self._details.seed],
-                  'Boost__base_estimator__random_state' [self._details.seed]}
+                  'Boost__base_estimator__random_state': [self._details.seed]}
         iteration_details = {
             'params': {'Boost__n_estimators': n_estimators_iter}
         }
@@ -64,7 +64,7 @@ class BoostingExperiment(experiments.BaseExperiment):
         complexity_param = {'name': 'Boost__learning_rate', 
                             'display_name': 'Learning rate', 
                             'x_scale': 'log',
-                            'values': [10**(x/8) for x in range(-32,0)]+[1]}
+                            'values': [10**(x/8) for x in range(-32,16)]}
 
         best_params = None
         # Uncomment to select known best params from grid search. This will skip the grid search and just rebuild
