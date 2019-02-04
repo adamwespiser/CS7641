@@ -37,7 +37,7 @@ class DTExperiment(experiments.BaseExperiment):
         params_wine = {'DT__criterion': 'entropy', 
                        'DT__alpha': -0.02, 
                        'DT__class_weight': 'balanced'}
-        if self._details.ds_name == "wine-qual":
+        if self._details.ds_name == "wine-qual" and self._details.bparams:
             for k in params.keys():
                 if k in params_wine.keys():
                     params[k] = [params_wine.get(k)]
@@ -47,7 +47,7 @@ class DTExperiment(experiments.BaseExperiment):
         params_enhancer = {'DT__criterion': 'gini', 
                            'DT__alpha': 0.02, 
                            'DT__class_weight': 'balanced'}
-        if self._details.ds_name == "enhancer-b":
+        if self._details.ds_name == "enhancer-b" and self._details.bparams:
             for k in params.keys():
                 if k in params_enhancer.keys():
                     params[k] = [params_enhancer.get(k)]

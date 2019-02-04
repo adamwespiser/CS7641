@@ -51,7 +51,7 @@ class ANNExperiment(experiments.BaseExperiment):
                 'MLP__beta_1' : 0.5,
                 'MLP__beta_2' : 0.5
         }
-        if self._details.ds_name == "wine-qual":
+        if self._details.ds_name == "wine-qual" and self._details.bparams:
             for k in params.keys():
                 if k in params_wine.keys():
                     params[k] = [params_wine.get(k)]
@@ -63,7 +63,7 @@ class ANNExperiment(experiments.BaseExperiment):
                 'MLP__beta_1' : 0.5,
                 'MLP__beta_2' : 0.9
         }
-        if self._details.ds_name == "enhancer-b":
+        if self._details.ds_name == "enhancer-b" and self._details.bparams:
             for k in params.keys():
                 if k in params_enhancer.keys():
                     params[k] = [params_enhancer.get(k)]

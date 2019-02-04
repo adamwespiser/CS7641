@@ -7,12 +7,13 @@ logger = logging.getLogger(__name__)
 
 
 class ExperimentDetails(object):
-    def __init__(self, ds, ds_name, ds_readable_name, threads, seed):
+    def __init__(self, ds, ds_name, ds_readable_name, threads, seed, bparams):
         self.ds = ds
         self.ds_name = ds_name
         self.ds_readable_name = ds_readable_name
         self.threads = threads
         self.seed = seed
+        self.bparams = bparams
 
 
 class BaseExperiment(ABC):

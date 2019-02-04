@@ -40,10 +40,10 @@ class SVMExperiment(experiments.BaseExperiment):
         #                    'gamma': 0.125, 'max_iter': -1, 'tol': 0.07000001}
 
         # Linear SVM
-        if 'enhancer-b' == self._details.ds_name:
+        if 'enhancer-b' == self._details.ds_name and self._details.bparams:
             C_values = [1.751]
             tols = [0.5000001]
-        if 'wine-qual' == self._details.ds_name:
+        if 'wine-qual' == self._details.ds_name and self._details.bparams:
             C_values = [0.251]
             tols = [0.06000001]
         params = {'SVM__max_iter': iters,
@@ -89,17 +89,20 @@ class SVMExperiment(experiments.BaseExperiment):
                                        iteration_lc_only=True)
 
         # RBF SVM
-        if 'enhancer-b' == self._details.ds_name:
+        if 'enhancer-b' == self._details.ds_name and self._details.bparams:
             C_values = [1.751]
             tols = [1e-01]
             gamma_fracs = [0.05263158]
-        if 'wine-qual' == self._details.ds_name:
+        if 'wine-qual' == self._details.ds_name and self._details.bparams:
             C_values = [0.751]
             tols = [1e-08]
             gamma_fracs = [0.6833333]
-        params = {'SVM__max_iter': iters, 'SVM__tol': tols, 'SVM__class_weight': ['balanced'],
+        params = {'SVM__max_iter': iters, 
+                  'SVM__tol': tols, 
+                  'SVM__class_weight': ['balanced'],
                   'SVM__C': C_values,
-                  'SVM__decision_function_shape': ['ovo', 'ovr'], 'SVM__gamma': gamma_fracs}
+                  'SVM__random_state': [self._details.seed],
+                  'SVM__gamma': gamma_fracs}
         complexity_param = {'name': 'SVM__C', 'display_name': 'Penalty', 'values': np.arange(0.001, 2.5, 0.1)}
 
         learner = learners.SVMLearner(kernel='rbf')
