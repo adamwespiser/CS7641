@@ -31,7 +31,7 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(level
 logger = logging.getLogger(__name__)
 
 # TODO: Move this to a common lib?
-OUTPUT_DIRECTORY = './output-all-params-seed-42/'
+OUTPUT_DIRECTORY = './output-plots-seed-42/'
 
 if not os.path.exists(OUTPUT_DIRECTORY):
     os.makedirs(OUTPUT_DIRECTORY)
@@ -95,6 +95,7 @@ def basic_results(clf, classes, training_x, training_y, test_x, test_y, params, 
         cv = clf
     else:
         cv = ms.GridSearchCV(clf, n_jobs=threads, param_grid=params, refit=True, verbose=10, cv=5, scoring=curr_scorer)
+        np.random.seed(42)
         cv.fit(training_x, training_y)
         reg_table = pd.DataFrame(cv.cv_results_)
         reg_table.to_csv('{}/{}_{}_reg.csv'.format(OUTPUT_DIRECTORY, clf_type, dataset), index=False)
@@ -164,7 +165,7 @@ def basic_results(clf, classes, training_x, training_y, test_x, test_y, params, 
 
 
 def iteration_lc(clf, training_x, training_y, test_x, test_y, params, clf_type=None, dataset=None,
-                 dataset_readable_name=None, balanced_dataset=False, x_scale='linear', seed=55, threads=1):
+                 dataset_readable_name=None, balanced_dataset=False, x_scale='linear', seed=42, threads=1):
     logger.info("Building iteration learning curve for params {} ({} threads)".format(params, threads))
 
     if clf_type is None or dataset is None:
@@ -187,10 +188,11 @@ def iteration_lc(clf, training_x, training_y, test_x, test_y, params, clf_type=N
     for value in list(params.values())[0]:
         d['param_{}'.format(name)].append(value)
         clf.set_params(**{name: value})
+        np.random.seed(42)
         clf.fit(training_x, training_y)
         pred = clf.predict(training_x)
         d['train acc'].append(acc_method(training_y, pred))
-        clf.fit(training_x, training_y)
+        #clf.fit(training_x, training_y)
         pred = clf.predict(test_x)
         d['test acc'].append(acc_method(test_y, pred))
         logger.info(' - {}'.format(value))
@@ -342,7 +344,7 @@ def perform_experiment(ds, ds_name, ds_readable_name, clf, clf_name, clf_label, 
             if 'x_scale' in complexity_param:
                 x_scale = complexity_param['x_scale']
             
-            make_complexity_curve(ds.features, ds.classes, complexity_param['name'], param_display_name,
+            make_complexity_curve(ds_training_x, ds_training_y, complexity_param['name'], param_display_name,
                                   complexity_param['values'], pipe,
                                   clf_name, ds_name, ds_readable_name, x_scale,
                                   balanced_dataset=ds.balanced,

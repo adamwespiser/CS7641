@@ -23,7 +23,7 @@ class KNNExperiment(experiments.BaseExperiment):
         # the various graphs
         #
         # Dataset 1:
-        params_wine = {'metric': 'manhattan', 'n_neighbors': 13, 'weights': 'uniform'}
+        params_wine = {'metric': 'manhattan', 'n_neighbors': 22, 'weights': 'uniform'}
         if self._details.ds_name == "wine-qual":
             for k in params.keys():
                 if k in params_wine.keys():
@@ -31,7 +31,7 @@ class KNNExperiment(experiments.BaseExperiment):
 
         #
         # Dataset 2:
-        params_enhancer = {'metric': 'manhattan', 'n_neighbors': 4, 'weights': 'uniform'}
+        params_enhancer = {'metric': 'manhattan', 'n_neighbors': 7, 'weights': 'uniform'}
         if self._details.ds_name == "enhancer-b":
             for k in params.keys():
                 if k in params_enhancer.keys():

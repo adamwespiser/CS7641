@@ -42,10 +42,12 @@ class SVMExperiment(experiments.BaseExperiment):
         # Linear SVM
         if 'enhancer-b' == self._details.ds_name and self._details.bparams:
             C_values = [1.751]
-            tols = [0.5000001]
-        if 'wine-qual' == self._details.ds_name and self._details.bparams:
-            C_values = [0.251]
             tols = [0.06000001]
+            iters = [-1]
+        if 'wine-qual' == self._details.ds_name and self._details.bparams:
+            C_values = [2.251]
+            tols = [0.06000001]
+            iters = [-1]
         params = {'SVM__max_iter': iters,
                   'SVM__tol': tols, 
                   'SVM__class_weight': ['balanced'],
@@ -90,13 +92,15 @@ class SVMExperiment(experiments.BaseExperiment):
 
         # RBF SVM
         if 'enhancer-b' == self._details.ds_name and self._details.bparams:
-            C_values = [1.751]
-            tols = [1e-01]
-            gamma_fracs = [0.05263158]
+            C_values = [0.751]
+            tols = [0.050000010000000004] 
+            gamma_fracs = [0.05263157894736842]
+            iters = [-1]
         if 'wine-qual' == self._details.ds_name and self._details.bparams:
             C_values = [0.751]
-            tols = [1e-08]
-            gamma_fracs = [0.6833333]
+            tols = [0.04000001]
+            gamma_fracs = [0.08333333333333333]
+            iters = [-1]
         params = {'SVM__max_iter': iters, 
                   'SVM__tol': tols, 
                   'SVM__class_weight': ['balanced'],

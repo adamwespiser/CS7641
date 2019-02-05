@@ -21,17 +21,17 @@ class BoostingExperiment(experiments.BaseExperiment):
         n_estimators_iter = [1, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100,110, 120, 140, 160, 200, 240, 300]
         # /output-ew2
         if 'enhancer-b' == self._details.ds_name and self._details.bparams:
-            alphas = [0.028]
+            alphas = [0.05]
             crit = "gini"
-            lr = [0.16]
             lr = [0.16] + [10**(x/8) for x in range(-32,16)]
-            #n_estimators = [10]
+            lr = [0.32]
             n_estimators = n_estimators_iter
+            n_estimators = [5]
         if 'wine-qual' == self._details.ds_name and self._details.bparams:
-            alphas = [0]
+            alphas = [0.014]
             crit = "gini"
-            lr = [0.04] # use old lr range here
-            n_estimators = [160]
+            lr = [0.16] # use old lr range here
+            n_estimators = [20]
 
 
 

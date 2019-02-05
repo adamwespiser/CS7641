@@ -100,7 +100,7 @@ if __name__ == '__main__':
         experiment_details.append(experiments.ExperimentDetails(
             data, ds['name'], ds['readable_name'],
             threads=threads,
-            seed=seed, bparams=False, # Turn this to True for best params in each clf
+            seed=seed, bparams=True, # Turn this to True for best params in each clf
         ))
 
     if args.knn or args.all:

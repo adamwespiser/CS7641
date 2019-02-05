@@ -34,8 +34,8 @@ class DTExperiment(experiments.BaseExperiment):
         # the various graphs
         #
         # Dataset 1:
-        params_wine = {'DT__criterion': 'entropy', 
-                       'DT__alpha': -0.02, 
+        params_wine = {'DT__criterion': 'gini', 
+                       'DT__alpha': 0.008, 
                        'DT__class_weight': 'balanced'}
         if self._details.ds_name == "wine-qual" and self._details.bparams:
             for k in params.keys():
@@ -45,7 +45,7 @@ class DTExperiment(experiments.BaseExperiment):
         #
         # Dataset 2:
         params_enhancer = {'DT__criterion': 'gini', 
-                           'DT__alpha': 0.02, 
+                           'DT__alpha': 0.008, 
                            'DT__class_weight': 'balanced'}
         if self._details.ds_name == "enhancer-b" and self._details.bparams:
             for k in params.keys():

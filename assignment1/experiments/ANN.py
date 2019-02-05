@@ -44,12 +44,12 @@ class ANNExperiment(experiments.BaseExperiment):
         # Dataset 1:
         # best_params = {'activation': 'relu', 'alpha': 1.0, 'hidden_layer_sizes': (36, 36),
         params_wine = {
-                'MLP__activation': 'relu', 
-                'MLP__alpha': 0.01,
-                'MLP__learning_rate_init': 0.008,
-                'MLP__hidden_layer_sizes': (24,24),
-                'MLP__beta_1' : 0.5,
-                'MLP__beta_2' : 0.5
+                'MLP__activation': 'tanh', 
+                'MLP__alpha': 0.1,
+                'MLP__learning_rate_init': 0.064,
+                'MLP__hidden_layer_sizes': (12,12),
+                'MLP__beta_1' : 0.99,
+                'MLP__beta_2' : 0.99
         }
         if self._details.ds_name == "wine-qual" and self._details.bparams:
             for k in params.keys():
@@ -57,11 +57,11 @@ class ANNExperiment(experiments.BaseExperiment):
                     params[k] = [params_wine.get(k)]
         params_enhancer = {
                 'MLP__activation': 'logistic', 
-                'MLP__alpha': 1e-05,
+                'MLP__alpha': 0.001,
                 'MLP__learning_rate_init': 0.128,
-                'MLP__hidden_layer_sizes': (19,19,19),
+                'MLP__hidden_layer_sizes': (38,38),
                 'MLP__beta_1' : 0.5,
-                'MLP__beta_2' : 0.9
+                'MLP__beta_2' : 0.999
         }
         if self._details.ds_name == "enhancer-b" and self._details.bparams:
             for k in params.keys():
