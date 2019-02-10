@@ -55,7 +55,7 @@ class SVMExperiment(experiments.BaseExperiment):
                   'SVM__random_state': [self._details.seed]}
         complexity_param = {'name': 'SVM__C', 
                             'display_name': 'Penalty', 
-                            'values': np.arange(0.001, 2.5, 0.1)
+                            'values': np.arange(1e-5, 1e3, 16)
                             }
 
         iteration_details = {
@@ -107,7 +107,9 @@ class SVMExperiment(experiments.BaseExperiment):
                   'SVM__C': C_values,
                   'SVM__random_state': [self._details.seed],
                   'SVM__gamma': gamma_fracs}
-        complexity_param = {'name': 'SVM__C', 'display_name': 'Penalty', 'values': np.arange(0.001, 2.5, 0.1)}
+        complexity_param = {'name': 'SVM__C', 
+                            'display_name': 'Penalty',
+                            'values': np.arange(1e-5, 1e3, 16)}
 
         learner = learners.SVMLearner(kernel='rbf')
         if best_params_rbf is not None:
@@ -122,9 +124,9 @@ class SVMExperiment(experiments.BaseExperiment):
         learner = learners.SVMLearner(kernel='rbf')
         if best_params_rbf is not None:
             learner.set_params(**best_params_rbf)
-        experiments.perform_experiment(self._details.ds, self._details.ds_name, self._details.ds_readable_name, learner,
-                                       'SVM_RBF_OF', 'SVM', of_params, seed=self._details.seed,
-                                       iteration_details=iteration_details,
-                                       best_params=best_params_rbf,
-                                       threads=self._details.threads, verbose=self._verbose,
-                                       iteration_lc_only=True)
+        #experiments.perform_experiment(self._details.ds, self._details.ds_name, self._details.ds_readable_name, learner,
+        #                               'SVM_RBF_OF', 'SVM', of_params, seed=self._details.seed,
+        #                               iteration_details=iteration_details,
+        #                               best_params=best_params_rbf,
+        #                               threads=self._details.threads, verbose=self._verbose,
+        #                               iteration_lc_only=True)

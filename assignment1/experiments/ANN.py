@@ -30,8 +30,7 @@ class ANNExperiment(experiments.BaseExperiment):
         iteration_details = {
             'x_scale': 'log',
             'params': {'MLP__max_iter':
-                            [2 ** x for x in range(12)] + [2100, 2200, 2300, 2400, 2500, 2600, 2700, 2800, 2900,
-                                                           3000]},
+                            [2 ** x for x in range(12)] + [2100, 2400, 2700, 3000]},
             'pipe_params': timing_params
         }
         complexity_param = {'name': 'MLP__alpha', 'display_name': 'Alpha', 'x_scale': 'log',
@@ -43,6 +42,7 @@ class ANNExperiment(experiments.BaseExperiment):
         #
         # Dataset 1:
         # best_params = {'activation': 'relu', 'alpha': 1.0, 'hidden_layer_sizes': (36, 36),
+        alpha = 0
         params_wine = {
                 'MLP__activation': 'tanh', 
                 'MLP__alpha': 0.1,
@@ -52,6 +52,7 @@ class ANNExperiment(experiments.BaseExperiment):
                 'MLP__beta_2' : 0.99
         }
         if self._details.ds_name == "wine-qual" and self._details.bparams:
+            alpha = 0.1
             for k in params.keys():
                 if k in params_wine.keys():
                     params[k] = [params_wine.get(k)]
@@ -64,6 +65,7 @@ class ANNExperiment(experiments.BaseExperiment):
                 'MLP__beta_2' : 0.999
         }
         if self._details.ds_name == "enhancer-b" and self._details.bparams:
+            alpha = 0.001
             for k in params.keys():
                 if k in params_enhancer.keys():
                     params[k] = [params_enhancer.get(k)]
@@ -90,13 +92,13 @@ class ANNExperiment(experiments.BaseExperiment):
 
         # TODO: This should turn OFF regularization
         of_params = cv_best_params.copy()
-        of_params['MLP__alpha'] = 0
+        of_params['MLP__alpha'] = alpha
         if best_params is not None:
             learner.set_params(**best_params)
         learner = learners.ANNLearner(max_iter=3000, early_stopping=True, random_state=self._details.seed,
                                       verbose=self._verbose)
         experiments.perform_experiment(self._details.ds, self._details.ds_name, self._details.ds_readable_name, learner,
-                                       'ANN_OF', 'MLP', of_params, seed=self._details.seed, timing_params=timing_params,
+                                       'ANN_', 'MLP', of_params, seed=self._details.seed, timing_params=timing_params,
                                        iteration_details=iteration_details,
                                        best_params=best_params,
                                        threads=self._details.threads, verbose=self._verbose,
