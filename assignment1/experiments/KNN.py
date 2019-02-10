@@ -23,10 +23,20 @@ class KNNExperiment(experiments.BaseExperiment):
         # the various graphs
         #
         # Dataset 1:
-        # best_params = {'metric': 'manhattan', 'n_neighbors': 7, 'weights': 'uniform'}
+        params_wine = {'metric': 'manhattan', 'n_neighbors': 22, 'weights': 'uniform'}
+        if self._details.ds_name == "wine-qual":
+            for k in params.keys():
+                if k in params_wine.keys():
+                    params[k] = [params_wine.get(k)]
+
         #
-        # Dataset 1:
-        # best_params = {'metric': 'euclidean', 'n_neighbors': 4, 'weights': 'uniform'}
+        # Dataset 2:
+        params_enhancer = {'metric': 'manhattan', 'n_neighbors': 7, 'weights': 'uniform'}
+        if self._details.ds_name == "enhancer-b":
+            for k in params.keys():
+                if k in params_enhancer.keys():
+                    params[k] = [params_enhancer.get(k)]
+
 
         learner = learners.KNNLearner(n_jobs=self._details.threads)
         if best_params is not None:

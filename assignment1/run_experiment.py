@@ -37,7 +37,7 @@ if __name__ == '__main__':
     verbose = args.verbose
     threads = args.threads
 
-    seed = args.seed
+    seed = 42
     if seed is None:
         seed = np.random.randint(0, (2 ** 32) - 1)
         print("Using seed {}".format(seed))
@@ -60,11 +60,21 @@ if __name__ == '__main__':
             'name': 'wine-qual',
             'readable_name': 'Wine Data (Quality)',
         }
+    wine_quality_uniq_details = {
+            'data': loader.WineQualityUniq(verbose=verbose, seed=seed),
+            'name': 'wine-qual',
+            'readable_name': 'Wine Data (Quality)',
+        }
 
     enhancer_human_heart = {
             'data': loader.EnhancerHumanHeart(verbose=verbose, seed=seed),
             'name': 'enhancer-hh',
             'readable_name': 'Genomic Enhancer (Human Heart)',
+        }
+    enhancer_brain = {
+            'data': loader.EnhancerBrain(verbose=verbose, seed=seed),
+            'name': 'enhancer-b',
+            'readable_name': 'Genomic Enhancer (Brain)',
         }
 
 
@@ -78,7 +88,9 @@ if __name__ == '__main__':
         ds1_details,
         ds2_details
     ]
-    datasets = [wine_quality_details]
+    datasets = [enhancer_brain, wine_quality_details]
+    datasets = [wine_quality_uniq_details]
+    datasets = [enhancer_brain, wine_quality_uniq_details]
     experiment_details = []
     for ds in datasets:
         data = ds['data']
@@ -88,20 +100,21 @@ if __name__ == '__main__':
         experiment_details.append(experiments.ExperimentDetails(
             data, ds['name'], ds['readable_name'],
             threads=threads,
-            seed=seed
+            seed=seed, bparams=True, # Turn this to True for best params in each clf
         ))
 
-    if args.ann or args.all:
-        run_experiment(experiment_details, experiments.ANNExperiment, 'ANN', verbose, timings)
+    if args.knn or args.all:
+        run_experiment(experiment_details, experiments.KNNExperiment, 'KNN', verbose, timings)
 
     if args.boosting or args.all:
         run_experiment(experiment_details, experiments.BoostingExperiment, 'Boosting', verbose, timings)
 
+    if args.ann or args.all:
+        run_experiment(experiment_details, experiments.ANNExperiment, 'ANN', verbose, timings)
+
     if args.dt or args.all:
         run_experiment(experiment_details, experiments.DTExperiment, 'DT', verbose, timings)
 
-    if args.knn or args.all:
-        run_experiment(experiment_details, experiments.KNNExperiment, 'KNN', verbose, timings)
 
     if args.svm or args.all:
         run_experiment(experiment_details, experiments.SVMExperiment, 'SVM', verbose, timings)

@@ -31,7 +31,7 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(level
 logger = logging.getLogger(__name__)
 
 # TODO: Move this to a common lib?
-OUTPUT_DIRECTORY = './output3/'
+OUTPUT_DIRECTORY = './output/'
 
 if not os.path.exists(OUTPUT_DIRECTORY):
     os.makedirs(OUTPUT_DIRECTORY)
@@ -57,8 +57,7 @@ f1_scorer = make_scorer(f1_accuracy)
 def alpha_results(clf, classes, training_x, training_y, test_x, test_y, params, clf_type=None, dataset=None, dataset_readable_name=None, balanced_dataset=False, best_params=None, seed=55, threads=1):
     clf.set_params(**best_params)
     out = {}
-    alphas = [x/1000 for x in range(-20,20,2)]
-    alphas.sort()
+    alphas = list(np.arange(-0.04,0.04,0.001))
     nodes = []
     for a in alphas:
         clf.set_params(**{'DT__alpha':a})
@@ -66,7 +65,7 @@ def alpha_results(clf, classes, training_x, training_y, test_x, test_y, params, 
         nNodes = clf.steps[-1][-1]._learner.numNodes()
         out[a]= nNodes
         nodes = nodes + [nNodes]
-        print(dataset, a)
+        #print(dataset, a)
     alphaplt = plot_alpha_pruning(f'Nodes vs Alpha for {dataset}', alphas, nodes)
     alphaplt.savefig('{}/images/DT_{}_Nodes_v_Alpha.png'.format(OUTPUT_DIRECTORY, dataset), format='png', dpi=150,bbox_inches='tight')
     alphaplt.close()
@@ -78,7 +77,7 @@ def alpha_results(clf, classes, training_x, training_y, test_x, test_y, params, 
     return
 
 
-def basic_results(clf, classes, training_x, training_y, test_x, test_y, params, clf_type=None, dataset=None, dataset_readable_name=None, balanced_dataset=False, best_params=None, seed=55, threads=1):
+def basic_results(clf, classes, training_x, training_y, test_x, test_y, params, clf_type=None, dataset=None, dataset_readable_name=None, balanced_dataset=False, best_params=None, seed=0, threads=1):
     logger.info("Computing basic results for {} ({} thread(s))".format(clf_type, threads))
 
     if clf_type is None or dataset is None:
@@ -96,6 +95,7 @@ def basic_results(clf, classes, training_x, training_y, test_x, test_y, params, 
         cv = clf
     else:
         cv = ms.GridSearchCV(clf, n_jobs=threads, param_grid=params, refit=True, verbose=10, cv=5, scoring=curr_scorer)
+        np.random.seed(42)
         cv.fit(training_x, training_y)
         reg_table = pd.DataFrame(cv.cv_results_)
         reg_table.to_csv('{}/{}_{}_reg.csv'.format(OUTPUT_DIRECTORY, clf_type, dataset), index=False)
@@ -130,9 +130,14 @@ def basic_results(clf, classes, training_x, training_y, test_x, test_y, params, 
 
     n = training_y.shape[0]
 
-    train_sizes = np.append(np.linspace(0.05, 0.1, 20, endpoint=False),
-                            np.linspace(0.1, 1, 20, endpoint=True))
+    #train_sizes = np.append(np.linspace(0.05, 0.1, 20, endpoint=False),
+    #                        np.linspace(0.0, 1, 20, endpoint=True))
+    train_sizes = np.linspace(0.05, 1, 17, endpoint=False)
     logger.info(" - n: {}, train_sizes: {}".format(n, train_sizes))
+    final_estimator = best_estimator._final_estimator
+
+    clf.set_params(**cv.best_params_)
+    #cv.set_params(**cv.best_params_)
     train_sizes, train_scores, test_scores = ms.learning_curve(
         cv.best_estimator_,
         training_x,
@@ -151,7 +156,8 @@ def basic_results(clf, classes, training_x, training_y, test_x, test_y, params, 
     curve_test_scores.to_csv('{}/{}_{}_LC_test.csv'.format(OUTPUT_DIRECTORY, clf_type, dataset))
     plt = plot_learning_curve('Learning Curve: {} - {}'.format(clf_type, dataset_readable_name),
                               train_sizes,
-                              train_scores, test_scores)
+                              train_scores, test_scores,
+                              test_label="Cross Validation Score")
     plt.savefig('{}/images/{}_{}_LC.png'.format(OUTPUT_DIRECTORY, clf_type, dataset), format='png', dpi=150)
     logger.info(" - Learning curve complete")
 
@@ -159,7 +165,7 @@ def basic_results(clf, classes, training_x, training_y, test_x, test_y, params, 
 
 
 def iteration_lc(clf, training_x, training_y, test_x, test_y, params, clf_type=None, dataset=None,
-                 dataset_readable_name=None, balanced_dataset=False, x_scale='linear', seed=55, threads=1):
+                 dataset_readable_name=None, balanced_dataset=False, x_scale='linear', seed=42, threads=1):
     logger.info("Building iteration learning curve for params {} ({} threads)".format(params, threads))
 
     if clf_type is None or dataset is None:
@@ -182,10 +188,11 @@ def iteration_lc(clf, training_x, training_y, test_x, test_y, params, clf_type=N
     for value in list(params.values())[0]:
         d['param_{}'.format(name)].append(value)
         clf.set_params(**{name: value})
+        np.random.seed(42)
         clf.fit(training_x, training_y)
         pred = clf.predict(training_x)
         d['train acc'].append(acc_method(training_y, pred))
-        clf.fit(training_x, training_y)
+        #clf.fit(training_x, training_y)
         pred = clf.predict(test_x)
         d['test acc'].append(acc_method(test_y, pred))
         logger.info(' - {}'.format(value))
@@ -194,7 +201,8 @@ def iteration_lc(clf, training_x, training_y, test_x, test_y, params, clf_type=N
     plt = plot_learning_curve('{} - {} ({})'.format(clf_type, dataset_readable_name, name),
                               d['param_{}'.format(name)], d['train acc'], d['test acc'],
                               multiple_runs=False, x_scale=x_scale,
-                              x_label='variable: {}'.format(name))
+                              x_label='variable: {}'.format(name),
+                              test_label = 'Test Score')
     plt.savefig('{}/images/{}_{}_ITER_LC.png'.format(OUTPUT_DIRECTORY, clf_type, dataset), format='png', dpi=150)
 
     logger.info(" - Iteration learning curve complete")
@@ -211,11 +219,22 @@ def add_noise(y, frac=0.1):
     tmp[ind] = 1 - tmp[ind]
     return tmp
 
-def make_plot_roc_curve(clf,clf_name, x, y, params, dataset, dataset_readable_name):
-    title = f'Receiver Operating Characteristic Curver {clf_name} - {dataset_readable_name}'
-    plt = plot_roc_curve(clf, x, y, params, title)
-    plt.savefig('{}/images/{}_{}_ROC-Curve.png'.format(OUTPUT_DIRECTORY, clf_name, dataset), format='png', dpi=150)
+def make_plot_roc_curve(clf,clf_name, Xtrain, Xtest, ytrain, ytest, params, dataset, dataset_readable_name):
+    title = f'Receiver Operating Characteristic Curve\nTest Set Only\n{clf_name} - {dataset_readable_name}'
+    plt, roc_auc, fpr, tpr = plot_roc_curve_test(clf, Xtrain, Xtest, ytrain, ytest, params, title)
+    plt.savefig('{}/images/{}_{}_ROC-Curve-t.png'.format(OUTPUT_DIRECTORY, clf_name, dataset), format='png', dpi=150)
+    with open('{}/test results.csv'.format(OUTPUT_DIRECTORY), 'a') as f:
+        ts = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S.%s')
+        f.write('"{}",{},{},{},"{}"\n'.format(ts, clf_name, dataset, "ROC AUC:", roc_auc))
 
+
+    out = pd.DataFrame()
+    out['fpr'] = fpr
+    out['tpr'] = tpr
+    out['exp'] = dataset
+    out['clf'] = clf_name
+    out['roc_auc'] = roc_auc
+    out.to_csv('{}/{}_{}_ROC.csv'.format(OUTPUT_DIRECTORY, clf_name, dataset))
 
 def make_timing_curve(x, y, clf, clf_name, dataset, dataset_readable_name, verbose=False, seed=42):
     logger.info("Building timing curve")
@@ -229,7 +248,7 @@ def make_timing_curve(x, y, clf, clf_name, dataset, dataset_readable_name, verbo
     for i, frac in enumerate(sizes):
         for j in range(tests):
             np.random.seed(seed)
-            x_train, x_test, y_train, y_test = ms.train_test_split(x, y, test_size=1 - frac, random_state=seed)
+            x_train, x_test, y_train, y_test = ms.train_test_split(x, y, test_size=1 - frac, random_state=seed, stratify=y)
             st = clock()
             clf.fit(x_train, y_train)
             out['train'][i, j] = (clock() - st)
@@ -285,6 +304,8 @@ def perform_experiment(ds, ds_name, ds_readable_name, clf, clf_name, clf_label, 
     warnings.simplefilter("ignore", DeprecationWarning)
 
     logger.info("Experimenting on {} with classifier {}.".format(ds_name, clf))
+    if seed is not None:
+        np.random.seed(seed)
 
     ds_training_x, ds_testing_x, ds_training_y, ds_testing_y = ms.train_test_split(
         ds.features,
@@ -322,7 +343,8 @@ def perform_experiment(ds, ds_name, ds_readable_name, clf, clf_name, clf_label, 
                 param_display_name = complexity_param['display_name']
             if 'x_scale' in complexity_param:
                 x_scale = complexity_param['x_scale']
-            make_complexity_curve(ds.features, ds.classes, complexity_param['name'], param_display_name,
+            
+            make_complexity_curve(ds_training_x, ds_training_y, complexity_param['name'], param_display_name,
                                   complexity_param['values'], pipe,
                                   clf_name, ds_name, ds_readable_name, x_scale,
                                   balanced_dataset=ds.balanced,
@@ -332,7 +354,9 @@ def perform_experiment(ds, ds_name, ds_readable_name, clf, clf_name, clf_label, 
             pipe.set_params(**timing_params)
         make_timing_curve(ds.features, ds.classes, pipe, clf_name, ds_name, ds_readable_name,
                           seed=seed, verbose=verbose)
+        make_plot_roc_curve(pipe, clf_name, ds_training_x, ds_testing_x, ds_training_y, ds_testing_y, ds_final_params, ds_name, ds_readable_name)
 
+    # Iteraction details, best params not set...
     if iteration_details is not None:
         x_scale = 'linear'
         if 'pipe_params' in iteration_details:
@@ -347,6 +371,5 @@ def perform_experiment(ds, ds_name, ds_readable_name, clf, clf_name, clf_label, 
     if apply_pruning == True:
         ds_clf = alpha_results(pipe, np.unique(ds.classes), ds_training_x, ds_training_y, ds_testing_x, ds_testing_y, ds_final_params, clf_name, ds_name, ds_readable_name, balanced_dataset=ds.balanced, best_params=ds_final_params, threads=threads, seed=seed)
 
-    make_plot_roc_curve(pipe, clf_name, ds.features, ds.classes, ds_final_params, ds_name, ds_readable_name)
     # Return the best params found, if we have any
     return ds_final_params

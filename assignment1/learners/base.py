@@ -62,6 +62,17 @@ class BaseLearner(ABC, BaseEstimator, ClassifierMixin):
 
         return self.learner().predict(data)
 
+    def predict_proba(self, data):
+        """
+        Have the learner predict the probability of class label equal 1
+        :param data:  multidimensional dumpy array of test data
+        :return: Thee predicted classes for the test data
+        """
+        if self.learner() is None:
+            return None
+        return self.learner().predict_proba(data)
+
+
     def log(self, msg, *args):
         """
         If the learner has verbose set to true, log the message with the given parameters using string.format

@@ -54,3 +54,6 @@ class ANNLearner(learners.BaseLearner):
 
     def learner(self):
         return self._learner
+
+    def predict_proba(self, X):
+        return self._learner.predict_proba(X)
