@@ -34,7 +34,7 @@ if __name__ == '__main__':
     verbose = args.verbose
     threads = args.threads
 
-    seed = args.seed
+    seed = 42
     if seed is None:
         seed = np.random.randint(0, (2 ** 32) - 1)
         logger.info("Using seed {}".format(seed))
@@ -55,16 +55,16 @@ if __name__ == '__main__':
         #     'name': 'htru2',
         #     'readable_name': 'HTRU2',
         # },
-        {
-            'data': loader.CreditApprovalData(verbose=verbose, seed=seed),
-            'name': 'credit_approval',
-            'readable_name': 'Credit Approval',
-        },
-        {
-            'data': loader.PenDigitData(verbose=verbose, seed=seed),
-            'name': 'pen_digits',
-            'readable_name': 'Handwritten Digits',
-        }
+        #{
+        #    'data': loader.CreditApprovalData(verbose=verbose, seed=seed),
+        #    'name': 'credit_approval',
+        #    'readable_name': 'Credit Approval',
+        #},
+        #{
+        #    'data': loader.PenDigitData(verbose=verbose, seed=seed),
+        #    'name': 'pen_digits',
+        #    'readable_name': 'Handwritten Digits',
+        #}
         # {
         #     'data': loader.SpamData(verbose=verbose, seed=seed),
         #     'name': 'spam',
@@ -76,8 +76,22 @@ if __name__ == '__main__':
         #     'readable_name': 'Credit Default',
         # }
     ]
+    enhancer_brain = {
+       'data': loader.EnhancerBrain(verbose=verbose, seed=seed),
+       'name': 'enhancer-b',
+       'readable_name': 'Genomic Enhancer (Brain)',
+    }
+
+    wine_quality_uniq_details = {
+        'data': loader.WineQualityUniq(verbose=verbose, seed=seed),
+        'name': 'wine-qual',
+        'readable_name': 'Wine Data (Quality)',
+    }
+    datasets = [enhancer_brain, wine_quality_uniq_details]
 
     experiment_details = []
+    seed = 42
+    print('here')
     for ds in datasets:
         data = ds['data']
         data.load_and_process()
