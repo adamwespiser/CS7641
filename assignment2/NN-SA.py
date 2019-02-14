@@ -43,7 +43,7 @@ def main(CE):
     nnop = NeuralNetworkOptimizationProblem(data_set, classification_network, measure)
     oa = SimulatedAnnealing(1E10, CE, nnop)
     train(oa, classification_network, oa_name, training_ints, validation_ints, testing_ints, measure,
-          TRAINING_ITERATIONS, OUTFILE.format(oa_name))
+          TRAINING_ITERATIONS_SA, OUTFILE.format(oa_name))
 
 
 if __name__ == "__main__":

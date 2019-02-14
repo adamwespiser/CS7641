@@ -40,7 +40,7 @@ def main(P, mate, mutate):
     nnop = NeuralNetworkOptimizationProblem(data_set, classification_network, measure)
     oa = StandardGeneticAlgorithm(P, mate, mutate, nnop)
     train(oa, classification_network, oa_name, training_ints, validation_ints, testing_ints, measure,
-          TRAINING_ITERATIONS, OUTFILE.format(oa_name))
+          TRAINING_ITERATIONS_GA, OUTFILE.format(oa_name))
 
 
 if __name__ == "__main__":

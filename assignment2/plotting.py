@@ -12,14 +12,15 @@ from os.path import basename
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+from prefs import *
 
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
-input_path = 'output/'
-output_path = 'output/images/'
+input_path = OUTPUT_DIRECTORY + '/'
+output_path = input_path + '/images/'
 to_process = {
     'FLIPFLOP': {
         'path': 'FLIPFLOP',
@@ -247,7 +248,7 @@ def plot_ga_data(problem_name, ga_files, output_dir, nn_curve=False):
             if nn_curve:
                 # For the NN problem convergence happens relatively early (except for SA)
                 main_df[mate] = reduce(lambda x, y: pd.merge(x, y, on='iterations'), main_df[mate])
-                main_df[mate] = main_df[mate][main_df[mate].index <= 500]
+                main_df[mate] = main_df[mate][main_df[mate].index <= GA_CUTOFF]
                 p = plot_data('{} - GA {} {}: {} vs Iterations'.format(problem_name, pop, mate,
                                                                        y_label), main_df[mate],
                               sorted(ga_files[pop][mate].keys()),
@@ -301,6 +302,8 @@ def plot_sa_data(problem_name, sa_files, output_dir, nn_curve=False):
     if nn_curve:
         main_df = list(map(lambda x: x[0], list(main_df.values())))
         main_df = reduce(lambda x, y: pd.merge(x, y, on='iterations'), main_df)
+        main_df = main_df.head(int(SA_CUTOFF/10))
+        print(main_df)
         p = plot_data('{} - SA: {} vs Iterations'.format(problem_name, y_label), main_df,
                       sorted(sa_files.keys()),
                       legend_name='CE', nn_curve=nn_curve,
@@ -348,7 +351,7 @@ def plot_rhc_data(problem_name, rhc_files, output_dir, nn_curve=False):
 
     if nn_curve:
         # For the NN problem convergence happens relatively early (except for SA)
-        main_df = main_df[main_df.index <= 500]
+        main_df = main_df[main_df.index <= RHC_CUTOFF]
         p = plot_data('{} - RHC: {} vs Iterations'.format(problem_name, y_label), main_df,
                       None, nn_curve=nn_curve,
                       y_label=y_label)
@@ -452,7 +455,7 @@ def plot_best_curves(problem_name, files, output_dir, nn_curve=False):
         main_df = [list(k.values())[0] for k in main_df]
         main_df = reduce(lambda x, y: pd.merge(x, y, on='iterations'), main_df)
         # For the NN problem convergence happens relatively early (except for SA)
-        main_df = main_df[main_df.index <= 500]
+        main_df = main_df[main_df.index <= BEST_FIT_CUTOFF]
     else:
         p = plot_data('{} - Best: {} vs Iterations'.format(problem_name, 'Function Evals'), main_df['fevals'],
                       prefixes, nn_curve=nn_curve, validate_only=nn_curve,

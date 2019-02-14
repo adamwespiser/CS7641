@@ -36,7 +36,7 @@ def main():
     nnop = NeuralNetworkOptimizationProblem(data_set, classification_network, measure)
     oa = RandomizedHillClimbing(nnop)
     train(oa, classification_network, 'RHC', training_ints, validation_ints, testing_ints, measure,
-          TRAINING_ITERATIONS, OUTFILE.format('RHC'))
+          TRAINING_ITERATIONS_RHC, OUTFILE.format('RHC'))
 
 
 if __name__ == "__main__":
