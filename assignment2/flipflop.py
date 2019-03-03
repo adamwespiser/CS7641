@@ -31,9 +31,22 @@ Commandline parameter(s):
    none
 """
 
-N = 1000
-maxIters = 3001
+N = 200
+maxIters = 50001
+step_size = 5000
 numTrials = 5
+ce_trials = [0.15, 0.35, 0.55, 0.75, 0.95]
+pop_set = [100]
+mutate_set = [50, 30, 10]
+mate_set = [50, 30, 10]
+
+shorten = False
+if shorten:
+    ce_trials = [0.15]
+    mutate_set = [50]
+    mate_set = [50]
+
+
 fill = [2] * N
 ranges = array('i', fill)
 outfile = OUTPUT_DIRECTORY + '/FLIPFLOP/FLIPFLOP_{}_{}_LOG.csv'
@@ -59,7 +72,7 @@ for t in range(numTrials):
     rhc = RandomizedHillClimbing(hcp)
     fit = FixedIterationTrainer(rhc, 10)
     times = [0]
-    for i in range(0, maxIters, 10):
+    for i in range(0, maxIters, step_size):
         start = clock()
         fit.train()
         elapsed = time.clock() - start
@@ -74,7 +87,7 @@ for t in range(numTrials):
 
 # SA
 for t in range(numTrials):
-    for CE in [0.15, 0.35, 0.55, 0.75, 0.95]:
+    for CE in ce_trials:
         fname = outfile.format('SA{}'.format(CE), str(t + 1))
         with open(fname, 'w') as f:
             f.write('iterations,fitness,time,fevals\n')
@@ -85,7 +98,7 @@ for t in range(numTrials):
         sa = SimulatedAnnealing(1E10, CE, hcp)
         fit = FixedIterationTrainer(sa, 10)
         times = [0]
-        for i in range(0, maxIters, 10):
+        for i in range(0, maxIters, step_size):
             start = clock()
             fit.train()
             elapsed = time.clock() - start
@@ -99,8 +112,9 @@ for t in range(numTrials):
                 f.write(st)
 
 # GA
+
 for t in range(numTrials):
-    for pop, mate, mutate in product([100], [50, 30, 10], [50, 30, 10]):
+    for pop, mate, mutate in product(pop_set, mutate_set, mate_set):
         fname = outfile.format('GA{}_{}_{}'.format(pop, mate, mutate), str(t + 1))
         with open(fname, 'w') as f:
             f.write('iterations,fitness,time,fevals\n')
@@ -113,7 +127,7 @@ for t in range(numTrials):
         ga = StandardGeneticAlgorithm(pop, mate, mutate, gap)
         fit = FixedIterationTrainer(ga, 10)
         times = [0]
-        for i in range(0, maxIters, 10):
+        for i in range(0, maxIters, step_size):
             start = clock()
             fit.train()
             elapsed = time.clock() - start
@@ -143,7 +157,7 @@ for t in range(numTrials):
         mimic = MIMIC(samples, keep, pop)
         fit = FixedIterationTrainer(mimic, 10)
         times = [0]
-        for i in range(0, maxIters, 10):
+        for i in range(0, maxIters, step_size):
             start = clock()
             fit.train()
             elapsed = time.clock() - start

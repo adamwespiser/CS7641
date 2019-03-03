@@ -1,6 +1,10 @@
 #!/bin/sh
-jython NN-Backprop.py 
-jython NN-GA.py
-jython NN-RHC.py
-jython NN-SA.py
+export jexec=/home/adam/jython2.7.0/bin/jython 
+#$jexec NN-Backprop.py
+#$jexec NN-GA.py
+#$jexec NN-RHC.py
+#$jexec NN-SA.py
+$jexec continuouspeaks.py
+$jexec flipflop.py
+$jexec tsp.py
 

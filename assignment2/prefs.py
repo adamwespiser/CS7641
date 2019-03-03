@@ -2,6 +2,9 @@
 TRAIN_DATA_FILE = './data/WineQualityData_train.csv'
 TEST_DATA_FILE = './data/WineQualityData_test.csv'
 VALIDATE_DATA_FILE = './data/WineQualityData_validate.csv'
+DS_NAME = 'WineQualityData'
+OUTPUT_DIRECTORY = "output-flipflop-lower-n"
+
 
 
 INPUT_LAYER = 12
@@ -11,8 +14,7 @@ OUTPUT_LAYER = 1
 TRAINING_ITERATIONS_RHC = 1500
 TRAINING_ITERATIONS_GA = 1500
 TRAINING_ITERATIONS_SA = 1500
-TRAINING_ITERATIONS = 1000
-OUTPUT_DIRECTORY = "output"
+TRAINING_ITERATIONS = 1500
 
 
 # Plotting

@@ -31,10 +31,14 @@ Commandline parameter(s):
    none
 """
 
-N = 100
-T = 29
-maxIters = 5001
-numTrials = 5
+N = 50
+N = 150
+T = 10
+T = 49
+
+maxIters = 5000
+step_size = 100
+numTrials = 20
 fill = [2] * N
 ranges = array('i', fill)
 outfile = OUTPUT_DIRECTORY + '/CONTPEAKS/CONTPEAKS_{}_{}_LOG.csv'
@@ -60,7 +64,7 @@ for t in range(numTrials):
     rhc = RandomizedHillClimbing(hcp)
     fit = FixedIterationTrainer(rhc, 10)
     times = [0]
-    for i in range(0, maxIters, 10):
+    for i in range(0, maxIters, step_size):
         start = clock()
         fit.train()
         elapsed = time.clock() - start
@@ -86,7 +90,7 @@ for t in range(numTrials):
         sa = SimulatedAnnealing(1E10, CE, hcp)
         fit = FixedIterationTrainer(sa, 10)
         times = [0]
-        for i in range(0, maxIters, 10):
+        for i in range(0, maxIters, step_size):
             start = clock()
             fit.train()
             elapsed = time.clock() - start
@@ -114,7 +118,7 @@ for t in range(numTrials):
         ga = StandardGeneticAlgorithm(pop, mate, mutate, gap)
         fit = FixedIterationTrainer(ga, 10)
         times = [0]
-        for i in range(0, maxIters, 10):
+        for i in range(0, maxIters, step_size):
             start = clock()
             fit.train()
             elapsed = time.clock() - start
@@ -144,7 +148,7 @@ for t in range(numTrials):
         mimic = MIMIC(samples, keep, pop)
         fit = FixedIterationTrainer(mimic, 10)
         times = [0]
-        for i in range(0, maxIters, 10):
+        for i in range(0, maxIters, step_size):
             start = clock()
             fit.train()
             elapsed = time.clock() - start

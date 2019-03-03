@@ -5,18 +5,19 @@ import time
 import random as rand
 from shared import Instance
 from java.lang import Math
+from prefs import *
 
 __all__ = ['DS_NAME', 'TEST_DATA_FILE', 'TRAIN_DATA_FILE', 'VALIDATE_DATA_FILE', 'OUTPUT_DIRECTORY',
            'initialize_instances', 'error_on_data_set', 'train']
 
-DS_NAME = 'WineQualityData'
+#DS_NAME = 'WineQualityData'
 
-TEST_DATA_FILE = 'data/{}_test.csv'.format(DS_NAME)
-TRAIN_DATA_FILE = 'data/{}_train.csv'.format(DS_NAME)
-VALIDATE_DATA_FILE = 'data/{}_validate.csv'.format(DS_NAME)
+#TEST_DATA_FILE = 'data/{}_test.csv'.format(DS_NAME)
+#TRAIN_DATA_FILE = 'data/{}_train.csv'.format(DS_NAME)
+#VALIDATE_DATA_FILE = 'data/{}_validate.csv'.format(DS_NAME)
 
 # TODO: Move this to a common lib?
-OUTPUT_DIRECTORY = './output'
+#OUTPUT_DIRECTORY = './output'
 
 if not os.path.exists(OUTPUT_DIRECTORY):
     os.makedirs(OUTPUT_DIRECTORY)

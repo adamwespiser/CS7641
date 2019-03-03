@@ -31,7 +31,7 @@ from base import *
 # set N value.  This is the number of points
 N = 100
 random = Random()
-maxIters = 3001
+maxIters = 6001
 numTrials = 5
 
 points = [[0 for x in xrange(2)] for x in xrange(N)]

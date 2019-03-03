@@ -43,6 +43,11 @@ to_process = {
         'multiple_trials': False
     }
 }
+exp_key = ['FLIPFLOP', 'TSP', 'CONTPEAKS', 'NN'][0]
+
+to_process = {exp_key : to_process[exp_key]}
+
+
 
 the_best = {}
 
@@ -51,7 +56,7 @@ the_best = {}
 
 def plot_data(title, data, column_prefixes=None, validate_only=False, nn_curve=False, clear_existing=True,
               ylim=None, x_scale='linear', y_scale='linear', legend_name=None,
-              x_label='Iterations (count)', y_label='Fitness'):
+              x_label='Iterations (count)', y_label='Fitness',data_fill=False):
 
     if clear_existing:
         plt.close()
@@ -79,8 +84,10 @@ def plot_data(title, data, column_prefixes=None, validate_only=False, nn_curve=F
                 mean = data['{}_mean'.format(column_prefix)]
                 std = data['{}_std'.format(column_prefix)]
 
-                plt.fill_between(data.index, mean - std,
-                                 mean + std, alpha=0.2)
+                if data_fill:
+                    plt.fill_between(data.index, mean - std,
+                                    mean + std, alpha=0.2)
+
                 plt.plot(data.index, mean, '-', linewidth=1, markersize=1,
                          label=column_prefix)
             else:
@@ -120,10 +127,14 @@ def read_data_file(file, nn_curve=False):
     df = pd.read_csv(file)
     if 'iterations' not in df.columns:
         df = df.rename(columns={'iteration': 'iterations'})
-
+    #if not nn_curve:
+        #df['iterations'] = df['iterations'].apply(pd.to_numeric)
     df = df.set_index('iterations')
     # Trim the nn graphs to the first 1k iterations, as after that the graphs flatten out
     if nn_curve:
+        #print(df.columns)
+        #print(pd.to_numeric(df.index))
+
         df = df[df.index <= 2000]
 
     return df
@@ -140,6 +151,7 @@ def read_data_files(files, nn_curve=False, best_only=False):
         else:
             for f in files:
                 file = files[f]
+                print(file)
                 dfs[f] = read_data_file(file, nn_curve)
 
     return dfs
@@ -202,7 +214,8 @@ def plot_mimic_data(problem_name, mimic_files, output_dir, nn_curve=False):
                                                                               y.capitalize()), main_df[y],
                                   sorted(mimic_files[samples][keep].keys()),
                                   legend_name='M', nn_curve=nn_curve,
-                                  y_label=y.capitalize())
+                                  y_label=y.capitalize(),
+                                  data_fill=True)
 
                     p.savefig(
                         '{}/{}/MIMIC_{}_{}_{}.png'.format(output_dir, problem_name, samples, keep, y.capitalize()),
@@ -307,7 +320,7 @@ def plot_sa_data(problem_name, sa_files, output_dir, nn_curve=False):
         p = plot_data('{} - SA: {} vs Iterations'.format(problem_name, y_label), main_df,
                       sorted(sa_files.keys()),
                       legend_name='CE', nn_curve=nn_curve,
-                      y_label=y_label)
+                      y_label=y_label,data_fill=True)
 
         p.savefig(
             '{}/{}/SA_{}.png'.format(output_dir, problem_name, 'Accuracy'),
@@ -317,7 +330,8 @@ def plot_sa_data(problem_name, sa_files, output_dir, nn_curve=False):
             p = plot_data('{} - SA: {} vs Iterations'.format(problem_name, y.capitalize()), main_df[y],
                           sorted(sa_files.keys()),
                           legend_name='CE', nn_curve=nn_curve,
-                          y_label=y.capitalize())
+                          y_label=y.capitalize(),
+                          data_fill=True)
 
             p.savefig(
                 '{}/{}/SA_{}.png'.format(output_dir, problem_name, y.capitalize()),
@@ -455,7 +469,7 @@ def plot_best_curves(problem_name, files, output_dir, nn_curve=False):
         main_df = [list(k.values())[0] for k in main_df]
         main_df = reduce(lambda x, y: pd.merge(x, y, on='iterations'), main_df)
         # For the NN problem convergence happens relatively early (except for SA)
-        main_df = main_df[main_df.index <= BEST_FIT_CUTOFF]
+        #main_df = main_df[main_df.index <= BEST_FIT_CUTOFF]
     else:
         p = plot_data('{} - Best: {} vs Iterations'.format(problem_name, 'Function Evals'), main_df['fevals'],
                       prefixes, nn_curve=nn_curve, validate_only=nn_curve,
@@ -467,7 +481,7 @@ def plot_best_curves(problem_name, files, output_dir, nn_curve=False):
 
     p = plot_data('{} - Best: {} vs Iterations'.format(problem_name, y_label), main_df,
                   prefixes, nn_curve=nn_curve, validate_only=nn_curve,
-                  y_label=y_label)
+                  y_label=y_label,data_fill = True)
     p.savefig(
         '{}/{}/Best_{}.png'.format(output_dir, problem_name, 'Fitness'),
         format='png', dpi=150)
