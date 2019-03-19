@@ -9,6 +9,7 @@ import numpy as np
 import pandas as pd
 
 import matplotlib as mpl
+mpl.use('Agg')
 import matplotlib.axes as maxes
 import matplotlib.pyplot as plt
 
@@ -110,9 +111,9 @@ algos = {
     }
 }
 
-WATERMARK = False
-GATECH_USERNAME = 'DO NOT STEAL'
-TERM = 'Fall 2018'
+WATERMARK = True
+GATECH_USERNAME = 'awespiser3'
+TERM = 'Spring 19'
 
 
 def watermark(p):
@@ -122,7 +123,7 @@ def watermark(p):
     ax = plt.gca()
     for i in range(1, 11):
         p.text(0.95, 0.95 - (i * (1.0/10)), '{} {}'.format(GATECH_USERNAME, TERM), transform=ax.transAxes,
-               fontsize=32, color='gray',
+               fontsize=32, color='lightgray',
                ha='right', va='bottom', alpha=0.2)
     return p
 
