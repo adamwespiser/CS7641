@@ -32,6 +32,10 @@ class PolicyIterationExperiment(BaseExperiment):
             f.write("params,time,steps,reward_mean,reward_median,reward_min,reward_max,reward_std\n")
 
         discount_factors = np.round(np.linspace(0, 0.9, num=10), 2)
+        if self._details.large_space:
+            discount_factors = np.append(np.round(np.linspace(0,0.8,num=4),2),np.round(np.linspace(0.9,0.99
+,num=8),3))
+
         dims = len(discount_factors)
         self.log("Searching PI in {} dimensions".format(dims))
 

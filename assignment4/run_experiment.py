@@ -49,7 +49,7 @@ if __name__ == '__main__':
     logger.info("Creating MDPs")
     logger.info("----------")
 
-    envs = [
+    _envs = [
         {
             # This is not really a rewarding frozen lake env, but the custom class has extra functionality
             'env': environments.get_rewarding_no_reward_frozen_lake_environment(),
@@ -67,6 +67,89 @@ if __name__ == '__main__':
             'readable_name': 'Cliff Walking (4x12)',
         }
     ]
+    _envs = [
+        {
+            # This is not really a rewarding frozen lake env, but the custom class has extra functionality
+            'env': environments.get_rewarding_frozen_lake_environment(),
+            'name': 'frozen_lake_8x8',
+            'readable_name': 'Frozen Lake (8x8)',
+        },
+        {
+            'env': environments.get_large_rewarding_frozen_lake_environment(),
+            'name': 'frozen_lake_20x20',
+            'readable_name': 'Frozen Lake (20x20)',
+        },
+        {
+            'env': environments.get_windy_cliff_walking_environment(),
+            'name': 'cliff_walking',
+            'readable_name': 'Cliff Walking (4x12)',
+        }
+    ]
+    _envs = [
+        {
+            # This is not really a rewarding frozen lake env, but the custom class has extra functionality
+            'env': environments.get_rewarding_frozen_lake_environment(),
+            'name': 'frozen_lake_8x8_v1',
+            'readable_name': 'Frozen Lake (8x8)',
+        },
+        {
+            'env': environments.get_large_rewarding_frozen_lake_environment(),
+            'name': 'frozen_lake_20x20_v1',
+            'readable_name': 'Frozen Lake (20x20)',
+        },
+        {
+            'env': environments.get_windy_cliff_walking_environment(),
+            'name': 'cliff_walking',
+            'readable_name': 'Cliff Walking (4x12)',
+        }
+    ]
+    _envs = [
+        {
+            'env': environments.get_large_flake_env(),
+            'name': 'frozen_lake_20x20_v2',
+            'readable_name': 'Frozen Lake (20x20)',
+        },
+        {
+            'env': environments.get_flake_env(),
+            'name': 'frozen_lake_8x8_v2',
+            'readable_name': 'Frozen Lake (8x8)',
+        },
+    ]
+    envs = [
+        {
+            'env': environments.get_large_flake_env_v3(),
+            'name': 'frozen_lake_20x20_v3',
+            'readable_name': 'Frozen Lake (20x20)',
+        },
+        {
+            'env': environments.get_flake_env_v3(),
+            'name': 'frozen_lake_8x8_v3',
+            'readable_name': 'Frozen Lake (8x8)',
+        },
+    ]
+    _envs = [
+        {
+            # 5000 episodes
+            'env': environments.get_large_flake_env_v4(),
+            'name': 'frozen_lake_20x20_v4',
+            'readable_name': 'Frozen Lake (20x20)',
+        }]
+    envs = [
+        {
+            'env': environments.get_windy_cliff_walking_environment(),
+            'name': 'cliff_walking',
+            'readable_name': 'Cliff Walking (4x12)',
+        }
+    ]
+    envs = [
+        {
+            # 5000 episodes
+            'env': environments.get_large_flake_env_v4(),
+            'name': 'frozen_lake_20x20_v4',
+            'readable_name': 'Frozen Lake (20x20)',
+            'large_space' : True
+        },
+        ]
 
     experiment_details = []
     for env in envs:
@@ -76,7 +159,8 @@ if __name__ == '__main__':
         experiment_details.append(experiments.ExperimentDetails(
             env['env'], env['name'], env['readable_name'],
             threads=threads,
-            seed=seed
+            seed=seed,
+            large_space = env['large_space']
         ))
 
     if verbose:

@@ -23,8 +23,7 @@ if not os.path.exists(OUTPUT_DIRECTORY):
 if not os.path.exists('{}/images'.format(OUTPUT_DIRECTORY)):
     os.makedirs('{}/images'.format(OUTPUT_DIRECTORY))
 
-MAX_STEP_COUNT = 1000
-
+MAX_STEP_COUNT = 2000
 
 class EvaluationStats(object):
     def __init__(self):
@@ -177,13 +176,14 @@ class ExperimentStats(object):
 
 
 class ExperimentDetails(object):
-    def __init__(self, env, env_name, env_readable_name, threads, seed):
+    def __init__(self, env, env_name, env_readable_name, threads, seed, large_space):
         self.env = env
         self.env_name = env_name
         self.env_readable_name = env_readable_name
         self.threads = threads
         self.seed = seed
-
+        self.large_space = large_space
+        
 
 class BaseExperiment(ABC):
     def __init__(self, details, verbose=False):
@@ -228,7 +228,7 @@ class BaseExperiment(ABC):
         stats.optimal_policy = stats.policies[-1]  # optimal_policy
         return stats
 
-    def run_policy_and_collect(self, solver, policy, times=100):
+    def run_policy_and_collect(self, solver, policy, times=2000):
         stats = EvaluationStats()
         for i in range(times):
             # stats.add(np.sum(solver.run_policy(policy)))

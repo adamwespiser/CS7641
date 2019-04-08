@@ -223,7 +223,7 @@ def plot_reward_and_delta_vs_steps(title, df, xlabel="Steps", ylabel="Reward"):
     lns1 = ax.plot(df.index.values, df['reward'], linewidth=1, label=ylabel)
 
     ex_ax = ax.twinx()
-    lns2 = ex_ax.plot(df.index.values, df['delta'], linewidth=1, label='Delta')
+    lns2 = ex_ax.plot(df.index.values, df['delta'], linewidth=1, label='Delta', color = 'red')
     ex_ax.set_ylabel('Delta')
     ex_ax.tick_params('y')
 
@@ -286,12 +286,15 @@ def process_params(problem_name, params):
 
 def find_optimal_params(problem_name, base_dir, file_regex):
     grid_files = glob.glob('{}/*_grid*.csv'.format(base_dir))
+    
+    print("Grid files {}".format(grid_files))
     logger.info("Grid files {}".format(grid_files))
     best_params = {}
     for f in grid_files:
         mdp, readable_mdp = fetch_mdp_name(f, file_regex)
         logger.info("MDP: {}, Readable MDP: {}".format(mdp, readable_mdp))
         df = pd.read_csv(f)
+        print(df)
         best = df.copy()
         # Attempt to find the best params. First look at the reward mean, then median, then max. If at any point we
         # have more than one result as "best", try the next criterion
@@ -305,6 +308,7 @@ def find_optimal_params(problem_name, base_dir, file_regex):
         if best.shape[0] > 1:
             best = best.iloc[-1:]
 
+        print(best)
         params = best.iloc[-1]['params']
         params = json.loads(params)
         best_index = best.iloc[-1].name
@@ -486,6 +490,7 @@ def plot_results(envs):
         problem_path = '{}/{}'.format(INPUT_PATH, problem['path'])
         problem_image_path = '{}/images/{}'.format(INPUT_PATH, problem['path'])
 
+        print('problem_path' + problem_path)
         best_params[problem_name] = find_optimal_params(problem_name, problem_path, problem['file_regex'])
         best_images[problem_name] = find_policy_images(problem_image_path, best_params[problem_name])
         data_files[problem_name] = find_data_files(problem_path, best_params[problem_name])

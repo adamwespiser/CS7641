@@ -31,7 +31,10 @@ class ValueIterationExperiment(BaseExperiment):
         with open(grid_file_name, 'w') as f:
             f.write("params,time,steps,reward_mean,reward_median,reward_min,reward_max,reward_std\n")
 
-        discount_factors = np.round(np.linspace(0, 0.9, num=10), 2)
+        discount_factors = np.round(np.linspace(0, 0.99, num=11), 2)
+        if self._details.large_space:
+            discount_factors = np.append(np.round(np.linspace(0,0.8,num=4),2),np.round(np.linspace(0.9,0.99
+,num=8),3))
         dims = len(discount_factors)
         self.log("Searching VI in {} dimensions".format(dims))
 
@@ -42,6 +45,7 @@ class ValueIterationExperiment(BaseExperiment):
 
             v = solvers.ValueIterationSolver(self._details.env, discount_factor=discount_factor)
 
+            ##
             stats = self.run_solver_and_collect(v, self.convergence_check_fn)
 
             self.log("Took {} steps".format(len(stats.steps)))

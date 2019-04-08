@@ -19,10 +19,12 @@ import experiments
 
 
 def pairwise_dist_corr(x1, x2):
+# make sure shapes are the same
     assert x1.shape[0] == x2.shape[0]
-
+# get pairwise distances
     d1 = pairwise_distances(x1)
     d2 = pairwise_distances(x2)
+# ravel is basically a flatten operation
     return np.corrcoef(d1.ravel(), d2.ravel())[0, 1]
 
 

@@ -326,7 +326,8 @@ def plot_combined(title, df, data_columns, tsne_data=None, extra_data=None, extr
     if extra_data is not None and extra_data_name is not None:
         ex_ax = ax1.twinx()
         ex_ax.plot(extra_data.index.values, extra_data.iloc[:, 0], linewidth=1,
-                   label=extra_data_name)
+                   label=extra_data_name,
+                   color = "red")
         ex_ax.set_ylabel(extra_data_name)
         ex_ax.tick_params('y')
 
@@ -624,18 +625,19 @@ def read_and_plot_combined(problem, clustering_algo, ds_name, ds_readable_name, 
     logger.info("Plotting combined plot for files {} to {} ({})".format(files, output_dir, ds_name))
     title = '{} - {}: {}'.format(ds_readable_name, problem['name'], clustering_algo)
 
-    plot_df = pd.DataFrame()
-    tsne_df = pd.DataFrame()
+    plot_df  = pd.DataFrame()
+    tsne_df  = pd.DataFrame()
     extra_df = pd.DataFrame()
-    extra_name = None
+    extra_name   = None
     data_columns = sorted(files.keys())
     for c in data_columns:
+        print(c)
         df = pd.read_csv(files[c])
         if clustering_algo == 'Kmeans' and c == 'sse':
             df = df.set_index('k')
             extra_df = df
             extra_name = 'SSE'
-        elif clustering_algo == 'GMM' and c == 'BIC':
+        elif clustering_algo == 'GMM' and c == 'adj_mi':
             df = df.set_index('k')
             extra_df = df
             extra_name = 'BIC'
@@ -709,8 +711,10 @@ def read_and_plot_problem(problem_name, problem, output_dir):
             combined_files[ds_name][k] = f
     logger.info("Clustering combined files {}".format(combined_files))
     for k in sorted(combined_files.keys()):
+        print(combined_files[k])
         read_and_plot_combined(problem, 'Kmeans', k, get_ds_readable_name(k), combined_files[k], output_dir)
         read_and_plot_combined(problem, 'GMM', k, get_ds_readable_name(k), combined_files[k], output_dir)
+
 
 
 def plot_results():
