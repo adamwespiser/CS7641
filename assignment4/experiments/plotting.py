@@ -2,6 +2,9 @@ import glob
 import json
 import logging
 import matplotlib.patheffects as path_effects
+import matplotlib as mpl
+mpl.use("Agg")
+
 import numpy as np
 import os
 import pandas as pd

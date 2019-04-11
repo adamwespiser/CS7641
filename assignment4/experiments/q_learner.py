@@ -17,7 +17,7 @@ if not os.path.exists(OUTPUT_DIRECTORY + '/images/Q'):
 
 class QLearnerExperiment(BaseExperiment):
     def __init__(self, details, verbose=False):
-        self.max_episodes = 4000
+        self.max_episodes = 5000
 
         super(QLearnerExperiment, self).__init__(details, verbose)
 
@@ -38,6 +38,10 @@ class QLearnerExperiment(BaseExperiment):
         epsilons = [0.1, 0.3, 0.5]
         epsilon_decays = [0.0001]
         discount_factors = np.round(np.linspace(0, 0.9, num=10), 2)
+        if self._details.large_space:
+            discount_factors = np.append(np.round(np.linspace(0,0.8,num=4),2),np.round(np.linspace(0.9,0.99
+,num=8),3))
+
         dims = len(discount_factors) * len(alphas) * len(q_inits) * len(epsilons) * len(epsilon_decays)
         self.log("Searching Q in {} dimensions".format(dims))
 

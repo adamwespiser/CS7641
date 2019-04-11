@@ -106,7 +106,7 @@ class RewardingFrozenLakeEnv(discrete.DiscreteEnv):
 
     metadata = {'render.modes': ['human', 'ansi']}
 
-    def __init__(self, desc=None, map_name="4x4", rewarding=True, step_reward=-0.1, hole_reward=-1, is_slippery=True, goal_reward = 10, start_reward=-1):
+    def __init__(self, desc=None, map_name="4x4", rewarding=True, step_reward=-0.1, hole_reward=-1, is_slippery=True, goal_reward = 10, start_reward=-1,slippery_coeff=0.33333333333):
         if desc is None and map_name is None:
             raise ValueError('Must provide either desc or map_name')
         elif desc is None:
@@ -321,7 +321,8 @@ class FLakeEnv(discrete.DiscreteEnv):
                                     rew = self.start_reward
                                 elif newletter == b'G':
                                     rew = self.goal_reward
-                            li.append((1.0 / 3.0, newstate, rew, done))
+                            pr_trans = self.slippery_coeff if (a == b) else float( ( 1 - self.slippery_coeff) / 2 )
+                            li.append((pr_trans, newstate, rew, done))
                     else:
                         newrow, newcol = inc(row, col, a)
                         newstate = to_s(newrow, newcol)
@@ -380,4 +381,5 @@ class FLakeEnv(discrete.DiscreteEnv):
                 start_reward=self.start_reward,
                 step_reward=self.step_reward,
                 hole_reward=self.hole_reward,
-                is_slippery=self.is_slippery)
+                is_slippery=self.is_slippery,
+                slippery_coeff=self.slippery_coeff)

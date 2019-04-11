@@ -65,7 +65,7 @@ register(
     entry_point='environments:FLakeEnv',
     kwargs={'map_name': '8x8',
             'step_reward' : -0.01,
-            'hole_reward' : -0.01,
+            'hole_reward' : -0.1,
             'start_reward' : -0.01,
             'goal_reward' : 1
             }
@@ -99,6 +99,60 @@ register(
 def get_large_flake_env_v4():
     return gym.make('FLake20x20-v4')
 
+
+##
+#   V5
+##
+
+def get_large_flake_env_v5():
+    return gym.make('FLake20x20-v5')
+register(
+    id='FLake20x20-v5',
+    entry_point='environments:FLakeEnv',
+    kwargs={'map_name': '20x20b',
+            'step_reward' : -0.01,
+            'hole_reward' : 0.0,
+            'start_reward' : -0.01,
+            'goal_reward' : 10
+            }
+)
+
+def get_flake_env_v5():
+    return gym.make('FLake8x8-v5')
+register(
+    id='FLake8x8-v5',
+    entry_point='environments:FLakeEnv',
+    kwargs={'map_name': '8x8',
+            'step_reward' : -0.01,
+            'hole_reward' : 0.0,
+            'start_reward' : -0.01,
+            'goal_reward' : 1
+            }
+)
+
+##### END V5
+
+#
+# Begin  V6
+# exp with change in pr(s', r, | s, a)
+
+
+register(
+    id='FLake20x20-v6',
+    entry_point='environments:FLakeEnv',
+    kwargs={'map_name': '20x20b',
+            'step_reward' : -0.01,
+            'hole_reward' : -0.1,
+            'start_reward' : -0.01,
+            'goal_reward' : 10
+            'slippery_coeff' : 0.8
+            }
+)
+def get_large_flake_env_v6():
+    return gym.make('FLake20x20-v6')
+#
+# END V6
+#
 
 
 # here

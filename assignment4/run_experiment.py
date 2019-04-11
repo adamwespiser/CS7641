@@ -115,7 +115,7 @@ if __name__ == '__main__':
             'readable_name': 'Frozen Lake (8x8)',
         },
     ]
-    envs = [
+    _envs = [
         {
             'env': environments.get_large_flake_env_v3(),
             'name': 'frozen_lake_20x20_v3',
@@ -134,14 +134,15 @@ if __name__ == '__main__':
             'name': 'frozen_lake_20x20_v4',
             'readable_name': 'Frozen Lake (20x20)',
         }]
-    envs = [
+    _envs = [
         {
             'env': environments.get_windy_cliff_walking_environment(),
             'name': 'cliff_walking',
             'readable_name': 'Cliff Walking (4x12)',
         }
     ]
-    envs = [
+    #### V4
+    _envs = [
         {
             # 5000 episodes
             'env': environments.get_large_flake_env_v4(),
@@ -149,7 +150,46 @@ if __name__ == '__main__':
             'readable_name': 'Frozen Lake (20x20)',
             'large_space' : True
         },
+        {
+            # 5000 episodes
+            'env': environments.get_flake_env_v3(),
+            'name': 'frozen_lake_8x8_v4',
+            'readable_name': 'Frozen Lake (8x8)',
+            'large_space' : False
+        },
+        {
+            'env': environments.get_windy_cliff_walking_environment(),
+            'name': 'cliff_walking',
+            'readable_name': 'Cliff Walking (4x12)',
+            'large_space': False
+        }
         ]
+    # v5, drop 'hole' reward
+    envs = [
+        {
+            # 5000 episodes
+            'env': environments.get_large_flake_env_v5(),
+            'name': 'frozen_lake_20x20_v5',
+            'readable_name': 'Frozen Lake (20x20)',
+            'large_space' : True
+        },
+        {
+            # 5000 episodes
+            'env': environments.get_flake_env_v5(),
+            'name': 'frozen_lake_8x8_v5',
+            'readable_name': 'Frozen Lake (8x8)',
+            'large_space' : False
+        }
+        ]
+   envs = [
+        {
+            # 5000 episodes
+            'env': environments.get_large_flake_env_v6(),
+            'name': 'frozen_lake_20x20_v6',
+            'readable_name': 'Frozen Lake (20x20)',
+            'large_space' : True
+        }]
+
 
     experiment_details = []
     for env in envs:

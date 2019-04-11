@@ -23,7 +23,7 @@ if not os.path.exists(OUTPUT_DIRECTORY):
 if not os.path.exists('{}/images'.format(OUTPUT_DIRECTORY)):
     os.makedirs('{}/images'.format(OUTPUT_DIRECTORY))
 
-MAX_STEP_COUNT = 2000
+MAX_STEP_COUNT = 5000
 
 class EvaluationStats(object):
     def __init__(self):
