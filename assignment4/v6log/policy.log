@@ -1,0 +1,46 @@
+2019-04-11 07:39:29,323 - __main__ - INFO - Creating MDPs
+2019-04-11 07:39:29,323 - __main__ - INFO - ----------
+/home/adam/projects/CS7641/assignment4/.venv/lib/python3.6/site-packages/gym/envs/registration.py:14: PkgResourcesDeprecationWarning: Parameters to load are deprecated.  Call .resolve and .require separately.
+  result = entry_point.load(False)
+2019-04-11 07:39:29,445 - __main__ - INFO - Frozen Lake (20x20): State space: 400, Action space: 4
+2019-04-11 07:39:29,445 - __main__ - INFO - ----------
+2019-04-11 07:39:29,445 - __main__ - INFO - Running experiments
+2019-04-11 07:39:29,445 - __main__ - INFO - Running PI experiment: Frozen Lake (20x20)
+2019-04-11 07:39:29,445 - experiments.base - INFO - Searching PI in 12 dimensions
+2019-04-11 07:39:29,445 - experiments.base - INFO - 1/12 Processing PI with discount factor 0.0
+2019-04-11 07:39:29,477 - experiments.base - INFO - Took 2 steps
+2019-04-11 07:40:16,978 - experiments.base - INFO - reward_mean: -0.01, reward_median: -0.01, reward_std: 0.0, reward_max: -0.01, reward_min: -0.01, runs: 2000
+2019-04-11 07:40:16,986 - experiments.base - INFO - 2/12 Processing PI with discount factor 0.27
+2019-04-11 07:46:29,109 - experiments.base - INFO - Took 5000 steps
+2019-04-11 07:47:46,751 - experiments.base - INFO - reward_mean: -0.01, reward_median: -0.01, reward_std: 0.0, reward_max: -0.01, reward_min: -0.01, runs: 2000
+2019-04-11 07:47:46,766 - experiments.base - INFO - 3/12 Processing PI with discount factor 0.53
+2019-04-11 07:55:57,400 - experiments.base - INFO - Took 5000 steps
+2019-04-11 07:56:39,883 - experiments.base - INFO - reward_mean: -0.009341076375448204, reward_median: -0.01, reward_std: 0.00340295855759279, reward_max: 0.03744075829383886, reward_min: -0.010155172413793103, runs: 2000
+2019-04-11 07:56:39,896 - experiments.base - INFO - 4/12 Processing PI with discount factor 0.8
+2019-04-11 07:56:41,803 - experiments.base - INFO - Took 9 steps
+2019-04-11 07:57:09,621 - experiments.base - INFO - reward_mean: 0.11401319497710262, reward_median: 0.17886792452830189, reward_std: 0.10732648639921909, reward_max: 0.253421052631579, reward_min: -0.017499999999999998, runs: 2000
+2019-04-11 07:57:09,637 - experiments.base - INFO - 5/12 Processing PI with discount factor 0.9
+2019-04-11 07:57:13,363 - experiments.base - INFO - Took 8 steps
+2019-04-11 07:57:41,359 - experiments.base - INFO - reward_mean: -0.004415505283900678, reward_median: -0.01310344827586207, reward_std: 0.04577113159362303, reward_max: 0.253421052631579, reward_min: -0.0325, runs: 2000
+2019-04-11 07:57:41,385 - experiments.base - INFO - 6/12 Processing PI with discount factor 0.913
+2019-04-11 07:57:45,495 - experiments.base - INFO - Took 8 steps
+2019-04-11 07:58:13,352 - experiments.base - INFO - reward_mean: -0.005497163669690649, reward_median: -0.01346153846153846, reward_std: 0.04348486812987919, reward_max: 0.24666666666666665, reward_min: -0.0325, runs: 2000
+2019-04-11 07:58:13,367 - experiments.base - INFO - 7/12 Processing PI with discount factor 0.926
+2019-04-11 07:58:18,055 - experiments.base - INFO - Took 8 steps
+2019-04-11 07:58:46,192 - experiments.base - INFO - reward_mean: -0.007571126424747858, reward_median: -0.01346153846153846, reward_std: 0.0384571190496386, reward_max: 0.253421052631579, reward_min: -0.0325, runs: 2000
+2019-04-11 07:58:46,206 - experiments.base - INFO - 8/12 Processing PI with discount factor 0.939
+2019-04-11 07:58:52,646 - experiments.base - INFO - Took 9 steps
+2019-04-11 07:59:20,037 - experiments.base - INFO - reward_mean: -0.008575682361990633, reward_median: -0.014090909090909093, reward_std: 0.03813328143329816, reward_max: 0.253421052631579, reward_min: -0.0325, runs: 2000
+2019-04-11 07:59:20,051 - experiments.base - INFO - 9/12 Processing PI with discount factor 0.951
+2019-04-11 07:59:27,173 - experiments.base - INFO - Took 8 steps
+2019-04-11 07:59:54,810 - experiments.base - INFO - reward_mean: -0.010352965504809715, reward_median: -0.014285714285714287, reward_std: 0.03285554745757101, reward_max: 0.253421052631579, reward_min: -0.0325, runs: 2000
+2019-04-11 07:59:54,825 - experiments.base - INFO - 10/12 Processing PI with discount factor 0.964
+2019-04-11 08:00:03,319 - experiments.base - INFO - Took 7 steps
+2019-04-11 08:00:31,629 - experiments.base - INFO - reward_mean: -0.010741483687946992, reward_median: -0.014500000000000002, reward_std: 0.0317923083044489, reward_max: 0.23414634146341462, reward_min: -0.0325, runs: 2000
+2019-04-11 08:00:31,645 - experiments.base - INFO - 11/12 Processing PI with discount factor 0.977
+2019-04-11 08:00:46,827 - experiments.base - INFO - Took 8 steps
+2019-04-11 08:01:15,373 - experiments.base - INFO - reward_mean: -0.01086205860669017, reward_median: -0.014500000000000002, reward_std: 0.031187032889114955, reward_max: 0.253421052631579, reward_min: -0.0325, runs: 2000
+2019-04-11 08:01:15,388 - experiments.base - INFO - 12/12 Processing PI with discount factor 0.99
+2019-04-11 08:01:40,515 - experiments.base - INFO - Took 6 steps
+2019-04-11 08:02:08,495 - experiments.base - INFO - reward_mean: -0.013083656596270015, reward_median: -0.015000000000000001, reward_std: 0.02408909671665439, reward_max: 0.253421052631579, reward_min: -0.0325, runs: 2000
+2019-04-11 08:02:08,510 - __main__ - INFO - {'PI': 1359}

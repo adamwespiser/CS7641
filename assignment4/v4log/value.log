@@ -1,0 +1,118 @@
+2019-04-08 05:57:27,207 - __main__ - INFO - Creating MDPs
+2019-04-08 05:57:27,207 - __main__ - INFO - ----------
+/home/adam/projects/CS7641/assignment4/.venv/lib/python3.6/site-packages/gym/envs/registration.py:14: PkgResourcesDeprecationWarning: Parameters to load are deprecated.  Call .resolve and .require separately.
+  result = entry_point.load(False)
+2019-04-08 05:57:27,297 - __main__ - INFO - Frozen Lake (20x20): State space: 400, Action space: 4
+2019-04-08 05:57:27,298 - __main__ - INFO - Frozen Lake (8x8): State space: 64, Action space: 4
+2019-04-08 05:57:27,298 - __main__ - INFO - Cliff Walking (4x12): State space: 48, Action space: 4
+2019-04-08 05:57:27,298 - __main__ - INFO - ----------
+2019-04-08 05:57:27,298 - __main__ - INFO - Running experiments
+2019-04-08 05:57:27,298 - __main__ - INFO - Running VI experiment: Frozen Lake (20x20)
+2019-04-08 05:57:27,298 - experiments.base - INFO - Searching VI in 12 dimensions
+2019-04-08 05:57:27,298 - experiments.base - INFO - 1/12 Processing VI with discount factor 0.0
+2019-04-08 05:57:27,318 - experiments.base - INFO - Took 2 steps
+2019-04-08 05:58:14,729 - experiments.base - INFO - reward_mean: -0.01, reward_median: -0.01, reward_std: 0.0, reward_max: -0.01, reward_min: -0.01, runs: 2000
+2019-04-08 05:58:14,737 - experiments.base - INFO - 2/12 Processing VI with discount factor 0.27
+2019-04-08 05:58:14,829 - experiments.base - INFO - Took 10 steps
+2019-04-08 05:58:57,778 - experiments.base - INFO - reward_mean: -0.01, reward_median: -0.01, reward_std: 0.0, reward_max: -0.01, reward_min: -0.01, runs: 2000
+2019-04-08 05:58:57,793 - experiments.base - INFO - 3/12 Processing VI with discount factor 0.53
+2019-04-08 05:58:58,106 - experiments.base - INFO - Took 17 steps
+2019-04-08 06:00:09,171 - experiments.base - INFO - reward_mean: -0.01, reward_median: -0.01, reward_std: 0.0, reward_max: -0.01, reward_min: -0.01, runs: 2000
+2019-04-08 06:00:09,186 - experiments.base - INFO - 4/12 Processing VI with discount factor 0.8
+2019-04-08 06:00:09,967 - experiments.base - INFO - Took 43 steps
+2019-04-08 06:01:21,331 - experiments.base - INFO - reward_mean: -0.01, reward_median: -0.01, reward_std: 0.0, reward_max: -0.01, reward_min: -0.01, runs: 2000
+2019-04-08 06:01:21,346 - experiments.base - INFO - 5/12 Processing VI with discount factor 0.9
+2019-04-08 06:01:22,545 - experiments.base - INFO - Took 89 steps
+2019-04-08 06:01:49,437 - experiments.base - INFO - reward_mean: -0.009170195557816858, reward_median: -0.011216216216216216, reward_std: 0.014198944322588032, reward_max: 0.17200000000000001, reward_min: -0.013913043478260872, runs: 2000
+2019-04-08 06:01:49,454 - experiments.base - INFO - 6/12 Processing VI with discount factor 0.913
+2019-04-08 06:01:50,414 - experiments.base - INFO - Took 103 steps
+2019-04-08 06:02:16,363 - experiments.base - INFO - reward_mean: -0.009673113789997627, reward_median: -0.011500000000000002, reward_std: 0.014151882059673354, reward_max: 0.12346666666666667, reward_min: -0.017499999999999998, runs: 2000
+2019-04-08 06:02:16,378 - experiments.base - INFO - 7/12 Processing VI with discount factor 0.926
+2019-04-08 06:02:17,490 - experiments.base - INFO - Took 120 steps
+2019-04-08 06:02:50,178 - experiments.base - INFO - reward_mean: -0.011463156526012167, reward_median: -0.012093023255813955, reward_std: 0.009223745017901559, reward_max: 0.12527027027027027, reward_min: -0.016923076923076923, runs: 2000
+2019-04-08 06:02:50,208 - experiments.base - INFO - 8/12 Processing VI with discount factor 0.939
+2019-04-08 06:02:52,891 - experiments.base - INFO - Took 146 steps
+2019-04-08 06:03:37,971 - experiments.base - INFO - reward_mean: -0.01243581962406191, reward_median: -0.012727272727272728, reward_std: 0.007883104184166321, reward_max: 0.1290277777777778, reward_min: -0.019, runs: 2000
+2019-04-08 06:03:37,999 - experiments.base - INFO - 9/12 Processing VI with discount factor 0.951
+2019-04-08 06:03:41,238 - experiments.base - INFO - Took 181 steps
+2019-04-08 06:04:22,962 - experiments.base - INFO - reward_mean: -0.017113178849698343, reward_median: -0.014285714285714287, reward_std: 0.008870658683440273, reward_max: 0.13940298507462687, reward_min: -0.0325, runs: 2000
+2019-04-08 06:04:22,988 - experiments.base - INFO - 10/12 Processing VI with discount factor 0.964
+2019-04-08 06:04:27,431 - experiments.base - INFO - Took 246 steps
+2019-04-08 06:05:07,946 - experiments.base - INFO - reward_mean: -0.016958447556549447, reward_median: -0.014500000000000002, reward_std: 0.008693135651463993, reward_max: 0.14166666666666666, reward_min: -0.0325, runs: 2000
+2019-04-08 06:05:07,962 - experiments.base - INFO - 11/12 Processing VI with discount factor 0.977
+2019-04-08 06:05:11,728 - experiments.base - INFO - Took 383 steps
+2019-04-08 06:05:51,262 - experiments.base - INFO - reward_mean: -0.017287942450031266, reward_median: -0.014500000000000002, reward_std: 0.006795860115108214, reward_max: 0.11358024691358024, reward_min: -0.0325, runs: 2000
+2019-04-08 06:05:51,277 - experiments.base - INFO - 12/12 Processing VI with discount factor 0.99
+2019-04-08 06:06:06,211 - experiments.base - INFO - Took 875 steps
+2019-04-08 06:06:35,587 - experiments.base - INFO - reward_mean: -0.017425612892021408, reward_median: -0.01473684210526316, reward_std: 0.006860346838641883, reward_max: 0.08268518518518518, reward_min: -0.0325, runs: 2000
+2019-04-08 06:06:35,603 - __main__ - INFO - Running VI experiment: Frozen Lake (8x8)
+2019-04-08 06:06:35,604 - experiments.base - INFO - Searching VI in 11 dimensions
+2019-04-08 06:06:35,604 - experiments.base - INFO - 1/11 Processing VI with discount factor 0.0
+2019-04-08 06:06:35,607 - experiments.base - INFO - Took 2 steps
+2019-04-08 06:07:01,210 - experiments.base - INFO - reward_mean: -0.01, reward_median: -0.01, reward_std: 0.0, reward_max: -0.01, reward_min: -0.01, runs: 2000
+2019-04-08 06:07:01,225 - experiments.base - INFO - 2/11 Processing VI with discount factor 0.1
+2019-04-08 06:07:01,243 - experiments.base - INFO - Took 6 steps
+2019-04-08 06:07:12,860 - experiments.base - INFO - reward_mean: -0.0022674562125062346, reward_median: -0.0031756756756756753, reward_std: 0.006747700518899897, reward_max: 0.033913043478260865, reward_min: -0.013214285714285715, runs: 2000
+2019-04-08 06:07:12,890 - experiments.base - INFO - 3/11 Processing VI with discount factor 0.2
+2019-04-08 06:07:12,911 - experiments.base - INFO - Took 7 steps
+2019-04-08 06:07:23,610 - experiments.base - INFO - reward_mean: -0.0008845139089980487, reward_median: -0.0016528925619834706, reward_std: 0.007569756797739654, reward_max: 0.04611111111111111, reward_min: -0.012727272727272728, runs: 2000
+2019-04-08 06:07:23,635 - experiments.base - INFO - 4/11 Processing VI with discount factor 0.3
+2019-04-08 06:07:23,658 - experiments.base - INFO - Took 9 steps
+2019-04-08 06:07:34,144 - experiments.base - INFO - reward_mean: -0.00016019111032422877, reward_median: -0.0009009009009008997, reward_std: 0.008278115954244828, reward_max: 0.04941176470588235, reward_min: -0.01375, runs: 2000
+2019-04-08 06:07:34,173 - experiments.base - INFO - 5/11 Processing VI with discount factor 0.4
+2019-04-08 06:07:34,205 - experiments.base - INFO - Took 11 steps
+2019-04-08 06:07:44,351 - experiments.base - INFO - reward_mean: 0.00034336676522971066, reward_median: -9.803921568627242e-05, reward_std: 0.00847821640692122, reward_max: 0.035909090909090904, reward_min: -0.0136, runs: 2000
+2019-04-08 06:07:44,380 - experiments.base - INFO - 6/11 Processing VI with discount factor 0.5
+2019-04-08 06:07:44,418 - experiments.base - INFO - Took 13 steps
+2019-04-08 06:07:54,385 - experiments.base - INFO - reward_mean: 0.001341507585832586, reward_median: 0.000802447952413636, reward_std: 0.008829323055564615, reward_max: 0.0431578947368421, reward_min: -0.013913043478260872, runs: 2000
+2019-04-08 06:07:54,416 - experiments.base - INFO - 7/11 Processing VI with discount factor 0.59
+2019-04-08 06:07:54,464 - experiments.base - INFO - Took 17 steps
+2019-04-08 06:08:04,480 - experiments.base - INFO - reward_mean: 0.0029498918185128864, reward_median: 0.0029487179487179484, reward_std: 0.0100570810720474, reward_max: 0.0431578947368421, reward_min: -0.016428571428571428, runs: 2000
+2019-04-08 06:08:04,510 - experiments.base - INFO - 8/11 Processing VI with discount factor 0.69
+2019-04-08 06:08:04,578 - experiments.base - INFO - Took 23 steps
+2019-04-08 06:08:13,658 - experiments.base - INFO - reward_mean: -0.00763917614969758, reward_median: -0.011800000000000001, reward_std: 0.010191523008253298, reward_max: 0.040499999999999994, reward_min: -0.016428571428571428, runs: 2000
+2019-04-08 06:08:13,687 - experiments.base - INFO - 9/11 Processing VI with discount factor 0.79
+2019-04-08 06:08:13,789 - experiments.base - INFO - Took 35 steps
+2019-04-08 06:08:22,738 - experiments.base - INFO - reward_mean: -0.009454713988799547, reward_median: -0.012142857142857143, reward_std: 0.009133010196939103, reward_max: 0.04611111111111111, reward_min: -0.018181818181818184, runs: 2000
+2019-04-08 06:08:22,768 - experiments.base - INFO - 10/11 Processing VI with discount factor 0.89
+2019-04-08 06:08:22,962 - experiments.base - INFO - Took 67 steps
+2019-04-08 06:08:30,975 - experiments.base - INFO - reward_mean: -0.015137954731316993, reward_median: -0.015000000000000001, reward_std: 0.007787164286073241, reward_max: 0.04611111111111111, reward_min: -0.028000000000000004, runs: 2000
+2019-04-08 06:08:31,003 - experiments.base - INFO - 11/11 Processing VI with discount factor 0.99
+2019-04-08 06:08:33,032 - experiments.base - INFO - Took 717 steps
+2019-04-08 06:08:41,035 - experiments.base - INFO - reward_mean: -0.01710112476448976, reward_median: -0.017499999999999998, reward_std: 0.007528941813351627, reward_max: 0.062142857142857146, reward_min: -0.028000000000000004, runs: 2000
+2019-04-08 06:08:41,064 - __main__ - INFO - Running VI experiment: Cliff Walking (4x12)
+2019-04-08 06:08:41,065 - experiments.base - INFO - Searching VI in 11 dimensions
+2019-04-08 06:08:41,065 - experiments.base - INFO - 1/11 Processing VI with discount factor 0.0
+2019-04-08 06:08:41,068 - experiments.base - INFO - Took 2 steps
+2019-04-08 06:09:23,195 - experiments.base - INFO - reward_mean: -1.0, reward_median: -1.0, reward_std: 0.0, reward_max: -1.0, reward_min: -1.0, runs: 2000
+2019-04-08 06:09:23,205 - experiments.base - INFO - 2/11 Processing VI with discount factor 0.1
+2019-04-08 06:09:23,219 - experiments.base - INFO - Took 9 steps
+2019-04-08 06:10:05,484 - experiments.base - INFO - reward_mean: -1.0, reward_median: -1.0, reward_std: 0.0, reward_max: -1.0, reward_min: -1.0, runs: 2000
+2019-04-08 06:10:05,493 - experiments.base - INFO - 3/11 Processing VI with discount factor 0.2
+2019-04-08 06:10:05,512 - experiments.base - INFO - Took 12 steps
+2019-04-08 06:10:14,459 - experiments.base - INFO - reward_mean: 5.317450980392157, reward_median: 4.9411764705882355, reward_std: 0.395583023509658, reward_max: 5.733333333333333, reward_min: 4.9411764705882355, runs: 2000
+2019-04-08 06:10:14,476 - experiments.base - INFO - 4/11 Processing VI with discount factor 0.3
+2019-04-08 06:10:14,489 - experiments.base - INFO - Took 15 steps
+2019-04-08 06:10:23,399 - experiments.base - INFO - reward_mean: 5.342007843137255, reward_median: 5.733333333333333, reward_std: 0.3960499126987809, reward_max: 5.733333333333333, reward_min: 4.9411764705882355, runs: 2000
+2019-04-08 06:10:23,520 - experiments.base - INFO - 5/11 Processing VI with discount factor 0.4
+2019-04-08 06:10:23,536 - experiments.base - INFO - Took 19 steps
+2019-04-08 06:10:32,095 - experiments.base - INFO - reward_mean: 5.343196078431372, reward_median: 5.733333333333333, reward_std: 0.3960338700423037, reward_max: 5.733333333333333, reward_min: 4.9411764705882355, runs: 2000
+2019-04-08 06:10:32,111 - experiments.base - INFO - 6/11 Processing VI with discount factor 0.5
+2019-04-08 06:10:32,132 - experiments.base - INFO - Took 25 steps
+2019-04-08 06:10:40,632 - experiments.base - INFO - reward_mean: 5.3408196078431365, reward_median: 5.733333333333333, reward_std: 0.3960623898712314, reward_max: 5.733333333333333, reward_min: 4.9411764705882355, runs: 2000
+2019-04-08 06:10:40,648 - experiments.base - INFO - 7/11 Processing VI with discount factor 0.59
+2019-04-08 06:10:40,673 - experiments.base - INFO - Took 32 steps
+2019-04-08 06:10:49,239 - experiments.base - INFO - reward_mean: 5.338839215686273, reward_median: 5.733333333333333, reward_std: 0.39607526273242344, reward_max: 5.733333333333333, reward_min: 4.9411764705882355, runs: 2000
+2019-04-08 06:10:49,254 - experiments.base - INFO - 8/11 Processing VI with discount factor 0.69
+2019-04-08 06:10:49,291 - experiments.base - INFO - Took 45 steps
+2019-04-08 06:10:58,004 - experiments.base - INFO - reward_mean: 5.346364705882353, reward_median: 5.733333333333333, reward_std: 0.395973654768912, reward_max: 5.733333333333333, reward_min: 4.9411764705882355, runs: 2000
+2019-04-08 06:10:58,019 - experiments.base - INFO - 9/11 Processing VI with discount factor 0.79
+2019-04-08 06:10:58,083 - experiments.base - INFO - Took 70 steps
+2019-04-08 06:11:07,022 - experiments.base - INFO - reward_mean: 5.342403921568627, reward_median: 5.733333333333333, reward_std: 0.396044961330929, reward_max: 5.733333333333333, reward_min: 4.9411764705882355, runs: 2000
+2019-04-08 06:11:07,048 - experiments.base - INFO - 10/11 Processing VI with discount factor 0.89
+2019-04-08 06:11:07,269 - experiments.base - INFO - Took 140 steps
+2019-04-08 06:11:22,655 - experiments.base - INFO - reward_mean: 5.340027450980392, reward_median: 5.733333333333333, reward_std: 0.3960687273321044, reward_max: 5.733333333333333, reward_min: 4.9411764705882355, runs: 2000
+2019-04-08 06:11:22,682 - experiments.base - INFO - 11/11 Processing VI with discount factor 0.99
+2019-04-08 06:11:25,077 - experiments.base - INFO - Took 1605 steps
+2019-04-08 06:11:40,998 - experiments.base - INFO - reward_mean: 5.331709803921568, reward_median: 4.9411764705882355, reward_std: 0.3960396137841194, reward_max: 5.733333333333333, reward_min: 4.9411764705882355, runs: 2000
+2019-04-08 06:11:41,027 - __main__ - INFO - {'VI': 853}

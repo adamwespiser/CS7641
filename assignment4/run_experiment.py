@@ -181,7 +181,8 @@ if __name__ == '__main__':
             'large_space' : False
         }
         ]
-   envs = [
+
+    envs = [
         {
             # 5000 episodes
             'env': environments.get_large_flake_env_v6(),
@@ -189,8 +190,41 @@ if __name__ == '__main__':
             'readable_name': 'Frozen Lake (20x20)',
             'large_space' : True
         }]
+    _envs = [
+        {
+            # 5000 episodes
+            'env': environments.get_large_flake_env_v7a(),
+            'name': 'frozen_lake_20x20_v7b',
+            'readable_name': 'Frozen Lake (20x20)',
+            'large_space' : True
+        }, 
+        {
+            # 5000 episodes
+            'env': environments.get_large_flake_env_v7b(),
+            'name': 'frozen_lake_20x20_v7b',
+            'readable_name': 'Frozen Lake (20x20)',
+            'large_space' : True
+        }, 
+        ]
 
-
+    ## These are our final report environments!
+    ## cliff walking is v4
+    ## large frozen lake is v6
+    envs = [
+        {
+            'env': environments.get_windy_cliff_walking_environment(),
+            'name': 'cliff_walking_v4',
+            'readable_name': 'Cliff Walking (4x12)',
+            'large_space': False
+        },
+        {
+            # 5000 episodes
+            'env': environments.get_large_flake_env_v6(),
+            'name': 'frozen_lake_20x20_v6',
+            'readable_name': 'Frozen Lake (20x20)',
+            'large_space' : True
+        }
+        ]
     experiment_details = []
     for env in envs:
         env['env'].seed(seed)

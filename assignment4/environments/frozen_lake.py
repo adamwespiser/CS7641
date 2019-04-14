@@ -261,7 +261,8 @@ class FLakeEnv(discrete.DiscreteEnv):
             hole_reward=-1,
             is_slippery=True,
             goal_reward = 10,
-            start_reward=-1):
+            start_reward=-1,
+            slippery_coeff=0.8):
         if desc is None and map_name is None:
             raise ValueError('Must provide either desc or map_name')
         elif desc is None:
@@ -273,6 +274,7 @@ class FLakeEnv(discrete.DiscreteEnv):
         self.hole_reward  = hole_reward
         self.goal_reward  = goal_reward
         self.start_reward = start_reward
+        self.slippery_coeff = slippery_coeff
 
         self.rewarding = rewarding
         self.is_slippery = is_slippery

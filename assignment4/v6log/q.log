@@ -1,0 +1,658 @@
+2019-04-11 07:39:29,325 - __main__ - INFO - Creating MDPs
+2019-04-11 07:39:29,325 - __main__ - INFO - ----------
+/home/adam/projects/CS7641/assignment4/.venv/lib/python3.6/site-packages/gym/envs/registration.py:14: PkgResourcesDeprecationWarning: Parameters to load are deprecated.  Call .resolve and .require separately.
+  result = entry_point.load(False)
+2019-04-11 07:39:29,448 - __main__ - INFO - Frozen Lake (20x20): State space: 400, Action space: 4
+2019-04-11 07:39:29,448 - __main__ - INFO - ----------
+2019-04-11 07:39:29,449 - __main__ - INFO - Running experiments
+2019-04-11 07:39:29,449 - __main__ - INFO - Running Q experiment: Frozen Lake (20x20)
+2019-04-11 07:39:29,449 - experiments.base - INFO - Searching Q in 216 dimensions
+2019-04-11 07:39:29,449 - experiments.base - INFO - 1/216 Processing Q with alpha 0.1, q_init random, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.0
+2019-04-11 07:42:50,854 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 07:43:37,483 - experiments.base - INFO - reward_mean: -0.01, reward_median: -0.01, reward_std: 0.0, reward_max: -0.01, reward_min: -0.01, runs: 2000
+2019-04-11 07:43:37,497 - experiments.base - INFO - 2/216 Processing Q with alpha 0.1, q_init random, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.27
+2019-04-11 07:46:24,110 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 07:47:11,015 - experiments.base - INFO - reward_mean: -0.01, reward_median: -0.01, reward_std: 0.0, reward_max: -0.01, reward_min: -0.01, runs: 2000
+2019-04-11 07:47:11,030 - experiments.base - INFO - 3/216 Processing Q with alpha 0.1, q_init random, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.53
+2019-04-11 07:47:51,597 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 07:48:35,385 - experiments.base - INFO - reward_mean: 0.12289498210067586, reward_median: 0.14640625, reward_std: 0.07295775330506866, reward_max: 0.253421052631579, reward_min: -0.012432432432432434, runs: 2000
+2019-04-11 07:48:35,401 - experiments.base - INFO - 4/216 Processing Q with alpha 0.1, q_init random, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.8
+2019-04-11 07:49:18,697 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 07:49:57,088 - experiments.base - INFO - reward_mean: 0.12430669897565493, reward_median: 0.14166666666666666, reward_std: 0.06476884506755229, reward_max: 0.253421052631579, reward_min: -0.013333333333333332, runs: 2000
+2019-04-11 07:49:57,105 - experiments.base - INFO - 5/216 Processing Q with alpha 0.1, q_init random, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.9
+2019-04-11 07:50:21,013 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 07:51:05,443 - experiments.base - INFO - reward_mean: 0.03162660684835776, reward_median: -0.012045454545454547, reward_std: 0.07426333367823516, reward_max: 0.24025000000000002, reward_min: -0.025000000000000005, runs: 2000
+2019-04-11 07:51:05,459 - experiments.base - INFO - 6/216 Processing Q with alpha 0.1, q_init random, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.913
+2019-04-11 07:51:24,820 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 07:51:51,601 - experiments.base - INFO - reward_mean: -0.0244929442949184, reward_median: -0.0325, reward_std: 0.017882069892306254, reward_max: 0.16874999999999998, reward_min: -0.0325, runs: 2000
+2019-04-11 07:51:51,613 - experiments.base - INFO - 7/216 Processing Q with alpha 0.1, q_init random, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.926
+2019-04-11 07:52:09,256 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 07:52:35,896 - experiments.base - INFO - reward_mean: -0.02765751499556209, reward_median: -0.0325, reward_std: 0.005957608124366585, reward_max: -0.010708661417322836, reward_min: -0.0325, runs: 2000
+2019-04-11 07:52:35,909 - experiments.base - INFO - 8/216 Processing Q with alpha 0.1, q_init random, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.939
+2019-04-11 07:52:51,501 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 07:53:17,923 - experiments.base - INFO - reward_mean: -0.028527618373813565, reward_median: -0.0325, reward_std: 0.005164695200400002, reward_max: -0.01, reward_min: -0.0325, runs: 2000
+2019-04-11 07:53:17,934 - experiments.base - INFO - 9/216 Processing Q with alpha 0.1, q_init random, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.951
+2019-04-11 07:53:33,364 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 07:54:00,147 - experiments.base - INFO - reward_mean: -0.027349067383698758, reward_median: -0.0325, reward_std: 0.006433814761403, reward_max: -0.01016453382084095, reward_min: -0.0325, runs: 2000
+2019-04-11 07:54:00,161 - experiments.base - INFO - 10/216 Processing Q with alpha 0.1, q_init random, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.964
+2019-04-11 07:54:14,697 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 07:54:41,539 - experiments.base - INFO - reward_mean: -0.02833889280257655, reward_median: -0.0325, reward_std: 0.005232939463715114, reward_max: -0.010256410256410255, reward_min: -0.0325, runs: 2000
+2019-04-11 07:54:41,552 - experiments.base - INFO - 11/216 Processing Q with alpha 0.1, q_init random, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.977
+2019-04-11 07:54:55,788 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 07:55:22,671 - experiments.base - INFO - reward_mean: -0.028541343504249847, reward_median: -0.0325, reward_std: 0.004822930511793836, reward_max: -0.01, reward_min: -0.0325, runs: 2000
+2019-04-11 07:55:22,682 - experiments.base - INFO - 12/216 Processing Q with alpha 0.1, q_init random, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.99
+2019-04-11 07:55:36,706 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 07:56:04,416 - experiments.base - INFO - reward_mean: -0.028489210318979226, reward_median: -0.0325, reward_std: 0.004887122514523407, reward_max: -0.010612244897959184, reward_min: -0.0325, runs: 2000
+2019-04-11 07:56:04,429 - experiments.base - INFO - 13/216 Processing Q with alpha 0.1, q_init random, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.0
+2019-04-11 07:58:28,693 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 07:59:11,338 - experiments.base - INFO - reward_mean: -0.01, reward_median: -0.01, reward_std: 0.0, reward_max: -0.01, reward_min: -0.01, runs: 2000
+2019-04-11 07:59:11,347 - experiments.base - INFO - 14/216 Processing Q with alpha 0.1, q_init random, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.27
+2019-04-11 08:01:23,146 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 08:02:05,543 - experiments.base - INFO - reward_mean: -0.01, reward_median: -0.01, reward_std: 0.0, reward_max: -0.01, reward_min: -0.01, runs: 2000
+2019-04-11 08:02:05,551 - experiments.base - INFO - 15/216 Processing Q with alpha 0.1, q_init random, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.53
+2019-04-11 08:02:44,664 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 08:03:12,276 - experiments.base - INFO - reward_mean: 0.12334781205837017, reward_median: 0.13940298507462687, reward_std: 0.06549670035561626, reward_max: 0.253421052631579, reward_min: -0.012647058823529414, runs: 2000
+2019-04-11 08:03:12,292 - experiments.base - INFO - 16/216 Processing Q with alpha 0.1, q_init random, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.8
+2019-04-11 08:03:44,481 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 08:04:11,948 - experiments.base - INFO - reward_mean: 0.14941215025018523, reward_median: 0.1514516129032258, reward_std: 0.038912252237989955, reward_max: 0.253421052631579, reward_min: -0.013214285714285715, runs: 2000
+2019-04-11 08:04:11,965 - experiments.base - INFO - 17/216 Processing Q with alpha 0.1, q_init random, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.9
+2019-04-11 08:04:34,292 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 08:05:01,414 - experiments.base - INFO - reward_mean: 0.06652250493630749, reward_median: 0.07411764705882354, reward_std: 0.08416155174802208, reward_max: 0.22833333333333333, reward_min: -0.0325, runs: 2000
+2019-04-11 08:05:01,429 - experiments.base - INFO - 18/216 Processing Q with alpha 0.1, q_init random, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.913
+2019-04-11 08:05:20,559 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 08:05:47,297 - experiments.base - INFO - reward_mean: -0.026198673309479455, reward_median: -0.0325, reward_std: 0.013303040347707714, reward_max: 0.12171052631578948, reward_min: -0.0325, runs: 2000
+2019-04-11 08:05:47,309 - experiments.base - INFO - 19/216 Processing Q with alpha 0.1, q_init random, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.926
+2019-04-11 08:06:04,162 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 08:06:31,774 - experiments.base - INFO - reward_mean: -0.028048402999097305, reward_median: -0.0325, reward_std: 0.005724016017987358, reward_max: -0.01, reward_min: -0.0325, runs: 2000
+2019-04-11 08:06:31,785 - experiments.base - INFO - 20/216 Processing Q with alpha 0.1, q_init random, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.939
+2019-04-11 08:06:47,357 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 08:07:13,954 - experiments.base - INFO - reward_mean: -0.028151839275741088, reward_median: -0.0325, reward_std: 0.005466026310293396, reward_max: -0.01, reward_min: -0.0325, runs: 2000
+2019-04-11 08:07:13,966 - experiments.base - INFO - 21/216 Processing Q with alpha 0.1, q_init random, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.951
+2019-04-11 08:07:29,189 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 08:07:56,153 - experiments.base - INFO - reward_mean: -0.028339027783961107, reward_median: -0.0325, reward_std: 0.005160781399594491, reward_max: -0.010362903225806453, reward_min: -0.0325, runs: 2000
+2019-04-11 08:07:56,167 - experiments.base - INFO - 22/216 Processing Q with alpha 0.1, q_init random, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.964
+2019-04-11 08:08:10,399 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 08:08:36,904 - experiments.base - INFO - reward_mean: -0.028379482115007116, reward_median: -0.0325, reward_std: 0.004953351617547725, reward_max: -0.010231362467866323, reward_min: -0.0325, runs: 2000
+2019-04-11 08:08:36,917 - experiments.base - INFO - 23/216 Processing Q with alpha 0.1, q_init random, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.977
+2019-04-11 08:08:50,927 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 08:09:17,438 - experiments.base - INFO - reward_mean: -0.028280071739919258, reward_median: -0.0325, reward_std: 0.005696870695396537, reward_max: -0.010234374999999999, reward_min: -0.0325, runs: 2000
+2019-04-11 08:09:17,451 - experiments.base - INFO - 24/216 Processing Q with alpha 0.1, q_init random, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.99
+2019-04-11 08:09:31,192 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 08:09:57,812 - experiments.base - INFO - reward_mean: -0.028624844909623668, reward_median: -0.0325, reward_std: 0.005357924171049591, reward_max: -0.010197802197802197, reward_min: -0.0325, runs: 2000
+2019-04-11 08:09:57,825 - experiments.base - INFO - 25/216 Processing Q with alpha 0.1, q_init random, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.0
+2019-04-11 08:12:18,003 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 08:13:00,745 - experiments.base - INFO - reward_mean: -0.01, reward_median: -0.01, reward_std: 0.0, reward_max: -0.01, reward_min: -0.01, runs: 2000
+2019-04-11 08:13:00,753 - experiments.base - INFO - 26/216 Processing Q with alpha 0.1, q_init random, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.27
+2019-04-11 08:15:06,402 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 08:15:48,248 - experiments.base - INFO - reward_mean: -0.01, reward_median: -0.01, reward_std: 0.0, reward_max: -0.01, reward_min: -0.01, runs: 2000
+2019-04-11 08:15:48,257 - experiments.base - INFO - 27/216 Processing Q with alpha 0.1, q_init random, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.53
+2019-04-11 08:16:26,547 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 08:16:55,200 - experiments.base - INFO - reward_mean: 0.149570950002962, reward_median: 0.1540983606557377, reward_std: 0.03978017910992527, reward_max: 0.253421052631579, reward_min: -0.012727272727272728, runs: 2000
+2019-04-11 08:16:55,217 - experiments.base - INFO - 28/216 Processing Q with alpha 0.1, q_init random, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.8
+2019-04-11 08:17:28,225 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 08:17:56,432 - experiments.base - INFO - reward_mean: 0.12026455944478429, reward_median: 0.13507246376811594, reward_std: 0.06398603678154191, reward_max: 0.24025000000000002, reward_min: -0.012903225806451613, runs: 2000
+2019-04-11 08:17:56,448 - experiments.base - INFO - 29/216 Processing Q with alpha 0.1, q_init random, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.9
+2019-04-11 08:18:19,091 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 08:18:47,571 - experiments.base - INFO - reward_mean: 0.05630954912027027, reward_median: -0.010711473565804274, reward_std: 0.08766981896620074, reward_max: 0.253421052631579, reward_min: -0.0325, runs: 2000
+2019-04-11 08:18:47,587 - experiments.base - INFO - 30/216 Processing Q with alpha 0.1, q_init random, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.913
+2019-04-11 08:19:07,369 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 08:19:34,267 - experiments.base - INFO - reward_mean: -0.0266105729654482, reward_median: -0.0325, reward_std: 0.00793166022960761, reward_max: -0.010173745173745172, reward_min: -0.0325, runs: 2000
+2019-04-11 08:19:34,281 - experiments.base - INFO - 31/216 Processing Q with alpha 0.1, q_init random, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.926
+2019-04-11 08:19:50,968 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 08:20:17,783 - experiments.base - INFO - reward_mean: -0.02760257508623462, reward_median: -0.0325, reward_std: 0.00652965585037175, reward_max: -0.010109756097560974, reward_min: -0.0325, runs: 2000
+2019-04-11 08:20:17,797 - experiments.base - INFO - 32/216 Processing Q with alpha 0.1, q_init random, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.939
+2019-04-11 08:20:33,436 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 08:21:00,234 - experiments.base - INFO - reward_mean: -0.027464106839382125, reward_median: -0.0325, reward_std: 0.006705407021840202, reward_max: -0.010252808988764043, reward_min: -0.0325, runs: 2000
+2019-04-11 08:21:00,248 - experiments.base - INFO - 33/216 Processing Q with alpha 0.1, q_init random, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.951
+2019-04-11 08:21:15,126 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 08:21:42,124 - experiments.base - INFO - reward_mean: -0.028227304343137128, reward_median: -0.0325, reward_std: 0.005542261317355514, reward_max: -0.010271084337349398, reward_min: -0.0325, runs: 2000
+2019-04-11 08:21:42,137 - experiments.base - INFO - 34/216 Processing Q with alpha 0.1, q_init random, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.964
+2019-04-11 08:21:57,347 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 08:22:24,032 - experiments.base - INFO - reward_mean: -0.02821039753731185, reward_median: -0.0325, reward_std: 0.005234096120934366, reward_max: 0.03882926829268293, reward_min: -0.0325, runs: 2000
+2019-04-11 08:22:24,045 - experiments.base - INFO - 35/216 Processing Q with alpha 0.1, q_init random, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.977
+2019-04-11 08:22:38,186 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 08:23:05,465 - experiments.base - INFO - reward_mean: -0.028403255305025795, reward_median: -0.0325, reward_std: 0.004874434978444009, reward_max: -0.010289389067524116, reward_min: -0.0325, runs: 2000
+2019-04-11 08:23:05,478 - experiments.base - INFO - 36/216 Processing Q with alpha 0.1, q_init random, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.99
+2019-04-11 08:23:19,414 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 08:23:46,097 - experiments.base - INFO - reward_mean: -0.0285161714324491, reward_median: -0.0325, reward_std: 0.005048234881462573, reward_max: -0.010116883116883116, reward_min: -0.0325, runs: 2000
+2019-04-11 08:23:46,110 - experiments.base - INFO - 37/216 Processing Q with alpha 0.1, q_init 0, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.0
+2019-04-11 08:26:07,694 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 08:26:49,502 - experiments.base - INFO - reward_mean: -0.01, reward_median: -0.01, reward_std: 0.0, reward_max: -0.01, reward_min: -0.01, runs: 2000
+2019-04-11 08:26:49,510 - experiments.base - INFO - 38/216 Processing Q with alpha 0.1, q_init 0, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.27
+2019-04-11 08:29:00,375 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 08:29:42,149 - experiments.base - INFO - reward_mean: -0.01, reward_median: -0.01, reward_std: 0.0, reward_max: -0.01, reward_min: -0.01, runs: 2000
+2019-04-11 08:29:42,158 - experiments.base - INFO - 39/216 Processing Q with alpha 0.1, q_init 0, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.53
+2019-04-11 08:30:24,231 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 08:30:51,814 - experiments.base - INFO - reward_mean: 0.11535510505031314, reward_median: 0.12171052631578948, reward_std: 0.05117471545800968, reward_max: 0.24025000000000002, reward_min: -0.012500000000000002, runs: 2000
+2019-04-11 08:30:51,829 - experiments.base - INFO - 40/216 Processing Q with alpha 0.1, q_init 0, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.8
+2019-04-11 08:31:25,630 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 08:31:52,937 - experiments.base - INFO - reward_mean: 0.11636150036253674, reward_median: 0.12712328767123288, reward_std: 0.05516863984758418, reward_max: 0.24025000000000002, reward_min: -0.013000000000000001, runs: 2000
+2019-04-11 08:31:52,953 - experiments.base - INFO - 41/216 Processing Q with alpha 0.1, q_init 0, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.9
+2019-04-11 08:32:16,110 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 08:32:43,481 - experiments.base - INFO - reward_mean: 0.07044183531654602, reward_median: 0.06729844961240308, reward_std: 0.0851965673605176, reward_max: 0.24666666666666665, reward_min: -0.0325, runs: 2000
+2019-04-11 08:32:43,496 - experiments.base - INFO - 42/216 Processing Q with alpha 0.1, q_init 0, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.913
+2019-04-11 08:33:02,935 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 08:33:30,006 - experiments.base - INFO - reward_mean: -0.02668791370206947, reward_median: -0.0325, reward_std: 0.013116862597164509, reward_max: 0.15683333333333332, reward_min: -0.0325, runs: 2000
+2019-04-11 08:33:30,018 - experiments.base - INFO - 43/216 Processing Q with alpha 0.1, q_init 0, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.926
+2019-04-11 08:33:46,756 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 08:34:13,090 - experiments.base - INFO - reward_mean: -0.027259020367211072, reward_median: -0.0325, reward_std: 0.006961393600922829, reward_max: 0.020990712074303402, reward_min: -0.0325, runs: 2000
+2019-04-11 08:34:13,103 - experiments.base - INFO - 44/216 Processing Q with alpha 0.1, q_init 0, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.939
+2019-04-11 08:34:28,760 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 08:34:55,433 - experiments.base - INFO - reward_mean: -0.02747375831112007, reward_median: -0.0325, reward_std: 0.0064231346196218795, reward_max: -0.010144927536231883, reward_min: -0.0325, runs: 2000
+2019-04-11 08:34:55,447 - experiments.base - INFO - 45/216 Processing Q with alpha 0.1, q_init 0, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.951
+2019-04-11 08:35:10,435 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 08:35:37,203 - experiments.base - INFO - reward_mean: -0.027799576472419287, reward_median: -0.0325, reward_std: 0.005923459096592261, reward_max: -0.01, reward_min: -0.0325, runs: 2000
+2019-04-11 08:35:37,215 - experiments.base - INFO - 46/216 Processing Q with alpha 0.1, q_init 0, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.964
+2019-04-11 08:35:51,709 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 08:36:18,426 - experiments.base - INFO - reward_mean: -0.028612722096336248, reward_median: -0.0325, reward_std: 0.005104052447623767, reward_max: -0.01018987341772152, reward_min: -0.0325, runs: 2000
+2019-04-11 08:36:18,439 - experiments.base - INFO - 47/216 Processing Q with alpha 0.1, q_init 0, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.977
+2019-04-11 08:36:32,499 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 08:36:59,195 - experiments.base - INFO - reward_mean: -0.02789032768407523, reward_median: -0.0325, reward_std: 0.006000157124125377, reward_max: -0.010149006622516556, reward_min: -0.0325, runs: 2000
+2019-04-11 08:36:59,208 - experiments.base - INFO - 48/216 Processing Q with alpha 0.1, q_init 0, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.99
+2019-04-11 08:37:12,793 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 08:37:40,092 - experiments.base - INFO - reward_mean: -0.028604082085987373, reward_median: -0.0325, reward_std: 0.005059011951118738, reward_max: -0.010384615384615383, reward_min: -0.0325, runs: 2000
+2019-04-11 08:37:40,105 - experiments.base - INFO - 49/216 Processing Q with alpha 0.1, q_init 0, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.0
+2019-04-11 08:40:00,322 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 08:40:42,288 - experiments.base - INFO - reward_mean: -0.01, reward_median: -0.01, reward_std: 0.0, reward_max: -0.01, reward_min: -0.01, runs: 2000
+2019-04-11 08:40:42,296 - experiments.base - INFO - 50/216 Processing Q with alpha 0.1, q_init 0, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.27
+2019-04-11 08:42:49,711 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 08:43:32,562 - experiments.base - INFO - reward_mean: -0.01, reward_median: -0.01, reward_std: 0.0, reward_max: -0.01, reward_min: -0.01, runs: 2000
+2019-04-11 08:43:32,570 - experiments.base - INFO - 51/216 Processing Q with alpha 0.1, q_init 0, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.53
+2019-04-11 08:44:10,942 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 08:44:39,039 - experiments.base - INFO - reward_mean: 0.11297790090700224, reward_median: 0.13507246376811594, reward_std: 0.07304050415720256, reward_max: 0.24025000000000002, reward_min: -0.012500000000000002, runs: 2000
+2019-04-11 08:44:39,054 - experiments.base - INFO - 52/216 Processing Q with alpha 0.1, q_init 0, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.8
+2019-04-11 08:45:12,377 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 08:45:40,262 - experiments.base - INFO - reward_mean: 0.1079760674426357, reward_median: 0.12527027027027027, reward_std: 0.06473652991617547, reward_max: 0.24025000000000002, reward_min: -0.012647058823529414, runs: 2000
+2019-04-11 08:45:40,278 - experiments.base - INFO - 53/216 Processing Q with alpha 0.1, q_init 0, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.9
+2019-04-11 08:46:02,932 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 08:46:30,519 - experiments.base - INFO - reward_mean: 0.08610214123547302, reward_median: 0.12346666666666667, reward_std: 0.09277675028444282, reward_max: 0.24666666666666665, reward_min: -0.0325, runs: 2000
+2019-04-11 08:46:30,534 - experiments.base - INFO - 54/216 Processing Q with alpha 0.1, q_init 0, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.913
+2019-04-11 08:46:50,090 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 08:47:17,375 - experiments.base - INFO - reward_mean: -0.026552612319839953, reward_median: -0.0325, reward_std: 0.00961951816931785, reward_max: 0.1540983606557377, reward_min: -0.0325, runs: 2000
+2019-04-11 08:47:17,388 - experiments.base - INFO - 55/216 Processing Q with alpha 0.1, q_init 0, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.926
+2019-04-11 08:47:34,285 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 08:48:01,996 - experiments.base - INFO - reward_mean: -0.028416823882253035, reward_median: -0.0325, reward_std: 0.0052338997908824465, reward_max: -0.010098039215686274, reward_min: -0.0325, runs: 2000
+2019-04-11 08:48:02,009 - experiments.base - INFO - 56/216 Processing Q with alpha 0.1, q_init 0, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.939
+2019-04-11 08:48:17,788 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 08:48:45,221 - experiments.base - INFO - reward_mean: -0.02760832922556033, reward_median: -0.0325, reward_std: 0.006070169949910238, reward_max: -0.01015929203539823, reward_min: -0.0325, runs: 2000
+2019-04-11 08:48:45,235 - experiments.base - INFO - 57/216 Processing Q with alpha 0.1, q_init 0, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.951
+2019-04-11 08:49:00,361 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 08:49:27,564 - experiments.base - INFO - reward_mean: -0.027780359623186136, reward_median: -0.0325, reward_std: 0.006132908510015548, reward_max: -0.010348837209302325, reward_min: -0.0325, runs: 2000
+2019-04-11 08:49:27,577 - experiments.base - INFO - 58/216 Processing Q with alpha 0.1, q_init 0, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.964
+2019-04-11 08:49:41,849 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 08:50:08,720 - experiments.base - INFO - reward_mean: -0.02802480369924462, reward_median: -0.028000000000000004, reward_std: 0.005227470226901454, reward_max: -0.01044334975369458, reward_min: -0.0325, runs: 2000
+2019-04-11 08:50:08,734 - experiments.base - INFO - 59/216 Processing Q with alpha 0.1, q_init 0, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.977
+2019-04-11 08:50:22,969 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 08:50:49,899 - experiments.base - INFO - reward_mean: -0.0285844898877214, reward_median: -0.0325, reward_std: 0.0049546873517152396, reward_max: -0.011384615384615384, reward_min: -0.0325, runs: 2000
+2019-04-11 08:50:49,913 - experiments.base - INFO - 60/216 Processing Q with alpha 0.1, q_init 0, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.99
+2019-04-11 08:51:03,566 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 08:51:30,657 - experiments.base - INFO - reward_mean: -0.028372375994196983, reward_median: -0.0325, reward_std: 0.005245157971880486, reward_max: -0.010147540983606557, reward_min: -0.0325, runs: 2000
+2019-04-11 08:51:30,671 - experiments.base - INFO - 61/216 Processing Q with alpha 0.1, q_init 0, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.0
+2019-04-11 08:53:50,802 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 08:54:33,335 - experiments.base - INFO - reward_mean: -0.01, reward_median: -0.01, reward_std: 0.0, reward_max: -0.01, reward_min: -0.01, runs: 2000
+2019-04-11 08:54:33,344 - experiments.base - INFO - 62/216 Processing Q with alpha 0.1, q_init 0, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.27
+2019-04-11 08:56:40,246 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 08:57:22,689 - experiments.base - INFO - reward_mean: -0.01, reward_median: -0.01, reward_std: 0.0, reward_max: -0.01, reward_min: -0.01, runs: 2000
+2019-04-11 08:57:22,697 - experiments.base - INFO - 63/216 Processing Q with alpha 0.1, q_init 0, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.53
+2019-04-11 08:58:00,894 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 08:58:29,344 - experiments.base - INFO - reward_mean: 0.1414105600609922, reward_median: 0.1514516129032258, reward_std: 0.05121647241927717, reward_max: 0.253421052631579, reward_min: -0.01236842105263158, runs: 2000
+2019-04-11 08:58:29,360 - experiments.base - INFO - 64/216 Processing Q with alpha 0.1, q_init 0, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.8
+2019-04-11 08:59:01,640 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 08:59:29,252 - experiments.base - INFO - reward_mean: 0.13065199517008705, reward_median: 0.14888888888888888, reward_std: 0.06650542684558038, reward_max: 0.253421052631579, reward_min: -0.01310344827586207, runs: 2000
+2019-04-11 08:59:29,268 - experiments.base - INFO - 65/216 Processing Q with alpha 0.1, q_init 0, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.9
+2019-04-11 08:59:52,005 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 09:00:19,674 - experiments.base - INFO - reward_mean: 0.10586243152420013, reward_median: 0.1656140350877193, reward_std: 0.10377150160521657, reward_max: 0.253421052631579, reward_min: -0.0325, runs: 2000
+2019-04-11 09:00:19,690 - experiments.base - INFO - 66/216 Processing Q with alpha 0.1, q_init 0, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.913
+2019-04-11 09:00:39,317 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 09:01:06,917 - experiments.base - INFO - reward_mean: -0.013725700126722952, reward_median: -0.013333333333333332, reward_std: 0.017819933007261767, reward_max: 0.2175, reward_min: -0.0325, runs: 2000
+2019-04-11 09:01:06,932 - experiments.base - INFO - 67/216 Processing Q with alpha 0.1, q_init 0, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.926
+2019-04-11 09:01:23,726 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 09:01:50,674 - experiments.base - INFO - reward_mean: -0.027559314136898203, reward_median: -0.0325, reward_std: 0.006384178969419108, reward_max: -0.010234986945169711, reward_min: -0.0325, runs: 2000
+2019-04-11 09:01:50,687 - experiments.base - INFO - 68/216 Processing Q with alpha 0.1, q_init 0, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.939
+2019-04-11 09:02:06,238 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 09:02:33,344 - experiments.base - INFO - reward_mean: -0.02761510261532558, reward_median: -0.0325, reward_std: 0.006498512241349072, reward_max: -0.010211267605633801, reward_min: -0.0325, runs: 2000
+2019-04-11 09:02:33,357 - experiments.base - INFO - 69/216 Processing Q with alpha 0.1, q_init 0, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.951
+2019-04-11 09:02:48,282 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 09:03:15,315 - experiments.base - INFO - reward_mean: -0.028486472734444743, reward_median: -0.0325, reward_std: 0.005205762304715957, reward_max: -0.010090180360721443, reward_min: -0.0325, runs: 2000
+2019-04-11 09:03:15,328 - experiments.base - INFO - 70/216 Processing Q with alpha 0.1, q_init 0, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.964
+2019-04-11 09:03:30,481 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 09:03:57,688 - experiments.base - INFO - reward_mean: -0.02779304511570151, reward_median: -0.0325, reward_std: 0.005765783783833951, reward_max: -0.01, reward_min: -0.0325, runs: 2000
+2019-04-11 09:03:57,702 - experiments.base - INFO - 71/216 Processing Q with alpha 0.1, q_init 0, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.977
+2019-04-11 09:04:12,089 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 09:04:38,999 - experiments.base - INFO - reward_mean: -0.027020769113844, reward_median: -0.0325, reward_std: 0.0072198380363976185, reward_max: -0.01, reward_min: -0.0325, runs: 2000
+2019-04-11 09:04:39,011 - experiments.base - INFO - 72/216 Processing Q with alpha 0.1, q_init 0, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.99
+2019-04-11 09:04:52,789 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 09:05:19,463 - experiments.base - INFO - reward_mean: -0.028902325400663165, reward_median: -0.0325, reward_std: 0.004623569210751176, reward_max: -0.010478723404255317, reward_min: -0.0325, runs: 2000
+2019-04-11 09:05:19,476 - experiments.base - INFO - 73/216 Processing Q with alpha 0.5, q_init random, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.0
+2019-04-11 09:07:44,130 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 09:08:26,498 - experiments.base - INFO - reward_mean: -0.01, reward_median: -0.01, reward_std: 0.0, reward_max: -0.01, reward_min: -0.01, runs: 2000
+2019-04-11 09:08:26,507 - experiments.base - INFO - 74/216 Processing Q with alpha 0.5, q_init random, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.27
+2019-04-11 09:10:44,420 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 09:11:26,895 - experiments.base - INFO - reward_mean: -0.01, reward_median: -0.01, reward_std: 0.0, reward_max: -0.01, reward_min: -0.01, runs: 2000
+2019-04-11 09:11:26,903 - experiments.base - INFO - 75/216 Processing Q with alpha 0.5, q_init random, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.53
+2019-04-11 09:11:57,274 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 09:12:24,978 - experiments.base - INFO - reward_mean: 0.1487655932574954, reward_median: 0.1514516129032258, reward_std: 0.03316621157977693, reward_max: 0.24025000000000002, reward_min: -0.01225, runs: 2000
+2019-04-11 09:12:24,993 - experiments.base - INFO - 76/216 Processing Q with alpha 0.5, q_init random, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.8
+2019-04-11 09:12:55,516 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 09:13:23,380 - experiments.base - INFO - reward_mean: 0.11725713201924158, reward_median: 0.13098591549295777, reward_std: 0.05771631919646826, reward_max: 0.22833333333333333, reward_min: -0.01236842105263158, runs: 2000
+2019-04-11 09:13:23,396 - experiments.base - INFO - 77/216 Processing Q with alpha 0.5, q_init random, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.9
+2019-04-11 09:13:46,552 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 09:14:14,944 - experiments.base - INFO - reward_mean: 0.09890430137457096, reward_median: 0.1540983606557377, reward_std: 0.09884215768186498, reward_max: 0.253421052631579, reward_min: -0.02125, runs: 2000
+2019-04-11 09:14:14,960 - experiments.base - INFO - 78/216 Processing Q with alpha 0.5, q_init random, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.913
+2019-04-11 09:14:28,503 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 09:14:55,248 - experiments.base - INFO - reward_mean: -0.0286390566252933, reward_median: -0.0325, reward_std: 0.004984642538163159, reward_max: -0.01, reward_min: -0.0325, runs: 2000
+2019-04-11 09:14:55,260 - experiments.base - INFO - 79/216 Processing Q with alpha 0.5, q_init random, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.926
+2019-04-11 09:15:07,903 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 09:15:34,619 - experiments.base - INFO - reward_mean: -0.028781037706151587, reward_median: -0.0325, reward_std: 0.004815218766965611, reward_max: -0.010215311004784688, reward_min: -0.0325, runs: 2000
+2019-04-11 09:15:34,632 - experiments.base - INFO - 80/216 Processing Q with alpha 0.5, q_init random, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.939
+2019-04-11 09:15:47,231 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 09:16:14,038 - experiments.base - INFO - reward_mean: -0.028358697247456228, reward_median: -0.0325, reward_std: 0.004980989512709972, reward_max: -0.010620689655172414, reward_min: -0.0325, runs: 2000
+2019-04-11 09:16:14,051 - experiments.base - INFO - 81/216 Processing Q with alpha 0.5, q_init random, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.951
+2019-04-11 09:16:26,305 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 09:16:53,390 - experiments.base - INFO - reward_mean: -0.028271644682042747, reward_median: -0.0325, reward_std: 0.005199258603859184, reward_max: -0.010358565737051791, reward_min: -0.0325, runs: 2000
+2019-04-11 09:16:53,404 - experiments.base - INFO - 82/216 Processing Q with alpha 0.5, q_init random, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.964
+2019-04-11 09:17:05,588 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 09:17:32,465 - experiments.base - INFO - reward_mean: -0.02806213429876591, reward_median: -0.0325, reward_std: 0.005626968224842326, reward_max: -0.010833333333333332, reward_min: -0.0325, runs: 2000
+2019-04-11 09:17:32,478 - experiments.base - INFO - 83/216 Processing Q with alpha 0.5, q_init random, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.977
+2019-04-11 09:17:44,588 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 09:18:11,182 - experiments.base - INFO - reward_mean: -0.02878752948230889, reward_median: -0.0325, reward_std: 0.004614277079348616, reward_max: -0.01081081081081081, reward_min: -0.0325, runs: 2000
+2019-04-11 09:18:11,194 - experiments.base - INFO - 84/216 Processing Q with alpha 0.5, q_init random, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.99
+2019-04-11 09:18:23,145 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 09:18:49,854 - experiments.base - INFO - reward_mean: -0.028678181009894797, reward_median: -0.0325, reward_std: 0.004944620088652765, reward_max: -0.01, reward_min: -0.0325, runs: 2000
+2019-04-11 09:18:49,866 - experiments.base - INFO - 85/216 Processing Q with alpha 0.5, q_init random, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.0
+2019-04-11 09:21:15,262 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 09:21:57,612 - experiments.base - INFO - reward_mean: -0.01, reward_median: -0.01, reward_std: 0.0, reward_max: -0.01, reward_min: -0.01, runs: 2000
+2019-04-11 09:21:57,621 - experiments.base - INFO - 86/216 Processing Q with alpha 0.5, q_init random, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.27
+2019-04-11 09:24:12,257 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 09:24:55,678 - experiments.base - INFO - reward_mean: -0.01, reward_median: -0.01, reward_std: 0.0, reward_max: -0.01, reward_min: -0.01, runs: 2000
+2019-04-11 09:24:55,687 - experiments.base - INFO - 87/216 Processing Q with alpha 0.5, q_init random, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.53
+2019-04-11 09:25:26,076 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 09:25:53,591 - experiments.base - INFO - reward_mean: 0.1375162892974984, reward_median: 0.14166666666666666, reward_std: 0.040196706233733545, reward_max: 0.22833333333333333, reward_min: -0.012045454545454547, runs: 2000
+2019-04-11 09:25:53,607 - experiments.base - INFO - 88/216 Processing Q with alpha 0.5, q_init random, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.8
+2019-04-11 09:26:25,227 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 09:26:52,985 - experiments.base - INFO - reward_mean: 0.11229960787175526, reward_median: 0.12712328767123288, reward_std: 0.05697085547355877, reward_max: 0.2175, reward_min: -0.012727272727272728, runs: 2000
+2019-04-11 09:26:53,000 - experiments.base - INFO - 89/216 Processing Q with alpha 0.5, q_init random, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.9
+2019-04-11 09:27:19,521 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 09:27:46,948 - experiments.base - INFO - reward_mean: 0.10342354432619047, reward_median: 0.12527027027027027, reward_std: 0.07371196883684783, reward_max: 0.24025000000000002, reward_min: -0.02125, runs: 2000
+2019-04-11 09:27:46,963 - experiments.base - INFO - 90/216 Processing Q with alpha 0.5, q_init random, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.913
+2019-04-11 09:28:00,406 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 09:28:27,005 - experiments.base - INFO - reward_mean: -0.02827731249748542, reward_median: -0.0325, reward_std: 0.005833221554342232, reward_max: 0.0931958762886598, reward_min: -0.0325, runs: 2000
+2019-04-11 09:28:27,018 - experiments.base - INFO - 91/216 Processing Q with alpha 0.5, q_init random, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.926
+2019-04-11 09:28:39,995 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 09:29:06,169 - experiments.base - INFO - reward_mean: -0.028427939616849675, reward_median: -0.0325, reward_std: 0.004982027442343997, reward_max: -0.01019650655021834, reward_min: -0.0325, runs: 2000
+2019-04-11 09:29:06,182 - experiments.base - INFO - 92/216 Processing Q with alpha 0.5, q_init random, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.939
+2019-04-11 09:29:18,573 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 09:29:46,128 - experiments.base - INFO - reward_mean: -0.028728386495339705, reward_median: -0.0325, reward_std: 0.0049798056696608965, reward_max: -0.010439024390243901, reward_min: -0.0325, runs: 2000
+2019-04-11 09:29:46,141 - experiments.base - INFO - 93/216 Processing Q with alpha 0.5, q_init random, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.951
+2019-04-11 09:29:58,379 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 09:30:24,960 - experiments.base - INFO - reward_mean: -0.02879512617582003, reward_median: -0.0325, reward_std: 0.004920601434212629, reward_max: -0.010608108108108107, reward_min: -0.0325, runs: 2000
+2019-04-11 09:30:24,974 - experiments.base - INFO - 94/216 Processing Q with alpha 0.5, q_init random, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.964
+2019-04-11 09:30:37,406 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 09:31:03,487 - experiments.base - INFO - reward_mean: -0.02870542725828968, reward_median: -0.0325, reward_std: 0.0046286001566028636, reward_max: -0.010750000000000001, reward_min: -0.0325, runs: 2000
+2019-04-11 09:31:03,500 - experiments.base - INFO - 95/216 Processing Q with alpha 0.5, q_init random, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.977
+2019-04-11 09:31:15,854 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 09:31:42,412 - experiments.base - INFO - reward_mean: -0.028557825454118578, reward_median: -0.0325, reward_std: 0.004913147760577763, reward_max: -0.010398230088495573, reward_min: -0.0325, runs: 2000
+2019-04-11 09:31:42,425 - experiments.base - INFO - 96/216 Processing Q with alpha 0.5, q_init random, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.99
+2019-04-11 09:31:54,669 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 09:32:20,687 - experiments.base - INFO - reward_mean: -0.02879981469861617, reward_median: -0.0325, reward_std: 0.004802545612377615, reward_max: -0.012432432432432434, reward_min: -0.0325, runs: 2000
+2019-04-11 09:32:20,699 - experiments.base - INFO - 97/216 Processing Q with alpha 0.5, q_init random, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.0
+2019-04-11 09:34:44,930 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 09:35:26,990 - experiments.base - INFO - reward_mean: -0.01, reward_median: -0.01, reward_std: 0.0, reward_max: -0.01, reward_min: -0.01, runs: 2000
+2019-04-11 09:35:26,999 - experiments.base - INFO - 98/216 Processing Q with alpha 0.5, q_init random, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.27
+2019-04-11 09:37:39,968 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 09:38:21,553 - experiments.base - INFO - reward_mean: -0.01, reward_median: -0.01, reward_std: 0.0, reward_max: -0.01, reward_min: -0.01, runs: 2000
+2019-04-11 09:38:21,563 - experiments.base - INFO - 99/216 Processing Q with alpha 0.5, q_init random, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.53
+2019-04-11 09:38:51,706 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 09:39:18,914 - experiments.base - INFO - reward_mean: 0.1409900748931236, reward_median: 0.14166666666666666, reward_std: 0.03030538832450929, reward_max: 0.24025000000000002, reward_min: -0.011384615384615384, runs: 2000
+2019-04-11 09:39:18,930 - experiments.base - INFO - 100/216 Processing Q with alpha 0.5, q_init random, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.8
+2019-04-11 09:39:48,297 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 09:40:16,813 - experiments.base - INFO - reward_mean: 0.12363089724605043, reward_median: 0.13940298507462687, reward_std: 0.058613733167290336, reward_max: 0.22833333333333333, reward_min: -0.01310344827586207, runs: 2000
+2019-04-11 09:40:16,830 - experiments.base - INFO - 101/216 Processing Q with alpha 0.5, q_init random, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.9
+2019-04-11 09:40:45,766 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 09:41:13,110 - experiments.base - INFO - reward_mean: 0.12057709911225847, reward_median: 0.12171052631578948, reward_std: 0.03995802501112393, reward_max: 0.22833333333333333, reward_min: -0.019, runs: 2000
+2019-04-11 09:41:13,125 - experiments.base - INFO - 102/216 Processing Q with alpha 0.5, q_init random, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.913
+2019-04-11 09:41:26,515 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 09:41:52,880 - experiments.base - INFO - reward_mean: -0.028177807863455515, reward_median: -0.0325, reward_std: 0.006373143565580283, reward_max: 0.09648936170212766, reward_min: -0.0325, runs: 2000
+2019-04-11 09:41:52,893 - experiments.base - INFO - 103/216 Processing Q with alpha 0.5, q_init random, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.926
+2019-04-11 09:42:06,111 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 09:42:32,626 - experiments.base - INFO - reward_mean: -0.02898277893969496, reward_median: -0.0325, reward_std: 0.004652714722900255, reward_max: -0.010243243243243242, reward_min: -0.0325, runs: 2000
+2019-04-11 09:42:32,639 - experiments.base - INFO - 104/216 Processing Q with alpha 0.5, q_init random, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.939
+2019-04-11 09:42:45,245 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 09:43:11,433 - experiments.base - INFO - reward_mean: -0.028930494595081353, reward_median: -0.0325, reward_std: 0.004776518154988931, reward_max: -0.01, reward_min: -0.0325, runs: 2000
+2019-04-11 09:43:11,445 - experiments.base - INFO - 105/216 Processing Q with alpha 0.5, q_init random, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.951
+2019-04-11 09:43:23,837 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 09:43:50,476 - experiments.base - INFO - reward_mean: -0.02888040725275996, reward_median: -0.0325, reward_std: 0.004670637377537172, reward_max: -0.010508474576271186, reward_min: -0.0325, runs: 2000
+2019-04-11 09:43:50,489 - experiments.base - INFO - 106/216 Processing Q with alpha 0.5, q_init random, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.964
+2019-04-11 09:44:02,851 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 09:44:28,804 - experiments.base - INFO - reward_mean: -0.028599406894083575, reward_median: -0.0325, reward_std: 0.0046379008711744845, reward_max: -0.010350194552529184, reward_min: -0.0325, runs: 2000
+2019-04-11 09:44:28,818 - experiments.base - INFO - 107/216 Processing Q with alpha 0.5, q_init random, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.977
+2019-04-11 09:44:40,943 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 09:45:08,778 - experiments.base - INFO - reward_mean: -0.028748906139907538, reward_median: -0.0325, reward_std: 0.004719816608021948, reward_max: -0.010424528301886792, reward_min: -0.0325, runs: 2000
+2019-04-11 09:45:08,790 - experiments.base - INFO - 108/216 Processing Q with alpha 0.5, q_init random, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.99
+2019-04-11 09:45:20,887 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 09:45:46,513 - experiments.base - INFO - reward_mean: -0.02724484811632029, reward_median: -0.028000000000000004, reward_std: 0.006283009523803005, reward_max: -0.010231362467866323, reward_min: -0.0325, runs: 2000
+2019-04-11 09:45:46,527 - experiments.base - INFO - 109/216 Processing Q with alpha 0.5, q_init 0, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.0
+2019-04-11 09:48:10,571 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 09:48:51,813 - experiments.base - INFO - reward_mean: -0.01, reward_median: -0.01, reward_std: 0.0, reward_max: -0.01, reward_min: -0.01, runs: 2000
+2019-04-11 09:48:51,823 - experiments.base - INFO - 110/216 Processing Q with alpha 0.5, q_init 0, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.27
+2019-04-11 09:51:10,321 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 09:51:51,727 - experiments.base - INFO - reward_mean: -0.01, reward_median: -0.01, reward_std: 0.0, reward_max: -0.01, reward_min: -0.01, runs: 2000
+2019-04-11 09:51:51,736 - experiments.base - INFO - 111/216 Processing Q with alpha 0.5, q_init 0, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.53
+2019-04-11 09:52:23,480 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 09:52:50,605 - experiments.base - INFO - reward_mean: 0.1353192899493202, reward_median: 0.13507246376811594, reward_std: 0.029381752605389538, reward_max: 0.22833333333333333, reward_min: 0.036995305164319245, runs: 2000
+2019-04-11 09:52:50,621 - experiments.base - INFO - 112/216 Processing Q with alpha 0.5, q_init 0, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.8
+2019-04-11 09:53:20,920 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 09:53:48,000 - experiments.base - INFO - reward_mean: 0.1294564447915259, reward_median: 0.14166666666666666, reward_std: 0.058684368320976586, reward_max: 0.24025000000000002, reward_min: -0.012500000000000002, runs: 2000
+2019-04-11 09:53:48,016 - experiments.base - INFO - 113/216 Processing Q with alpha 0.5, q_init 0, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.9
+2019-04-11 09:54:14,565 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 09:54:41,364 - experiments.base - INFO - reward_mean: 0.12004733829602114, reward_median: 0.13940298507462687, reward_std: 0.06551221177657866, reward_max: 0.23414634146341462, reward_min: -0.015625, runs: 2000
+2019-04-11 09:54:41,379 - experiments.base - INFO - 114/216 Processing Q with alpha 0.5, q_init 0, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.913
+2019-04-11 09:54:54,848 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 09:55:21,664 - experiments.base - INFO - reward_mean: -0.028556667480088373, reward_median: -0.0325, reward_std: 0.005314820601380337, reward_max: 0.01712737127371274, reward_min: -0.0325, runs: 2000
+2019-04-11 09:55:21,678 - experiments.base - INFO - 115/216 Processing Q with alpha 0.5, q_init 0, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.926
+2019-04-11 09:55:35,948 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 09:56:02,706 - experiments.base - INFO - reward_mean: -0.028228927411378776, reward_median: -0.0325, reward_std: 0.005423416862287923, reward_max: -0.010174757281553398, reward_min: -0.0325, runs: 2000
+2019-04-11 09:56:02,719 - experiments.base - INFO - 116/216 Processing Q with alpha 0.5, q_init 0, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.939
+2019-04-11 09:56:15,106 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 09:56:41,523 - experiments.base - INFO - reward_mean: -0.028606063881142174, reward_median: -0.0325, reward_std: 0.0049103337111844605, reward_max: -0.010552147239263803, reward_min: -0.0325, runs: 2000
+2019-04-11 09:56:41,536 - experiments.base - INFO - 117/216 Processing Q with alpha 0.5, q_init 0, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.951
+2019-04-11 09:56:53,870 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 09:57:20,233 - experiments.base - INFO - reward_mean: -0.028227184821292058, reward_median: -0.0325, reward_std: 0.005115184980442059, reward_max: -0.010238726790450927, reward_min: -0.0325, runs: 2000
+2019-04-11 09:57:20,246 - experiments.base - INFO - 118/216 Processing Q with alpha 0.5, q_init 0, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.964
+2019-04-11 09:57:32,446 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 09:57:58,966 - experiments.base - INFO - reward_mean: -0.028465517647418524, reward_median: -0.0325, reward_std: 0.004863176273985976, reward_max: -0.01, reward_min: -0.0325, runs: 2000
+2019-04-11 09:57:58,978 - experiments.base - INFO - 119/216 Processing Q with alpha 0.5, q_init 0, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.977
+2019-04-11 09:58:11,245 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 09:58:37,446 - experiments.base - INFO - reward_mean: -0.028759387829514402, reward_median: -0.0325, reward_std: 0.004809193714230547, reward_max: -0.01014040561622465, reward_min: -0.0325, runs: 2000
+2019-04-11 09:58:37,459 - experiments.base - INFO - 120/216 Processing Q with alpha 0.5, q_init 0, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.99
+2019-04-11 09:58:49,543 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 09:59:16,028 - experiments.base - INFO - reward_mean: -0.02877420696886347, reward_median: -0.0325, reward_std: 0.004804464433031997, reward_max: -0.01009594882729211, reward_min: -0.0325, runs: 2000
+2019-04-11 09:59:16,040 - experiments.base - INFO - 121/216 Processing Q with alpha 0.5, q_init 0, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.0
+2019-04-11 10:01:41,067 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 10:02:22,943 - experiments.base - INFO - reward_mean: -0.01, reward_median: -0.01, reward_std: 0.0, reward_max: -0.01, reward_min: -0.01, runs: 2000
+2019-04-11 10:02:22,953 - experiments.base - INFO - 122/216 Processing Q with alpha 0.5, q_init 0, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.27
+2019-04-11 10:04:37,198 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 10:05:18,908 - experiments.base - INFO - reward_mean: -0.01, reward_median: -0.01, reward_std: 0.0, reward_max: -0.01, reward_min: -0.01, runs: 2000
+2019-04-11 10:05:18,917 - experiments.base - INFO - 123/216 Processing Q with alpha 0.5, q_init 0, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.53
+2019-04-11 10:05:49,625 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 10:06:17,334 - experiments.base - INFO - reward_mean: 0.1499668874971648, reward_median: 0.1514516129032258, reward_std: 0.03268005148080354, reward_max: 0.24025000000000002, reward_min: -0.012, runs: 2000
+2019-04-11 10:06:17,349 - experiments.base - INFO - 124/216 Processing Q with alpha 0.5, q_init 0, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.8
+2019-04-11 10:06:51,151 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 10:07:18,379 - experiments.base - INFO - reward_mean: 0.12427073745470053, reward_median: 0.12712328767123288, reward_std: 0.036489360810591114, reward_max: 0.22279069767441861, reward_min: -0.01230769230769231, runs: 2000
+2019-04-11 10:07:18,395 - experiments.base - INFO - 125/216 Processing Q with alpha 0.5, q_init 0, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.9
+2019-04-11 10:07:41,718 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 10:08:08,539 - experiments.base - INFO - reward_mean: 0.05970363281969423, reward_median: -0.012045454545454547, reward_std: 0.08548294497142515, reward_max: 0.253421052631579, reward_min: -0.019, runs: 2000
+2019-04-11 10:08:08,555 - experiments.base - INFO - 126/216 Processing Q with alpha 0.5, q_init 0, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.913
+2019-04-11 10:08:22,064 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 10:08:47,663 - experiments.base - INFO - reward_mean: -0.028336573593058384, reward_median: -0.0325, reward_std: 0.006064359959298092, reward_max: 0.10505747126436782, reward_min: -0.0325, runs: 2000
+2019-04-11 10:08:47,677 - experiments.base - INFO - 127/216 Processing Q with alpha 0.5, q_init 0, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.926
+2019-04-11 10:09:00,460 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 10:09:26,688 - experiments.base - INFO - reward_mean: -0.02854374992462428, reward_median: -0.0325, reward_std: 0.004975083681058581, reward_max: -0.010163043478260868, reward_min: -0.0325, runs: 2000
+2019-04-11 10:09:26,701 - experiments.base - INFO - 128/216 Processing Q with alpha 0.5, q_init 0, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.939
+2019-04-11 10:09:39,124 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 10:10:05,574 - experiments.base - INFO - reward_mean: -0.02828807748225027, reward_median: -0.0325, reward_std: 0.005259409231048214, reward_max: -0.010099557522123893, reward_min: -0.0325, runs: 2000
+2019-04-11 10:10:05,589 - experiments.base - INFO - 129/216 Processing Q with alpha 0.5, q_init 0, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.951
+2019-04-11 10:10:18,150 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 10:10:45,031 - experiments.base - INFO - reward_mean: -0.028847352898930048, reward_median: -0.0325, reward_std: 0.004668362798839336, reward_max: -0.010271903323262839, reward_min: -0.0325, runs: 2000
+2019-04-11 10:10:45,046 - experiments.base - INFO - 130/216 Processing Q with alpha 0.5, q_init 0, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.964
+2019-04-11 10:10:57,681 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 10:11:24,846 - experiments.base - INFO - reward_mean: -0.028416535978421587, reward_median: -0.0325, reward_std: 0.004958358840247092, reward_max: -0.01034351145038168, reward_min: -0.0325, runs: 2000
+2019-04-11 10:11:24,860 - experiments.base - INFO - 131/216 Processing Q with alpha 0.5, q_init 0, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.977
+2019-04-11 10:11:36,992 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 10:12:03,682 - experiments.base - INFO - reward_mean: -0.028568077180096456, reward_median: -0.0325, reward_std: 0.00481993357290951, reward_max: -0.010113065326633162, reward_min: -0.0325, runs: 2000
+2019-04-11 10:12:03,696 - experiments.base - INFO - 132/216 Processing Q with alpha 0.5, q_init 0, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.99
+2019-04-11 10:12:15,874 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 10:12:42,103 - experiments.base - INFO - reward_mean: -0.028880825457285746, reward_median: -0.0325, reward_std: 0.004676718487471339, reward_max: -0.01140625, reward_min: -0.0325, runs: 2000
+2019-04-11 10:12:42,115 - experiments.base - INFO - 133/216 Processing Q with alpha 0.5, q_init 0, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.0
+2019-04-11 10:15:05,664 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 10:15:47,386 - experiments.base - INFO - reward_mean: -0.01, reward_median: -0.01, reward_std: 0.0, reward_max: -0.01, reward_min: -0.01, runs: 2000
+2019-04-11 10:15:47,394 - experiments.base - INFO - 134/216 Processing Q with alpha 0.5, q_init 0, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.27
+2019-04-11 10:18:01,009 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 10:18:42,683 - experiments.base - INFO - reward_mean: -0.01, reward_median: -0.01, reward_std: 0.0, reward_max: -0.01, reward_min: -0.01, runs: 2000
+2019-04-11 10:18:42,692 - experiments.base - INFO - 135/216 Processing Q with alpha 0.5, q_init 0, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.53
+2019-04-11 10:19:13,309 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 10:19:40,894 - experiments.base - INFO - reward_mean: 0.14211579180915673, reward_median: 0.144, reward_std: 0.032108898895566104, reward_max: 0.24025000000000002, reward_min: -0.012142857142857143, runs: 2000
+2019-04-11 10:19:40,910 - experiments.base - INFO - 136/216 Processing Q with alpha 0.5, q_init 0, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.8
+2019-04-11 10:20:09,411 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 10:20:36,885 - experiments.base - INFO - reward_mean: 0.13547259831066719, reward_median: 0.14640625, reward_std: 0.05222633734372389, reward_max: 0.24025000000000002, reward_min: -0.01346153846153846, runs: 2000
+2019-04-11 10:20:36,900 - experiments.base - INFO - 137/216 Processing Q with alpha 0.5, q_init 0, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.9
+2019-04-11 10:21:01,684 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 10:21:30,123 - experiments.base - INFO - reward_mean: 0.09341427082383581, reward_median: 0.1290277777777778, reward_std: 0.08395194842435819, reward_max: 0.24025000000000002, reward_min: -0.02125, runs: 2000
+2019-04-11 10:21:30,139 - experiments.base - INFO - 138/216 Processing Q with alpha 0.5, q_init 0, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.913
+2019-04-11 10:21:43,800 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 10:22:10,678 - experiments.base - INFO - reward_mean: -0.02846028711024062, reward_median: -0.0325, reward_std: 0.00550177930995823, reward_max: -0.010143084260731319, reward_min: -0.0325, runs: 2000
+2019-04-11 10:22:10,691 - experiments.base - INFO - 139/216 Processing Q with alpha 0.5, q_init 0, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.926
+2019-04-11 10:22:23,796 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 10:22:50,582 - experiments.base - INFO - reward_mean: -0.028416650944817903, reward_median: -0.0325, reward_std: 0.004774400147357958, reward_max: -0.010569620253164557, reward_min: -0.0325, runs: 2000
+2019-04-11 10:22:50,595 - experiments.base - INFO - 140/216 Processing Q with alpha 0.5, q_init 0, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.939
+2019-04-11 10:23:03,132 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 10:23:29,763 - experiments.base - INFO - reward_mean: -0.02893518945336673, reward_median: -0.0325, reward_std: 0.0047759574709988, reward_max: -0.010483870967741934, reward_min: -0.0325, runs: 2000
+2019-04-11 10:23:29,776 - experiments.base - INFO - 141/216 Processing Q with alpha 0.5, q_init 0, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.951
+2019-04-11 10:23:42,156 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 10:24:08,933 - experiments.base - INFO - reward_mean: -0.028314939377557954, reward_median: -0.0325, reward_std: 0.004895520221805069, reward_max: -0.01062937062937063, reward_min: -0.0325, runs: 2000
+2019-04-11 10:24:08,947 - experiments.base - INFO - 142/216 Processing Q with alpha 0.5, q_init 0, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.964
+2019-04-11 10:24:21,486 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 10:24:48,069 - experiments.base - INFO - reward_mean: -0.028457609692197187, reward_median: -0.0325, reward_std: 0.004809065526956707, reward_max: -0.010144927536231883, reward_min: -0.0325, runs: 2000
+2019-04-11 10:24:48,082 - experiments.base - INFO - 143/216 Processing Q with alpha 0.5, q_init 0, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.977
+2019-04-11 10:25:00,321 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 10:25:26,901 - experiments.base - INFO - reward_mean: -0.028434702269846804, reward_median: -0.0325, reward_std: 0.004749055207974901, reward_max: -0.01052023121387283, reward_min: -0.0325, runs: 2000
+2019-04-11 10:25:26,914 - experiments.base - INFO - 144/216 Processing Q with alpha 0.5, q_init 0, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.99
+2019-04-11 10:25:38,974 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 10:26:05,882 - experiments.base - INFO - reward_mean: -0.028594024091894824, reward_median: -0.0325, reward_std: 0.004725509501313775, reward_max: -0.01046153846153846, reward_min: -0.0325, runs: 2000
+2019-04-11 10:26:05,895 - experiments.base - INFO - 145/216 Processing Q with alpha 0.9, q_init random, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.0
+2019-04-11 10:28:32,522 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 10:29:14,496 - experiments.base - INFO - reward_mean: -0.01, reward_median: -0.01, reward_std: 0.0, reward_max: -0.01, reward_min: -0.01, runs: 2000
+2019-04-11 10:29:14,505 - experiments.base - INFO - 146/216 Processing Q with alpha 0.9, q_init random, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.27
+2019-04-11 10:31:34,546 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 10:32:17,534 - experiments.base - INFO - reward_mean: -0.01, reward_median: -0.01, reward_std: 0.0, reward_max: -0.01, reward_min: -0.01, runs: 2000
+2019-04-11 10:32:17,543 - experiments.base - INFO - 147/216 Processing Q with alpha 0.9, q_init random, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.53
+2019-04-11 10:32:48,668 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 10:33:16,061 - experiments.base - INFO - reward_mean: 0.13925715793194707, reward_median: 0.14166666666666666, reward_std: 0.030434300041478086, reward_max: 0.22833333333333333, reward_min: -0.011636363636363637, runs: 2000
+2019-04-11 10:33:16,077 - experiments.base - INFO - 148/216 Processing Q with alpha 0.9, q_init random, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.8
+2019-04-11 10:33:46,600 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 10:34:13,342 - experiments.base - INFO - reward_mean: 0.13903818311751143, reward_median: 0.13940298507462687, reward_std: 0.03127177480805622, reward_max: 0.22833333333333333, reward_min: -0.013333333333333332, runs: 2000
+2019-04-11 10:34:13,359 - experiments.base - INFO - 149/216 Processing Q with alpha 0.9, q_init random, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.9
+2019-04-11 10:34:27,937 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 10:34:53,980 - experiments.base - INFO - reward_mean: -0.015373030616225216, reward_median: -0.0325, reward_std: 0.05023624892156846, reward_max: 0.22833333333333333, reward_min: -0.0325, runs: 2000
+2019-04-11 10:34:53,994 - experiments.base - INFO - 150/216 Processing Q with alpha 0.9, q_init random, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.913
+2019-04-11 10:35:06,604 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 10:35:32,876 - experiments.base - INFO - reward_mean: -0.027975940917500587, reward_median: -0.0325, reward_std: 0.0060595527974369725, reward_max: 0.11670886075949367, reward_min: -0.0325, runs: 2000
+2019-04-11 10:35:32,888 - experiments.base - INFO - 151/216 Processing Q with alpha 0.9, q_init random, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.926
+2019-04-11 10:35:45,526 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 10:36:12,128 - experiments.base - INFO - reward_mean: -0.028127435517681945, reward_median: -0.0325, reward_std: 0.0055857070680234554, reward_max: -0.01, reward_min: -0.0325, runs: 2000
+2019-04-11 10:36:12,142 - experiments.base - INFO - 152/216 Processing Q with alpha 0.9, q_init random, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.939
+2019-04-11 10:36:25,114 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 10:36:52,126 - experiments.base - INFO - reward_mean: -0.022605982115981412, reward_median: -0.02125, reward_std: 0.005147403687085874, reward_max: -0.01, reward_min: -0.0325, runs: 2000
+2019-04-11 10:36:52,137 - experiments.base - INFO - 153/216 Processing Q with alpha 0.9, q_init random, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.951
+2019-04-11 10:37:05,052 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 10:37:31,866 - experiments.base - INFO - reward_mean: -0.021833368084676046, reward_median: -0.02, reward_std: 0.00476373325747144, reward_max: -0.010342205323193916, reward_min: -0.0325, runs: 2000
+2019-04-11 10:37:31,879 - experiments.base - INFO - 154/216 Processing Q with alpha 0.9, q_init random, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.964
+2019-04-11 10:37:44,261 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 10:38:10,970 - experiments.base - INFO - reward_mean: -0.023907971656863446, reward_median: -0.025000000000000005, reward_std: 0.004923044075383783, reward_max: -0.01, reward_min: -0.0325, runs: 2000
+2019-04-11 10:38:10,983 - experiments.base - INFO - 155/216 Processing Q with alpha 0.9, q_init random, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.977
+2019-04-11 10:38:23,351 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 10:38:50,135 - experiments.base - INFO - reward_mean: -0.027709298552620422, reward_median: -0.028000000000000004, reward_std: 0.005329823774740423, reward_max: -0.01014446227929374, reward_min: -0.0325, runs: 2000
+2019-04-11 10:38:50,149 - experiments.base - INFO - 156/216 Processing Q with alpha 0.9, q_init random, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.99
+2019-04-11 10:39:02,300 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 10:39:28,904 - experiments.base - INFO - reward_mean: -0.028195753346804835, reward_median: -0.0325, reward_std: 0.005413405989945349, reward_max: -0.010147299509001636, reward_min: -0.0325, runs: 2000
+2019-04-11 10:39:28,916 - experiments.base - INFO - 157/216 Processing Q with alpha 0.9, q_init random, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.0
+2019-04-11 10:41:55,070 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 10:42:38,003 - experiments.base - INFO - reward_mean: -0.01, reward_median: -0.01, reward_std: 0.0, reward_max: -0.01, reward_min: -0.01, runs: 2000
+2019-04-11 10:42:38,011 - experiments.base - INFO - 158/216 Processing Q with alpha 0.9, q_init random, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.27
+2019-04-11 10:44:55,091 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 10:45:37,371 - experiments.base - INFO - reward_mean: -0.01, reward_median: -0.01, reward_std: 0.0, reward_max: -0.01, reward_min: -0.01, runs: 2000
+2019-04-11 10:45:37,379 - experiments.base - INFO - 159/216 Processing Q with alpha 0.9, q_init random, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.53
+2019-04-11 10:46:08,754 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 10:46:36,734 - experiments.base - INFO - reward_mean: 0.14363870010371915, reward_median: 0.144, reward_std: 0.0328231735328594, reward_max: 0.23414634146341462, reward_min: -0.011836734693877552, runs: 2000
+2019-04-11 10:46:36,749 - experiments.base - INFO - 160/216 Processing Q with alpha 0.9, q_init random, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.8
+2019-04-11 10:47:07,152 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 10:47:35,829 - experiments.base - INFO - reward_mean: 0.13746694653941924, reward_median: 0.13720588235294118, reward_std: 0.03194300771406662, reward_max: 0.22833333333333333, reward_min: -0.011956521739130435, runs: 2000
+2019-04-11 10:47:35,844 - experiments.base - INFO - 161/216 Processing Q with alpha 0.9, q_init random, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.9
+2019-04-11 10:48:00,231 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 10:48:27,630 - experiments.base - INFO - reward_mean: 0.08870682881064178, reward_median: 0.12000000000000001, reward_std: 0.07714978648373776, reward_max: 0.2175, reward_min: -0.0325, runs: 2000
+2019-04-11 10:48:27,643 - experiments.base - INFO - 162/216 Processing Q with alpha 0.9, q_init random, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.913
+2019-04-11 10:48:40,815 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 10:49:07,294 - experiments.base - INFO - reward_mean: -0.028439174203070905, reward_median: -0.0325, reward_std: 0.005348646020115177, reward_max: -0.01010215664018161, reward_min: -0.0325, runs: 2000
+2019-04-11 10:49:07,306 - experiments.base - INFO - 163/216 Processing Q with alpha 0.9, q_init random, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.926
+2019-04-11 10:49:19,731 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 10:49:45,941 - experiments.base - INFO - reward_mean: -0.028404333684811704, reward_median: -0.0325, reward_std: 0.0050035117719572095, reward_max: -0.01, reward_min: -0.0325, runs: 2000
+2019-04-11 10:49:45,953 - experiments.base - INFO - 164/216 Processing Q with alpha 0.9, q_init random, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.939
+2019-04-11 10:49:58,472 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 10:50:24,681 - experiments.base - INFO - reward_mean: -0.028358388057182753, reward_median: -0.0325, reward_std: 0.005442719480262005, reward_max: -0.011500000000000002, reward_min: -0.0325, runs: 2000
+2019-04-11 10:50:24,694 - experiments.base - INFO - 165/216 Processing Q with alpha 0.9, q_init random, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.951
+2019-04-11 10:50:37,369 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 10:51:03,473 - experiments.base - INFO - reward_mean: -0.027846027976624128, reward_median: -0.0325, reward_std: 0.005418007944396707, reward_max: -0.010407239819004524, reward_min: -0.0325, runs: 2000
+2019-04-11 10:51:03,486 - experiments.base - INFO - 166/216 Processing Q with alpha 0.9, q_init random, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.964
+2019-04-11 10:51:15,643 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 10:51:41,858 - experiments.base - INFO - reward_mean: -0.028651768691098183, reward_median: -0.0325, reward_std: 0.004911280151131976, reward_max: -0.010436893203883494, reward_min: -0.0325, runs: 2000
+2019-04-11 10:51:41,871 - experiments.base - INFO - 167/216 Processing Q with alpha 0.9, q_init random, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.977
+2019-04-11 10:51:54,210 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 10:52:20,421 - experiments.base - INFO - reward_mean: -0.026096854521321503, reward_median: -0.028000000000000004, reward_std: 0.006987966253872356, reward_max: -0.010224438902743141, reward_min: -0.0325, runs: 2000
+2019-04-11 10:52:20,435 - experiments.base - INFO - 168/216 Processing Q with alpha 0.9, q_init random, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.99
+2019-04-11 10:52:32,825 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 10:52:59,684 - experiments.base - INFO - reward_mean: -0.02037767495977335, reward_median: -0.02, reward_std: 0.004261857465592017, reward_max: -0.010149253731343283, reward_min: -0.0325, runs: 2000
+2019-04-11 10:52:59,697 - experiments.base - INFO - 169/216 Processing Q with alpha 0.9, q_init random, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.0
+2019-04-11 10:55:24,591 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 10:56:06,628 - experiments.base - INFO - reward_mean: -0.01, reward_median: -0.01, reward_std: 0.0, reward_max: -0.01, reward_min: -0.01, runs: 2000
+2019-04-11 10:56:06,636 - experiments.base - INFO - 170/216 Processing Q with alpha 0.9, q_init random, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.27
+2019-04-11 10:58:22,880 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 10:59:04,979 - experiments.base - INFO - reward_mean: -0.01, reward_median: -0.01, reward_std: 0.0, reward_max: -0.01, reward_min: -0.01, runs: 2000
+2019-04-11 10:59:04,987 - experiments.base - INFO - 171/216 Processing Q with alpha 0.9, q_init random, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.53
+2019-04-11 10:59:36,448 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 11:00:04,346 - experiments.base - INFO - reward_mean: 0.13183303510183791, reward_median: 0.133, reward_std: 0.03173000690855129, reward_max: 0.24025000000000002, reward_min: -0.011956521739130435, runs: 2000
+2019-04-11 11:00:04,362 - experiments.base - INFO - 172/216 Processing Q with alpha 0.9, q_init random, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.8
+2019-04-11 11:00:33,209 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 11:01:00,827 - experiments.base - INFO - reward_mean: 0.1470417229518107, reward_median: 0.14888888888888888, reward_std: 0.03361580459500479, reward_max: 0.253421052631579, reward_min: -0.01236842105263158, runs: 2000
+2019-04-11 11:01:00,843 - experiments.base - INFO - 173/216 Processing Q with alpha 0.9, q_init random, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.9
+2019-04-11 11:01:23,506 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 11:01:50,847 - experiments.base - INFO - reward_mean: 0.05718773214197465, reward_median: 0.07519303201506591, reward_std: 0.06979254722247927, reward_max: 0.2175, reward_min: -0.0325, runs: 2000
+2019-04-11 11:01:50,861 - experiments.base - INFO - 174/216 Processing Q with alpha 0.9, q_init random, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.913
+2019-04-11 11:02:04,767 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 11:02:30,995 - experiments.base - INFO - reward_mean: -0.027015956708813748, reward_median: -0.028000000000000004, reward_std: 0.005941034988658152, reward_max: -0.010290322580645161, reward_min: -0.0325, runs: 2000
+2019-04-11 11:02:31,009 - experiments.base - INFO - 175/216 Processing Q with alpha 0.9, q_init random, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.926
+2019-04-11 11:02:43,857 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 11:03:10,911 - experiments.base - INFO - reward_mean: -0.027182488092011944, reward_median: -0.028000000000000004, reward_std: 0.00630933949080451, reward_max: -0.01, reward_min: -0.0325, runs: 2000
+2019-04-11 11:03:10,924 - experiments.base - INFO - 176/216 Processing Q with alpha 0.9, q_init random, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.939
+2019-04-11 11:03:23,568 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 11:03:50,183 - experiments.base - INFO - reward_mean: -0.02885052112226009, reward_median: -0.0325, reward_std: 0.004677364113181522, reward_max: -0.012571428571428574, reward_min: -0.0325, runs: 2000
+2019-04-11 11:03:50,196 - experiments.base - INFO - 177/216 Processing Q with alpha 0.9, q_init random, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.951
+2019-04-11 11:04:02,978 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 11:04:29,576 - experiments.base - INFO - reward_mean: -0.021934426832411053, reward_median: -0.02, reward_std: 0.005748464544662913, reward_max: -0.01037037037037037, reward_min: -0.0325, runs: 2000
+2019-04-11 11:04:29,588 - experiments.base - INFO - 178/216 Processing Q with alpha 0.9, q_init random, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.964
+2019-04-11 11:04:42,093 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 11:05:08,672 - experiments.base - INFO - reward_mean: -0.02087708400262076, reward_median: -0.02, reward_std: 0.005269501697009273, reward_max: 0.08355140186915887, reward_min: -0.0325, runs: 2000
+2019-04-11 11:05:08,684 - experiments.base - INFO - 179/216 Processing Q with alpha 0.9, q_init random, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.977
+2019-04-11 11:05:21,185 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 11:05:47,845 - experiments.base - INFO - reward_mean: -0.02049696585136791, reward_median: -0.019, reward_std: 0.0049287434740237545, reward_max: -0.010170132325141776, reward_min: -0.0325, runs: 2000
+2019-04-11 11:05:47,858 - experiments.base - INFO - 180/216 Processing Q with alpha 0.9, q_init random, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.99
+2019-04-11 11:06:00,267 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 11:06:26,667 - experiments.base - INFO - reward_mean: -0.027626799296948876, reward_median: -0.028000000000000004, reward_std: 0.005361476038690937, reward_max: -0.010358565737051791, reward_min: -0.0325, runs: 2000
+2019-04-11 11:06:26,681 - experiments.base - INFO - 181/216 Processing Q with alpha 0.9, q_init 0, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.0
+2019-04-11 11:08:53,363 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 11:09:35,250 - experiments.base - INFO - reward_mean: -0.01, reward_median: -0.01, reward_std: 0.0, reward_max: -0.01, reward_min: -0.01, runs: 2000
+2019-04-11 11:09:35,258 - experiments.base - INFO - 182/216 Processing Q with alpha 0.9, q_init 0, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.27
+2019-04-11 11:11:52,590 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 11:12:35,163 - experiments.base - INFO - reward_mean: -0.01, reward_median: -0.01, reward_std: 0.0, reward_max: -0.01, reward_min: -0.01, runs: 2000
+2019-04-11 11:12:35,172 - experiments.base - INFO - 183/216 Processing Q with alpha 0.9, q_init 0, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.53
+2019-04-11 11:13:05,751 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 11:13:34,498 - experiments.base - INFO - reward_mean: 0.14264819267235987, reward_median: 0.144, reward_std: 0.034210189348544195, reward_max: 0.24025000000000002, reward_min: -0.01, runs: 2000
+2019-04-11 11:13:34,513 - experiments.base - INFO - 184/216 Processing Q with alpha 0.9, q_init 0, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.8
+2019-04-11 11:14:05,209 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 11:14:32,459 - experiments.base - INFO - reward_mean: 0.13610476881254163, reward_median: 0.13720588235294118, reward_std: 0.032314450985079346, reward_max: 0.23414634146341462, reward_min: -0.01236842105263158, runs: 2000
+2019-04-11 11:14:32,475 - experiments.base - INFO - 185/216 Processing Q with alpha 0.9, q_init 0, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.9
+2019-04-11 11:15:00,933 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 11:15:28,094 - experiments.base - INFO - reward_mean: 0.13776072676029544, reward_median: 0.14166666666666666, reward_std: 0.04357423057433063, reward_max: 0.22833333333333333, reward_min: -0.01346153846153846, runs: 2000
+2019-04-11 11:15:28,110 - experiments.base - INFO - 186/216 Processing Q with alpha 0.9, q_init 0, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.913
+2019-04-11 11:15:41,013 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 11:16:07,187 - experiments.base - INFO - reward_mean: -0.027810447806643823, reward_median: -0.0325, reward_std: 0.0056130981858388785, reward_max: -0.010230769230769229, reward_min: -0.0325, runs: 2000
+2019-04-11 11:16:07,200 - experiments.base - INFO - 187/216 Processing Q with alpha 0.9, q_init 0, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.926
+2019-04-11 11:16:20,216 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 11:16:46,262 - experiments.base - INFO - reward_mean: -0.028352910641176756, reward_median: -0.0325, reward_std: 0.005450363035897367, reward_max: -0.010313588850174216, reward_min: -0.0325, runs: 2000
+2019-04-11 11:16:46,279 - experiments.base - INFO - 188/216 Processing Q with alpha 0.9, q_init 0, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.939
+2019-04-11 11:16:58,914 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 11:17:25,289 - experiments.base - INFO - reward_mean: -0.02361394901862652, reward_median: -0.025000000000000005, reward_std: 0.004882415499806733, reward_max: -0.010258620689655171, reward_min: -0.0325, runs: 2000
+2019-04-11 11:17:25,305 - experiments.base - INFO - 189/216 Processing Q with alpha 0.9, q_init 0, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.951
+2019-04-11 11:17:37,807 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 11:18:04,098 - experiments.base - INFO - reward_mean: -0.02646123005055685, reward_median: -0.028000000000000004, reward_std: 0.0067138773740731015, reward_max: -0.010381355932203391, reward_min: -0.0325, runs: 2000
+2019-04-11 11:18:04,112 - experiments.base - INFO - 190/216 Processing Q with alpha 0.9, q_init 0, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.964
+2019-04-11 11:18:16,442 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 11:18:43,432 - experiments.base - INFO - reward_mean: -0.02799069871282989, reward_median: -0.0325, reward_std: 0.005225183801239061, reward_max: -0.010608108108108107, reward_min: -0.0325, runs: 2000
+2019-04-11 11:18:43,445 - experiments.base - INFO - 191/216 Processing Q with alpha 0.9, q_init 0, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.977
+2019-04-11 11:18:55,739 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 11:19:21,689 - experiments.base - INFO - reward_mean: -0.027758323377509334, reward_median: -0.028000000000000004, reward_std: 0.005276233005703607, reward_max: -0.010099118942731276, reward_min: -0.0325, runs: 2000
+2019-04-11 11:19:21,703 - experiments.base - INFO - 192/216 Processing Q with alpha 0.9, q_init 0, epsilon 0.1, epsilon_decay 0.0001, discount_factor 0.99
+2019-04-11 11:19:33,690 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 11:19:59,708 - experiments.base - INFO - reward_mean: -0.027918500026444946, reward_median: -0.0325, reward_std: 0.005759892815072048, reward_max: -0.010445544554455444, reward_min: -0.0325, runs: 2000
+2019-04-11 11:19:59,722 - experiments.base - INFO - 193/216 Processing Q with alpha 0.9, q_init 0, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.0
+2019-04-11 11:22:24,369 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 11:23:06,622 - experiments.base - INFO - reward_mean: -0.01, reward_median: -0.01, reward_std: 0.0, reward_max: -0.01, reward_min: -0.01, runs: 2000
+2019-04-11 11:23:06,630 - experiments.base - INFO - 194/216 Processing Q with alpha 0.9, q_init 0, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.27
+2019-04-11 11:25:23,461 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 11:26:05,533 - experiments.base - INFO - reward_mean: -0.01, reward_median: -0.01, reward_std: 0.0, reward_max: -0.01, reward_min: -0.01, runs: 2000
+2019-04-11 11:26:05,541 - experiments.base - INFO - 195/216 Processing Q with alpha 0.9, q_init 0, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.53
+2019-04-11 11:26:35,255 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 11:27:02,713 - experiments.base - INFO - reward_mean: 0.146222107811649, reward_median: 0.14640625, reward_std: 0.03452939680340143, reward_max: 0.24666666666666665, reward_min: -0.0136, runs: 2000
+2019-04-11 11:27:02,730 - experiments.base - INFO - 196/216 Processing Q with alpha 0.9, q_init 0, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.8
+2019-04-11 11:27:33,630 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 11:28:02,078 - experiments.base - INFO - reward_mean: 0.13468606452085433, reward_median: 0.13507246376811594, reward_std: 0.0328430602246394, reward_max: 0.24025000000000002, reward_min: -0.011500000000000002, runs: 2000
+2019-04-11 11:28:02,093 - experiments.base - INFO - 197/216 Processing Q with alpha 0.9, q_init 0, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.9
+2019-04-11 11:28:30,026 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 11:28:57,506 - experiments.base - INFO - reward_mean: 0.14516179082565525, reward_median: 0.14888888888888888, reward_std: 0.041204474411820395, reward_max: 0.253421052631579, reward_min: -0.0136, runs: 2000
+2019-04-11 11:28:57,521 - experiments.base - INFO - 198/216 Processing Q with alpha 0.9, q_init 0, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.913
+2019-04-11 11:29:11,542 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 11:29:38,089 - experiments.base - INFO - reward_mean: -0.028689629233996632, reward_median: -0.0325, reward_std: 0.00528296302612536, reward_max: 0.059513888888888894, reward_min: -0.0325, runs: 2000
+2019-04-11 11:29:38,102 - experiments.base - INFO - 199/216 Processing Q with alpha 0.9, q_init 0, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.926
+2019-04-11 11:29:50,740 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 11:30:17,610 - experiments.base - INFO - reward_mean: -0.028335700146553202, reward_median: -0.0325, reward_std: 0.005016662715256678, reward_max: -0.010514285714285714, reward_min: -0.0325, runs: 2000
+2019-04-11 11:30:17,624 - experiments.base - INFO - 200/216 Processing Q with alpha 0.9, q_init 0, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.939
+2019-04-11 11:30:30,376 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 11:30:57,223 - experiments.base - INFO - reward_mean: -0.028724253839141015, reward_median: -0.0325, reward_std: 0.004772992296313339, reward_max: -0.010249307479224375, reward_min: -0.0325, runs: 2000
+2019-04-11 11:30:57,236 - experiments.base - INFO - 201/216 Processing Q with alpha 0.9, q_init 0, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.951
+2019-04-11 11:31:09,893 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 11:31:36,949 - experiments.base - INFO - reward_mean: -0.022581825998526043, reward_median: -0.022857142857142857, reward_std: 0.0041863164015464825, reward_max: -0.010989010989010988, reward_min: -0.0325, runs: 2000
+2019-04-11 11:31:36,964 - experiments.base - INFO - 202/216 Processing Q with alpha 0.9, q_init 0, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.964
+2019-04-11 11:31:49,462 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 11:32:16,418 - experiments.base - INFO - reward_mean: -0.023264004521549277, reward_median: -0.025000000000000005, reward_std: 0.0057507950726232914, reward_max: -0.010218446601941746, reward_min: -0.0325, runs: 2000
+2019-04-11 11:32:16,432 - experiments.base - INFO - 203/216 Processing Q with alpha 0.9, q_init 0, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.977
+2019-04-11 11:32:28,908 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 11:32:56,404 - experiments.base - INFO - reward_mean: -0.028445406210862723, reward_median: -0.0325, reward_std: 0.00492431507178158, reward_max: -0.01010332950631458, reward_min: -0.0325, runs: 2000
+2019-04-11 11:32:56,418 - experiments.base - INFO - 204/216 Processing Q with alpha 0.9, q_init 0, epsilon 0.3, epsilon_decay 0.0001, discount_factor 0.99
+2019-04-11 11:33:08,790 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 11:33:35,604 - experiments.base - INFO - reward_mean: -0.023353864014338525, reward_median: -0.022857142857142857, reward_std: 0.005181134366091954, reward_max: -0.011500000000000002, reward_min: -0.0325, runs: 2000
+2019-04-11 11:33:35,621 - experiments.base - INFO - 205/216 Processing Q with alpha 0.9, q_init 0, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.0
+2019-04-11 11:36:01,036 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 11:36:43,138 - experiments.base - INFO - reward_mean: -0.01, reward_median: -0.01, reward_std: 0.0, reward_max: -0.01, reward_min: -0.01, runs: 2000
+2019-04-11 11:36:43,146 - experiments.base - INFO - 206/216 Processing Q with alpha 0.9, q_init 0, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.27
+2019-04-11 11:38:59,097 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 11:39:41,473 - experiments.base - INFO - reward_mean: -0.01, reward_median: -0.01, reward_std: 0.0, reward_max: -0.01, reward_min: -0.01, runs: 2000
+2019-04-11 11:39:41,481 - experiments.base - INFO - 207/216 Processing Q with alpha 0.9, q_init 0, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.53
+2019-04-11 11:40:12,486 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 11:40:40,254 - experiments.base - INFO - reward_mean: 0.1319084836024176, reward_median: 0.133, reward_std: 0.029001467891351187, reward_max: 0.22833333333333333, reward_min: 0.05179012345679011, runs: 2000
+2019-04-11 11:40:40,274 - experiments.base - INFO - 208/216 Processing Q with alpha 0.9, q_init 0, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.8
+2019-04-11 11:41:13,352 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 11:41:40,983 - experiments.base - INFO - reward_mean: 0.12596920723639635, reward_median: 0.1290277777777778, reward_std: 0.03585885611255443, reward_max: 0.22833333333333333, reward_min: -0.011875000000000002, runs: 2000
+2019-04-11 11:41:41,000 - experiments.base - INFO - 209/216 Processing Q with alpha 0.9, q_init 0, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.9
+2019-04-11 11:42:12,345 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 11:42:40,019 - experiments.base - INFO - reward_mean: 0.11191030313506577, reward_median: 0.1120731707317073, reward_std: 0.03790631866286822, reward_max: 0.24025000000000002, reward_min: -0.015294117647058824, runs: 2000
+2019-04-11 11:42:40,036 - experiments.base - INFO - 210/216 Processing Q with alpha 0.9, q_init 0, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.913
+2019-04-11 11:42:53,263 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 11:43:20,351 - experiments.base - INFO - reward_mean: -0.02848241522286772, reward_median: -0.0325, reward_std: 0.004942751408322429, reward_max: -0.01225, reward_min: -0.0325, runs: 2000
+2019-04-11 11:43:20,367 - experiments.base - INFO - 211/216 Processing Q with alpha 0.9, q_init 0, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.926
+2019-04-11 11:43:33,148 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 11:43:59,708 - experiments.base - INFO - reward_mean: -0.028380295500868583, reward_median: -0.0325, reward_std: 0.004998149381075078, reward_max: -0.010156794425087108, reward_min: -0.0325, runs: 2000
+2019-04-11 11:43:59,721 - experiments.base - INFO - 212/216 Processing Q with alpha 0.9, q_init 0, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.939
+2019-04-11 11:44:12,512 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 11:44:39,781 - experiments.base - INFO - reward_mean: -0.018638172769846997, reward_median: -0.017499999999999998, reward_std: 0.005630209659457913, reward_max: -0.01, reward_min: -0.0325, runs: 2000
+2019-04-11 11:44:39,797 - experiments.base - INFO - 213/216 Processing Q with alpha 0.9, q_init 0, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.951
+2019-04-11 11:44:52,777 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 11:45:19,777 - experiments.base - INFO - reward_mean: -0.02839062263639405, reward_median: -0.0325, reward_std: 0.005114264033764746, reward_max: -0.010426540284360188, reward_min: -0.0325, runs: 2000
+2019-04-11 11:45:19,789 - experiments.base - INFO - 214/216 Processing Q with alpha 0.9, q_init 0, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.964
+2019-04-11 11:45:32,221 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 11:45:59,107 - experiments.base - INFO - reward_mean: -0.02797831909184918, reward_median: -0.0325, reward_std: 0.005304620812520372, reward_max: -0.010608108108108107, reward_min: -0.0325, runs: 2000
+2019-04-11 11:45:59,119 - experiments.base - INFO - 215/216 Processing Q with alpha 0.9, q_init 0, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.977
+2019-04-11 11:46:11,677 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 11:46:38,401 - experiments.base - INFO - reward_mean: -0.02749660975441404, reward_median: -0.028000000000000004, reward_std: 0.005858540441466275, reward_max: -0.010505617977528088, reward_min: -0.0325, runs: 2000
+2019-04-11 11:46:38,415 - experiments.base - INFO - 216/216 Processing Q with alpha 0.9, q_init 0, epsilon 0.5, epsilon_decay 0.0001, discount_factor 0.99
+2019-04-11 11:46:50,860 - experiments.base - INFO - Took 5000 episodes
+2019-04-11 11:47:17,650 - experiments.base - INFO - reward_mean: -0.02794598326166431, reward_median: -0.0325, reward_std: 0.005323190097412345, reward_max: -0.01010948905109489, reward_min: -0.0325, runs: 2000
+2019-04-11 11:47:17,673 - __main__ - INFO - {'Q': 14868}

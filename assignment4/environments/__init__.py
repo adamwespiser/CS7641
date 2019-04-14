@@ -144,7 +144,7 @@ register(
             'step_reward' : -0.01,
             'hole_reward' : -0.1,
             'start_reward' : -0.01,
-            'goal_reward' : 10
+            'goal_reward' : 10,
             'slippery_coeff' : 0.8
             }
 )
@@ -154,6 +154,42 @@ def get_large_flake_env_v6():
 # END V6
 #
 
+
+#
+# Begin  V7
+# exp with change in pr(s', r, | s, a)
+
+
+def get_large_flake_env_v7a():
+    return gym.make('FLake20x20-v71')
+register(
+    id='FLake20x20-v71',
+    entry_point='environments:FLakeEnv',
+    kwargs={'map_name': '20x20',
+            'step_reward' : -0.01,
+            'hole_reward' : -10,
+            'start_reward' : -0.01,
+            'goal_reward' : 10,
+            'slippery_coeff' : 0.8
+            }
+)
+def get_large_flake_env_v7b():
+    return gym.make('FLake20x20-v72')
+
+register(
+    id='FLake20x20-v72',
+    entry_point='environments:FLakeEnv',
+    kwargs={'map_name': '20x20b',
+            'step_reward' : -0.01,
+            'hole_reward' : -10,
+            'start_reward' : -0.01,
+            'goal_reward' : 10,
+            'slippery_coeff' : 0.8
+            }
+)
+#
+# END V6
+#
 
 # here
 def get_rewarding_frozen_lake_environment():
